@@ -1,0 +1,6 @@
+$(".staffwrapper").html("<h2><%= escape_javascript(@staff.name) %></h2><h3><%= escape_javascript(@staff.position) %></h3><div class='staffcontents'><%= escape_javascript(@staff.bio.blank? ? "" : simple_format(@staff.bio)) %><%= escape_javascript(@staff.description.blank? ? "" : simple_format(@staff.description)) %></div>");
+<% unless @staff.staffphoto_file_name.nil? %>
+$("#bgimg").attr("src", "<%= escape_javascript(@bgimg) %>")
+var FullscreenrOptions = {  width: <%= escape_javascript(@bgwidth.to_s) %>, height: <%= escape_javascript(@bgheight.to_s) %>, bgID: '#bgimg' };
+jQuery.fn.fullscreenr(FullscreenrOptions);
+<% end %>

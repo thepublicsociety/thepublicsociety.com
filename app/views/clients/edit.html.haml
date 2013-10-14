@@ -1,0 +1,36 @@
+= render :partial => "layouts/header"
+.container
+  .row
+    .span2.adminForm
+      %h2
+        Edit client
+      .uname
+        = @client.name
+      .ulogo
+        = image_tag @client.logo.url(:medium) unless @client.logo_file_name.blank?
+    .span10.adminForm
+      - form_for @client, :html => { :multipart => true } do |f|
+        = f.label :name
+        = f.text_field :name
+        .clear
+        = f.label :description
+        = f.text_area :description
+        .clear
+        = label_tag "Projects"
+        = text_field_tag "projects"
+        .clear
+        = f.label :role
+        = f.text_area :role
+        .clear
+        = f.label :logo
+        .clear
+        = f.file_field :logo
+        .previewimage
+          = image_tag(@client.logo.url)
+        .removeimage
+          %a{:href => "/deletephotos", :data => {:client => @client.id, :photo => "logo"}}
+            delete
+        .clear
+        = f.submit "Send", {:class => "btn-inverse admnbutton"}
+= render :partial => "layouts/footer"
+

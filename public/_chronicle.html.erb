@@ -1,0 +1,182 @@
+<script>
+$(function () {
+    var charta;
+    var chartb;
+    var chartc;
+    var winheight = $(window).height();
+    $(document).ready(function() {
+        <%- unless Year.find_by_name("2012").nil? %>
+        charta = new Highcharts.Chart({
+            chart: {
+                renderTo: 'graph2012',
+                backgroundColor:'rgba(255, 255, 255, 0)',
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false
+            },
+            title: {
+                text: ''
+            },
+            tooltip: {
+                enabled: false
+            },
+            plotOptions: {
+                series: {
+                  states: {
+                    hover: {
+                      enabled: false
+                    }
+                  }
+                },
+                pie: {
+                    borderWidth: 0,
+                    allowPointSelect: false,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: false
+                    }
+                }
+            },
+            series: [{
+                type: 'pie',
+                name: 'Project Categories',
+                data: [{
+                  name: "Non Profit",
+                  y: <%= Year.find_by_name("2012").projects.all(:include => :categories, :conditions => ["categories.name = ?", "non-profit"]).count %>,
+                  color: "#74849c"
+                }, {
+                  name: "World Change",
+                  y: <%= Year.find_by_name("2012").projects.all(:include => :categories, :conditions => ["categories.name = ?", "world-change"]).count %>,
+                  color: "#bb9c75"
+                }, {
+                  name: "Brands",
+                  y: <%= Year.find_by_name("2012").projects.all(:include => :categories, :conditions => ["categories.name = ?", "brands"]).count %>,
+                  color: "#b7674f"
+                }, {
+                  name: "Entrepreneurs",
+                  y: <%= Year.find_by_name("2012").projects.all(:include => :categories, :conditions => ["categories.name = ?", "entrepreneurs"]).count %>,
+                  color: "#cdc4bf"
+                }],
+                size: winheight-250
+            }]
+        });
+        <% end %>
+        <%- unless Year.find_by_name("2011").nil? %>
+        chartb = new Highcharts.Chart({
+            chart: {
+                renderTo: 'graph2011',
+                backgroundColor:'rgba(255, 255, 255, 0)',
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false
+            },
+            title: {
+                text: ''
+            },
+            tooltip: {
+                enabled: false
+            },
+            plotOptions: {
+                series: {
+                  states: {
+                    hover: {
+                      enabled: false
+                    }
+                  }
+                },
+                pie: {
+                    borderWidth: 0,
+                    allowPointSelect: false,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: false
+                    }
+                }
+            },
+            series: [{
+                type: 'pie',
+                name: 'Project Categories',
+                data: [{
+                  name: "Non Profit",
+                  y: <%= Year.find_by_name("2011").projects.all(:include => :categories, :conditions => ["categories.name = ?", "non-profit"]).count %>,
+                  color: "#74849c"
+                }, {
+                  name: "World Change",
+                  y: <%= Year.find_by_name("2011").projects.all(:include => :categories, :conditions => ["categories.name = ?", "world-change"]).count %>,
+                  color: "#bb9c75"
+                }, {
+                  name: "Brands",
+                  y: <%= Year.find_by_name("2011").projects.all(:include => :categories, :conditions => ["categories.name = ?", "brands"]).count %>,
+                  color: "#b7674f"
+                }, {
+                  name: "Entrepreneurs",
+                  y: <%= Year.find_by_name("2011").projects.all(:include => :categories, :conditions => ["categories.name = ?", "entrepreneurs"]).count %>,
+                  color: "#cdc4bf"
+                }],
+                size: winheight-150
+            }]
+        });
+        <% end %>
+        <%- unless Year.find_by_name("2010").nil? %>
+        chartc = new Highcharts.Chart({
+            chart: {
+                renderTo: 'graph2010',
+                backgroundColor:'rgba(255, 255, 255, 0)',
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false
+            },
+            title: {
+                text: ''
+            },
+            tooltip: {
+                enabled: false
+            },
+            plotOptions: {
+                series: {
+                  states: {
+                    hover: {
+                      enabled: false
+                    }
+                  }
+                },
+                pie: {
+                    borderWidth: 0,
+                    allowPointSelect: false,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: false
+                    }
+                }
+            },
+            series: [{
+                type: 'pie',
+                name: 'Project Categories',
+                data: [{
+                  name: "Non Profit",
+                  y: <%= Year.find_by_name("2010").projects.all(:include => :categories, :conditions => ["categories.name = ?", "non-profit"]).count %>,
+                  color: "#74849c"
+                }, {
+                  name: "World Change",
+                  y: <%= Year.find_by_name("2010").projects.all(:include => :categories, :conditions => ["categories.name = ?", "world-change"]).count %>,
+                  color: "#bb9c75"
+                }, {
+                  name: "Brands",
+                  y: <%= Year.find_by_name("2010").projects.all(:include => :categories, :conditions => ["categories.name = ?", "brands"]).count %>,
+                  color: "#b7674f"
+                }, {
+                  name: "Entrepreneurs",
+                  y: <%= Year.find_by_name("2010").projects.all(:include => :categories, :conditions => ["categories.name = ?", "entrepreneurs"]).count %>,
+                  color: "#cdc4bf"
+                }],
+                size: winheight-50
+            }]
+        });
+        <% end %>
+        $(".date2012").css("left", $("#graph2012").offset().left - $(".graphs").offset().left-25);
+        $(".date2011").css("left", $("#graph2011").offset().left - $(".graphs").offset().left-25);
+        $(".date2010").css("left", $("#graph2010").offset().left - $(".graphs").offset().left-25)
+    });
+    
+});
+</script>

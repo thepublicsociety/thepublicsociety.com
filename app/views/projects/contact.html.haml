@@ -1,0 +1,70 @@
+.thestudio
+  .tcontainer
+    .trow
+      .tspan12
+        .pageheader
+          .logo
+        
+  .clear
+  .tcontainer
+    .trow
+      .tspan12
+        .timelinepositioning
+          .tlwrapper
+            .atimeline
+              .pend
+              .timelinewindow
+              .nend
+              .menunav
+                .lnav
+                  .lnavcontent
+                    .top
+                    .timelineview
+                      = link_to "Timeline View", "/"
+                    .workview
+                      = link_to "Work View", "/work"
+                    .chronicleview
+                      = link_to "Chronicle View", "/chronicle"
+                .rnav
+                  .standardrnavcontent
+                    .top
+                      .worknav
+                        = link_to "Work", "/work"
+                      .labnav
+                        = link_to "Lab", "/lab"
+                      .journalnav
+                        = link_to "Journal", "/journal"
+                      .studionav
+                        = link_to "The Studio", "/studio"
+                .rnavcontent.studionavsec
+                  .top
+                    .worknav
+                      = link_to "mission", "/studio"
+                    .labnav
+                      = link_to "people", "/people"
+                    .journalnav
+                      = link_to "competencies", "/competencies"
+                    .studionav
+                      = link_to "ethic", "/ethic"
+                    .studionav
+                      = link_to "contact", "/contact", :class => "active"
+            .studiowrapper
+              %h2
+                Contact us
+              .contactus
+                .name
+                  The Public Society
+                .address
+                  55 Washington Street Suite 628
+                .state
+                  Brooklyn, NY
+                .phone
+                  212.851.6581
+                .email
+                  .icon
+                  %span
+                    =link_to "inquiry@thepublicsociety.com", "mailto:inquiry@thepublicsociety.com"
+                .twitter
+                  .icon
+                  %span
+                    = link_to "@publicsociety", "https://twitter.com/publicsociety"

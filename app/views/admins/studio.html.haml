@@ -1,0 +1,107 @@
+= render :partial => "layouts/header"
+.container
+  .row
+    .span2.adminForm
+      %h2
+        Manage pages
+    .span10.adminForm
+      %table.table
+        %thead
+          %tr
+            %th
+              Page
+            %th
+              Actions
+        %tbody
+          %tr
+            %td
+              Timeline secondary
+            %td
+              = link_to "edit", edit_studio_path(5)
+          %tr
+            %td
+              Work
+            %td
+              = link_to "edit", edit_studio_path(6)
+          %tr
+            %td
+              Chronicle
+            %td
+              = link_to "edit", edit_studio_path(7)
+          %tr
+            %td
+              Journal
+            %td
+              = link_to "edit", edit_studio_path(12)
+          %tr
+            %td
+              Lab Design-ed
+            %td
+              = link_to "edit", edit_studio_path(8)
+          %tr
+            %td
+              Lab Design-ed (column 2)
+            %td
+              = link_to "edit", edit_studio_path(17)
+          %tr
+            %td
+              Lab Cleanweb
+            %td
+              = link_to "edit", edit_studio_path(9)
+          %tr
+            %td
+              Lab Cleanweb (column 2)
+            %td
+              = link_to "edit", edit_studio_path(18)
+          %tr
+            %td
+              Lab Activism
+            %td
+              = link_to "edit", edit_studio_path(10)
+          %tr
+            %td
+              Lab Activism (column 2)
+            %td
+              = link_to "edit", edit_studio_path(19)
+          %tr
+            %td
+              Lab Collaborative Consumption
+            %td
+              = link_to "edit", edit_studio_path(11)
+          %tr
+            %td
+              Lab Collaborative Consumption (column 2)
+            %td
+              = link_to "edit", edit_studio_path(20)
+          %tr
+            %td
+              Studio Main
+            %td
+              = link_to "edit", edit_studio_path(4)
+          %tr
+            %td
+              Studio Main (column 2)
+            %td
+              = link_to "edit", edit_studio_path(13)
+          %tr
+            %td
+              Studio Competencies
+            %td
+              = link_to "edit", edit_studio_path(2)
+          %tr
+            %td
+              Studio Competencies (column 2)
+            %td
+              = link_to "edit", edit_studio_path(14)
+          %tr
+            %td
+              Studio Ethic
+            %td
+              = link_to "edit", edit_studio_path(3)
+          %tr
+            %td
+              Studio Ethic (column 2)
+            %td
+              = link_to "edit", edit_studio_path(15)
+                            
+= render :partial => "layouts/footer"

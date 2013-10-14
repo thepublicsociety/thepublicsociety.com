@@ -1,0 +1,198 @@
+= render :partial => "layouts/header"
+.container
+  .row
+    .span2.adminForm
+      %h2
+        Edit project
+      .uname
+        = @project.name
+    .span10.adminForm
+      - form_for @project, :html => { :multipart => true } do |f|
+        = f.label :name
+        = f.text_field :name
+        .clear
+        = label_tag "Client"
+        = select_tag("client", options_for_select(@clients.map{|c| c.name}, (@project.clients.last.name unless @project.clients.empty?)), :include_blank => true)
+        = text_field_tag "newclient", nil, :placeholder => "New client"
+        .clear
+        = label_tag "Start"
+        = f.text_field :startdate
+        .clear
+        = label_tag "End"
+        = f.text_field :enddate
+        .clear
+        = label_tag "category (established, entrepreneurs, non-profit, world-change)"
+        = text_field_tag "category", (@project.categories.last.name unless @project.categories.empty?)
+        .clear
+        = label_tag "Medium (identity, packaging, print, presentation, digital, event, infographics)"
+        = f.text_field :medium
+        .clear
+        = f.label :description
+        = f.text_area :description
+        .clear
+        = f.label :position
+        = f.text_field :position
+        .clear
+        Vertical position along timeline (0 or 1 = top, 2 = second from top, etc.)
+        .clear{:style => "margin-bottom: 20px"}
+        -#
+          = label_tag "company logo"
+          = f.file_field :companylogo
+          - unless @project.companylogo.to_file.blank?
+            .previewimage
+              = image_tag(@project.companylogo.url)
+            .removeimage
+              %a{:href => "/deletephotos", :data => {:project => @project.id, :photo => "companylogo"}}
+                delete
+        .clear
+        = label_tag "Work thumbnail"
+        = f.file_field :workthumb
+        - unless @project.workthumb.to_file.blank?
+          .previewimage
+            = image_tag(@project.workthumb.url)
+          .removeimage
+            %a{:href => "/deletephotos", :data => {:project => @project.id, :photo => "workthumb"}}
+              delete
+        .clear
+        = label_tag "Timeline background"
+        = f.file_field :linephoto
+        - unless @project.linephoto.to_file.blank?
+          .previewimage
+            = image_tag(@project.linephoto.url)
+          .removeimage
+            %a{:href => "/deletephotos", :data => {:project => @project.id, :photo => "linephoto"}}
+              delete
+        .clear
+        -#
+          = label_tag "Main photo"
+          = f.file_field :fullbleed
+          - unless @project.fullbleed.to_file.blank?
+            .previewimage
+              = image_tag(@project.fullbleed.url)
+            .removeimage
+              %a{:href => "/deletephotos", :data => {:project => @project.id, :photo => "fullbleed"}}
+                delete
+          .clear
+          = label_tag "Secondary photo"
+          = f.file_field :secondaryphoto
+          - unless @project.secondaryphoto.to_file.blank?
+            .previewimage
+              = image_tag(@project.secondaryphoto.url)
+            .removeimage
+              %a{:href => "/deletephotos", :data => {:project => @project.id, :photo => "secondaryphoto"}}
+                delete
+          .clear
+          = label_tag "Tertiary photo"
+          = f.file_field :tertiaryphoto
+          - unless @project.tertiaryphoto.to_file.blank?
+            .previewimage
+              = image_tag(@project.tertiaryphoto.url)
+            .removeimage
+              %a{:href => "/deletephotos", :data => {:project => @project.id, :photo => "tertiaryphoto"}}
+                delete
+          .clear
+          = label_tag "Quaternary photo"
+          = f.file_field :quaternaryphoto
+          - unless @project.quaternaryphoto.to_file.blank?
+            .previewimage
+              = image_tag(@project.quaternaryphoto.url)
+            .removeimage
+              %a{:href => "/deletephotos", :data => {:project => @project.id, :photo => "quaternaryphoto"}}
+                delete
+          .clear
+          = label_tag "Quinary photo"
+          = f.file_field :quinaryphoto
+          - unless @project.quinaryphoto.to_file.blank?
+            .previewimage
+              = image_tag(@project.quinaryphoto.url)
+            .removeimage
+              %a{:href => "/deletephotos", :data => {:project => @project.id, :photo => "quinaryphoto"}}
+                delete
+        -#
+          .weeks
+            - unless @project.weeks.empty?
+              %ul.unstyled
+                - @project.weeks.each do |w|
+                  %li{:class => w.name}
+                    = label_tag w.name.gsub(/.*-./, "")
+                    = link_to "Add data", edit_week_path(w), {:class => "editweeklink"}
+                    .clear
+
+        .clear
+        = f.submit "Send", {:class => "btn-inverse admnbutton"}
+      .photos
+        %h2
+          Add Photos
+        .photoform
+          - nested_form_for @project, :html => { :multipart => true } do |f|
+            = f.fields_for :photos do |s|
+              = s.label "Image"
+              = s.file_field :image
+              .clear
+              = s.label "Order"
+              = s.text_field :number
+              .clear
+              - unless s.object.image.to_file.blank?
+                .previewimage
+                  = image_tag(s.object.image.url)
+              .clear
+              = s.link_to_remove "remove"
+            = f.link_to_add "add", :photos
+            .clear
+            = f.submit "Send", {:class => "btn-inverse admnbutton"}
+      .process
+        %h2
+          Add Process data
+        .processform
+          - nested_form_for @project, :html => { :multipart => true } do |f|
+            = f.fields_for :operations do |s|
+              = s.label :description
+              = s.text_area :description
+              .clear
+              = s.label "Image"
+              = s.file_field :snapshot
+              - unless s.object.snapshot.to_file.blank?
+                .previewimage
+                  = image_tag(s.object.snapshot.url)
+                .removeimage
+                  %a{:href => "/deletephotos", :data => {:project => @project.id, :photo => "snapshot", :operation => s.object.id}}
+                    delete
+              .clear
+              = s.label "Image"
+              = s.file_field :snapshot2
+              - unless s.object.snapshot2.to_file.blank?
+                .previewimage
+                  = image_tag(s.object.snapshot2.url)
+                .removeimage
+                  %a{:href => "/deletephotos", :data => {:project => @project.id, :photo => "snapshot2", :operation => s.object.id}}
+                    delete
+              .clear
+              = s.link_to_remove "remove"
+            = f.link_to_add "add", :operations
+            .clear
+            = f.submit "Send", {:class => "btn-inverse admnbutton"}
+      -#
+        .stats.statisticsentry
+          %h2
+            Add statistics
+          .statsform{:style => "margin-bottom: 25px;"}
+            - form_for @stat, :remote => true do |f|
+              = hidden_field_tag "project_id", @project.id.to_s
+              = f.label "Stat category (graph name)"
+              = f.text_field :category
+              .clear
+              = f.label :name
+              = f.text_field :name
+              .clear
+              = f.label :value
+              = f.text_field :value
+              .clear
+              = f.label "Color (hex format #xxxxxx or rgb(x,x,x))"
+              = f.text_field :color
+              = f.hidden_field :date, :value => Date.today.to_s
+              .clear
+              = f.submit
+          .newstat.clear
+            = link_to "+", "#"
+= render :partial => "layouts/footer"
+

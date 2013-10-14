@@ -1,0 +1,37 @@
+= render :partial => "layouts/header"
+.container
+  .row
+    .span2.adminForm
+      %h2
+        Manage clients
+      .newlink
+        %a{:href => new_client_path, :class => "btn-inverse admnbutton btn newbtn"}
+          New client
+    .span10.adminForm
+      %table.table
+        %thead
+          %tr
+            %th
+              ID
+            %th
+              Name
+            %th
+              Projects
+            %th
+              Actions
+        %tbody
+          - @clients.each do |c|
+            %tr
+              %td
+                = c.id
+              %td
+                = c.name
+              %td
+                = c.projects.collect{|p| p.name}.join(", ")
+              %td
+                = link_to "edit", edit_client_path(c)
+                \|
+                = link_to "delete", {:controller => "clients", :action => "destroy", :id => c.id}, :confirm => "Confirm deletion", :method=> :delete, :remote => true
+
+                
+= render :partial => "layouts/footer"

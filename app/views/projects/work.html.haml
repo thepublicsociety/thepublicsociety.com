@@ -1,0 +1,214 @@
+.tcontainer
+  .trow
+    .tspan12
+      .mask
+      .pageheader
+        .headline
+          .logo
+          .text
+            = Studio.find(6).content
+          .controls
+            .tag
+              show...
+            .selector
+              .box
+                .cat
+                  ALL WORK
+                .arrow
+              .boxcontent
+                %ul.unstyled
+                  %li
+                    %a.byall.active{:href => "#"}
+                      All work
+                  %li
+                    %a.bycat{:href => "#"}
+                      By client categories
+                  %li
+                    %a.bymed{:href => "#"}
+                      By medium
+                  %li
+                    %a.byclient{:href => "#"}
+                      List of clients
+            .categorycontent
+              %ul.unstyled
+                %li
+                  %a.catsel.brandsel.active{:href => "#", :data => {:category => "established"}}
+                    Established
+                %li
+                  %a.catsel.worldsel{:href => "#", :data => {:category => "world-change"}}
+                    World-changing
+                %li
+                  %a.catsel.entsel{:href => "#", :data => {:category => "entrepreneurs"}}
+                    Entrepreneurs
+                %li
+                  %a.catsel.nonsel{:href => "#", :data => {:category => "non-profit"}}
+                    non-profit
+            .mediumcontent
+              %ul.unstyled
+                %li
+                  %a.medsel.active{:href => "#", :data => {:medium => "identity"}}
+                    Identity
+                %li
+                  %a.medsel{:href => "#", :data => {:medium => "packaging"}}
+                    Packaging
+                %li
+                  %a.medsel{:href => "#", :data => {:medium => "print"}}
+                    Print
+                %li
+                  %a.medsel{:href => "#", :data => {:medium => "presentation"}}
+                    Presentation
+                %li
+                  %a.medsel{:href => "#", :data => {:medium => "digital"}}
+                    Digital
+                %li
+                  %a.medsel{:href => "#", :data => {:medium => "event"}}
+                    Event
+                %li
+                  %a.medsel{:href => "#", :data => {:medium => "infographics"}}
+                    Infographics
+            .clientcontent
+              %ul.unstyled.l
+                %li
+                  %a.medsel{:href => "#", :data => {:medium => "identity"}}
+                    Identity
+                %li
+                  %a.medsel{:href => "#", :data => {:medium => "packaging"}}
+                    Packaging
+                %li
+                  %a.medsel{:href => "#", :data => {:medium => "print"}}
+                    Print
+                %li
+                  %a.medsel{:href => "#", :data => {:medium => "presentation"}}
+                    Presentation
+                %li
+                  %a.medsel{:href => "#", :data => {:medium => "digital"}}
+                    Digital
+                %li
+                  %a.medsel{:href => "#", :data => {:medium => "event"}}
+                    Event
+                %li
+                  %a.medsel{:href => "#", :data => {:medium => "infographics"}}
+                    Infographics
+              %ul.unstyled.r
+                %li
+                  %a.catsel.brandsel{:href => "#", :data => {:category => "established"}}
+                    Established
+                %li
+                  %a.catsel.worldsel{:href => "#", :data => {:category => "world-change"}}
+                    World-changing
+                %li
+                  %a.catsel.entsel{:href => "#", :data => {:category => "entrepreneurs"}}
+                    Entrepreneurs
+                %li
+                  %a.catsel.nonsel{:href => "#", :data => {:category => "non-profit"}}
+                    non-profit
+.clear
+.tcontainer
+  .trow
+    .tspan12
+      .timelinepositioning
+        .tlwrapper
+          .scrollmsg
+            Scroll or drag to see more
+          .atimeline
+            .pend
+            .timelinewindow
+            .nend
+            .menunav
+              .lnav
+                .lnavcontent
+                  .top
+                  .timelineview
+                    = link_to "Timeline View", "/"
+                  .workview
+                    = link_to "Work View", "/work"
+                  .chronicleview
+                    = link_to "Chronicle View", "/chronicle"
+              .rnav
+                .rnavcontent
+                  .top
+                    .worknav
+                      = link_to "Work", "/work"
+                    .labnav
+                      = link_to "Lab", "/lab"
+                    .journalnav
+                      = link_to "Journal", "/journal"
+                    .studionav
+                      = link_to "The Studio", "/studio"
+        .workwrapperwrapper
+          .workwrapper
+            .work
+              - @projects.each do |p|
+                .wproject{:class => "#{p.enddate[/[^\/]+$/]} #{p.categories.blank? ? "none" : p.categories.last.name} #{p.medium.blank? ? "none" : p.medium.gsub(/-/, " ")} #{p.clients.blank? ? "none" : p.clients.last.name}", :data => {:category => p.categories.blank? ? "none" : p.categories.last.name, :medium => p.medium, :client => p.clients.blank? ? "none" : p.clients.last.name}}
+                  .wprojectthumb
+                    = image_tag(p.workthumb.url(:large))
+                  .wprojectdata
+                    .wprojectinnerdata
+                      .clientdata.datatype
+                        .datahead
+                          Client_
+                        .datapoint
+                          = p.clients.blank? ? "No Client" : p.clients.last.name
+                      .projectdata.datatype
+                        .datahead
+                          Project_
+                          .name
+                            = p.name
+  
+                      .moredata
+                        %a{:href => project_path(p)}
+                          
+                  %a.thumblink{:href => project_path(p)}
+            .clientswork
+              %ul.unstyled
+                - @clients1.each do |c|
+                  %li
+                    %a.wclientsel{:href => "#", :data => {:client => c.name}}
+                      = c.name
+                    .clientprojects
+                      %ul.unstyled
+                        - c.projects.where("published = ?", true).each do |p|
+                          %li
+                            %a{:href => project_path(p)}
+                              = p.name
+              %ul.unstyled
+                - @clients2.each do |c|
+                  %li
+                    %a.wclientsel{:href => "#", :data => {:client => c.name}}
+                      = c.name
+                    .clientprojects
+                      %ul.unstyled
+                        - c.projects.where("published = ?", true).each do |p|
+                          %li
+                            %a{:href => project_path(p)}
+                              = p.name
+              %ul.unstyled
+                - @clients3.each do |c|
+                  %li
+                    %a.wclientsel{:href => "#", :data => {:client => c.name}}
+                      = c.name
+                    .clientprojects
+                      %ul.unstyled
+                        - c.projects.where("published = ?", true).each do |p|
+                          %li
+                            %a{:href => project_path(p)}
+                              = p.name
+            
+%script
+  $(document).ready(function(){
+  $('.work').isotope({
+  itemSelector : '.wproject',
+  layoutMode : 'masonry',
+  getSortData : {
+  category : function($elem){
+  return $elem.attr('data-category');
+  },
+  medium : function($elem){
+  return $elem.attr('data-medium');
+  },
+  client : function($elem){
+  return $elem.attr('data-client');
+  }
+  }
+  });
+  });

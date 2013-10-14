@@ -1,0 +1,60 @@
+.thestudio
+  .tcontainer
+    .trow
+      .tspan12
+        .pageheader
+          .logo
+        
+  .clear
+  .tcontainer
+    .trow
+      .tspan12
+        .timelinepositioning
+          .tlwrapper
+            .atimeline
+              .pend
+              .timelinewindow
+              .nend
+              .menunav
+                .lnav
+                  .lnavcontent
+                    .top
+                    .timelineview
+                      = link_to "Timeline View", "/"
+                    .workview
+                      = link_to "Work View", "/work"
+                    .chronicleview
+                      = link_to "Chronicle View", "/chronicle"
+                .rnav
+                  .standardrnavcontent
+                    .top
+                      .worknav
+                        = link_to "Work", "/work"
+                      .labnav
+                        = link_to "Lab", "/lab"
+                      .journalnav
+                        = link_to "Journal", "/journal"
+                      .studionav
+                        = link_to "The Studio", "/studio"
+                .rnavcontent.studionavsec
+                  .top
+                    .worknav
+                      = link_to "mission", "/studio"
+                    .labnav
+                      = link_to "people", "/people"
+                    .journalnav
+                      = link_to "competencies", "/competencies", :class => "active"
+                    .studionav
+                      = link_to "ethic", "/ethic"
+                    .studionav
+                      = link_to "contact", "/contact"
+            .studiowrapper
+              %h2
+                = Studio.find(2).title
+              .studiocontents
+                .block
+                  = simple_format(Studio.find(2).content)
+                .block
+                  = simple_format(Studio.find(14).content)
+                -#
+                  = Studio.find(2).content.gsub(/\r\n/, "").html_safe

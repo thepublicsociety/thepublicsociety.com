@@ -1,0 +1,79 @@
+.thestudio
+  .tcontainer
+    .trow
+      .tspan12
+        .pageheader
+          .logo
+        
+  .clear
+  .tcontainer
+    .trow
+      .tspan12
+        .timelinepositioning
+          .tlwrapper
+            .atimeline
+              .pend
+              .timelinewindow
+              .nend
+              .menunav
+                .lnav
+                  .lnavcontent
+                    .top
+                    .timelineview
+                      = link_to "Timeline View", "/"
+                    .workview
+                      = link_to "Work View", "/work"
+                    .chronicleview
+                      = link_to "Chronicle View", "/chronicle"
+                .rnav
+                  .standardrnavcontent
+                    .top
+                      .worknav
+                        = link_to "Work", "/work"
+                      .labnav
+                        = link_to "Lab", "/lab"
+                      .journalnav
+                        = link_to "Journal", "/journal"
+                      .studionav
+                        = link_to "The Studio", "/studio"
+                .rnavcontent.studionavsec
+                  .top
+                    .worknav
+                      = link_to "mission", "/studio"
+                    .labnav
+                      = link_to "people", "/people", :class => "active"
+                    .journalnav
+                      = link_to "competencies", "/competencies"
+                    .studionav
+                      = link_to "ethic", "/ethic"
+                    .studionav
+                      = link_to "contact", "/contact"
+                .staffnav
+                  %ul.unstyled
+                    - @staff.each do |s|
+                      %li
+                        - if s == @staff.first
+                          %a{:href => "#", :class => "staffpick active", :data => {:staff_id => s.id.to_s, :staff_logo => s.stafflogo.to_file.blank? ? "/images/logo.png" : s.stafflogo.url}}
+                            = s.name
+                        - else
+                          %a{:href => "#", :class => "staffpick", :data => {:staff_id => s.id.to_s, :staff_logo => s.stafflogo.to_file.blank? ? "/images/logo.png" : s.stafflogo.url}}
+                            = s.name
+            .staffwrapper
+              .staffs
+                - @staff.each do |s|
+                  .astaff{:id => s.id.to_s}
+                    .staffimg{:style => "display: none"}
+                      - unless s.staffphoto.to_file.blank?
+                        %a{:href => s.staffphoto.url, :data => {:height => Paperclip::Geometry.from_file(s.staffphoto.to_file).height.to_i, :width => Paperclip::Geometry.from_file(s.staffphoto.to_file).width.to_i}}
+                      - else
+                        %a{:href => "/images/missing.png", :data => {:height => "10", :width => "10"}}
+                    
+                    %h2
+                      = s.name
+                    %h3
+                      = s.position
+                    .staffcontents
+                      .block
+                        = simple_format(s.bio)
+                      .block
+                        = simple_format(s.description)

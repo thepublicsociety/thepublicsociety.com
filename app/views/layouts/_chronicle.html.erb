@@ -1,0 +1,128 @@
+<script>
+$(function () {
+    <%- @years.each do |y| %>
+      <%= "var chart#{y.id.to_s};" %>
+    <% end %>
+    var winheight;
+    if($(window).height() > $(window).width()){
+      winheight = $(window).width();
+    } else {
+      winheight = $(window).height();
+    }
+    
+    $(document).ready(function() {
+        <%- @years.each do |y| %>
+        
+        chart<%= y.id.to_s %> = new Highcharts.Chart({
+            chart: {
+                renderTo: "<%= "graph#{y.name}" %>",
+                backgroundColor:'rgba(255, 255, 255, 0)',
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                spacingTop: 0,
+                spacingRight: 0,
+                spacingBottom: 0,
+                spacingLeft: 0,
+                margin: [0, 0, 0, 0],
+                reflow: true
+            },
+            title: {
+                text: null
+            },
+            tooltip: {
+                enabled: false
+            },
+            legend: {
+              enabled: false
+            },
+            xAxis: {
+              enabled: false
+            },
+            yAxis: {
+              enabled: false
+            },
+            plotOptions: {
+                series: {
+                  states: {
+                    hover: {
+                      enabled: false
+                    }
+                  }
+                },
+                pie: {
+                    borderWidth: 1,
+                    allowPointSelect: false,
+                    cursor: 'pointer',
+                    size: "100%",
+                    dataLabels: {
+                        enabled: false,
+                        distance: 0,
+                        padding: 0
+                    },
+                    shadow: false,
+                    borderColor: "#fff"
+                }
+            },
+            series: [{
+                type: 'pie',
+                name: 'Project Categories',
+                events: {
+                  click: function(e){
+                    if(e.point.x == 0){
+                      window.location.href = "/work#<%= y.name %>"
+                    } else if(e.point.x == 1){
+                      window.location.href = "/work#<%= y.name %>"
+                    } else if(e.point.x == 2){
+                      window.location.href = "/work#<%= y.name %>"
+                    } else if(e.point.x == 3){
+                      window.location.href = "/work#<%= y.name %>"
+                    }
+                    e.preventDefault();
+                  }
+                },
+                data: [{
+                  name: "Non Profit",
+                  y: <%= y.projects.all(:include => :categories, :conditions => ["categories.name = ?", "non-profit"]).count %>,
+                  color: "rgb(157, 177, 166)",
+                  url: "/chronicle"
+                }, {
+                  name: "World Change",
+                  y: <%= y.projects.all(:include => :categories, :conditions => ["categories.name = ?", "world-change"]).count %>,
+                  color: "rgb(64, 88, 119)",
+                  url: "/chronicle"
+                }, {
+                  name: "Established",
+                  y: <%= y.projects.all(:include => :categories, :conditions => ["categories.name = ?", "established"]).count %>,
+                  color: "rgb(123 , 59, 59)",
+                  url: "/chronicle"
+                }, {
+                  name: "Entrepreneurs",
+                  y: <%= y.projects.all(:include => :categories, :conditions => ["categories.name = ?", "entrepreneurs"]).count %>,
+                  color: "rgb(163, 119, 66)",
+                  url: "/chronicle"
+                }]
+            }]
+        });
+        <% end %>
+        
+        if($("#graph2013").length > 0){
+          $(".date2013").css("left", $("#graph2013").offset().left - $(".atimeline").offset().left+5);
+        }
+        $(".date2012").css("left", ($("#graph2012").offset().left-$(".atimeline").offset().left)+5);
+        $(".date2011").css("left", $("#graph2011").offset().left - $(".atimeline").offset().left+5);
+        $(".date2010").css("left", $("#graph2010").offset().left - $(".atimeline").offset().left+5);
+        if($("#graph2009").length > 0){
+          $(".date2009").css("left", $("#graph2009").offset().left - $(".atimeline").offset().left+5);
+        }
+        if($("#graph2008").length > 0){
+          $(".date2008").css("left", $("#graph2008").offset().left - $(".atimeline").offset().left+5)
+        }
+    });
+    $(window).resize(function(){
+      <%- @years.each do |y| %>
+        <%= "chart#{y.id.to_s}" %>.redraw()
+      <% end %>
+      });
+});
+</script>

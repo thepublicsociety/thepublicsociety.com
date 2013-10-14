@@ -1,0 +1,70 @@
+= render :partial => "layouts/header"
+.container
+  .row
+    .span2.adminForm
+      %h2
+        Edit post
+    .span10.adminForm.blogForm
+      - form_for @blog, :html => { :multipart => true } do |f|
+        = f.label :name
+        = f.text_field :name
+        .clear
+        = f.label :category
+        = f.text_field :category
+        .clear
+        = f.label :content
+        .clear
+        .words
+          Characters remaining:
+          %span#word-count-blog_content
+            725
+        = f.text_area :content
+        .clear
+        = label_tag "Image"
+        = f.file_field :photo
+        .previewimage
+          = image_tag(@blog.photo.url)
+        .removeimage
+          %a{:href => "/deletephotos", :data => {:blog => @blog.id, :photo => "photo"}}
+            delete
+        .clear
+        = label_tag "Image 2"
+        = f.file_field :photo2
+        .previewimage
+          = image_tag(@blog.photo2.url)
+        .removeimage
+          %a{:href => "/deletephotos", :data => {:blog => @blog.id, :photo => "photo2"}}
+            delete
+        .clear
+        = label_tag "Image 3"
+        = f.file_field :photo3
+        .previewimage
+          = image_tag(@blog.photo3.url)
+        .removeimage
+          %a{:href => "/deletephotos", :data => {:blog => @blog.id, :photo => "photo3"}}
+            delete
+        .clear
+        = label_tag "Image 4"
+        = f.file_field :photo4
+        .previewimage
+          = image_tag(@blog.photo4.url)
+        .removeimage
+          %a{:href => "/deletephotos", :data => {:blog => @blog.id, :photo => "photo4"}}
+            delete
+        .clear
+        = label_tag "Image 5"
+        = f.file_field :photo5
+        .previewimage
+          = image_tag(@blog.photo5.url)
+        .removeimage
+          %a{:href => "/deletephotos", :data => {:blog => @blog.id, :photo => "photo5"}}
+            delete
+        .clear
+        = label_tag "Change date"
+        = text_field_tag "newdate"
+        = f.label :position
+        = f.text_field :position, :placeholder => "230-375"
+        .clear
+        = f.submit "Send", {:class => "btn-inverse admnbutton"}
+        
+= render :partial => "layouts/footer"

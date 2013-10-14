@@ -1,0 +1,88 @@
+= render :partial => "layouts/header"
+.container
+  .row.statisticsentry
+    .span3
+      %ul.unstyled
+        %h3
+          Select Project
+        - @projects.each do |p|
+          %li
+            %a{:href => "#", :class => "statprojsel", :data => {:project_id => p.id.to_s}}
+              = p.clients.empty? ? "noclient_" : "#{p.clients.last.name}_"
+              = p.name
+              
+    .span7
+      %ul.unstyled
+        - @projects.each_with_index do |p, i|
+          %li{:id => p.id.to_s, :class => "statform statform-#{i}"}
+            %h3
+              = p.name
+            .statentry
+              - form_for @stat, :remote => true do |f|
+                = hidden_field_tag "project_id", p.id.to_s
+                = f.label "Stat category (graph name)"
+                = f.text_field :category
+                .clear
+                = f.label :name
+                = f.text_field :name
+                .clear
+                = f.label :value
+                = f.text_field :value
+                .clear
+                = f.label "Color (hex format #xxxxxx or rgb(x,x,x))"
+                = f.text_field :color
+                = f.hidden_field :date, :value => Date.today.to_s
+                .clear
+                = f.submit
+            .newstat.clear
+              = link_to "+", "#"
+            .stattotals.clear
+              .today
+                %h2
+                  Today's stats
+                - p.graphs.each do |g|
+                  %h3
+                    = g.name
+                  %ul.unstyled
+                    - unless g.graphtype == "area"
+                      - g.statistics.where("date = ?", Date.today.to_s).each do |s|
+                        %li
+                          = s.name
+                          \=
+                          = s.value
+                    - else
+                      - g.statistics.where("date = ?", Date.today.to_s).each do |s|
+                        %li
+                          = s.name
+                          .values
+                            - s.substats.each do |t|
+                              = t.value
+              .all
+                %h2
+                  All stats
+                - p.graphs.each do |g|
+                  %h3
+                    = g.name
+                  %ul.unstyled
+                    - unless g.graphtype == "area"
+                      - g.statistics.each do |s|
+                        = s.name
+                        \=
+                        = s.value
+                    - else
+                      - g.statistics.each do |s|
+                        %li
+                          = s.name
+                          .values
+                            - s.substats.each do |t|
+                              = t.value
+                
+      .dailynotes
+        %h3
+          Daily notes
+        - form_for @day, :remote => true do |f|
+          = f.text_area :notes
+          .clear
+          = f.submit
+    .span2
+      .response

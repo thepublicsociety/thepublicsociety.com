@@ -1,0 +1,150 @@
+.tcontainer
+  .trow
+    .tspan12
+      .pageheader
+        - if @project.clients.last.logo.to_file.blank?
+          .logo
+        - else
+          .companylogo{:style => "background: url(#{@project.clients.last.logo.url}) no-repeat; width: #{Paperclip::Geometry.from_file(@project.clients.last.logo.to_file).width.to_s}px;"}
+.clear
+.tcontainer
+  .trow
+    .tspan12
+      .timelinepositioning
+        .tlwrapper
+          .atimeline
+            .pcontrol
+            .timelinewindow
+            .ncontrol
+            .menunav
+              .lnav
+                .lnavcontent
+                  .top
+                  .timelineview
+                    = link_to "Timeline View", "/"
+                  .workview
+                    = link_to "Work View", "/work"
+                  .chronicleview
+                    = link_to "Chronicle View", "/chronicle"
+              .rnav
+                .rnavcontent
+                  .top
+                    .worknav
+                      = link_to "Work", "/work"
+                    .labnav
+                      = link_to "Lab", "/lab"
+                    .journalnav
+                      = link_to "Journal", "/journal"
+                    .studionav
+                      = link_to "The Studio", "/studio"
+          .statinfo
+            - unless @project.graphs.empty?
+              - if @project.graphs.where("graphtype = ? and shown = ?", "area", true).empty?
+                - @project.graphs.where("shown = ?", true).each do |g|
+                  .piechart
+                    .stattitle
+                      = g.name
+                    = render :partial => "layouts/piechart", :locals => {:graph => g}
+                    .percentage
+                      \%
+                    .legend
+                      - g.statistics.where("pub = ?", true).each do |s|
+                        .item
+                          .color{:style => "background: #{s.color}"}
+                          .name
+                            = s.name
+              - elsif @project.graphs.where("graphtype = ? and shown = ?", "area", true).count > 1
+                - @project.graphs.where("shown = ?", true).each do |g|
+                  .areachart
+                    .stattitle
+                      = g.name
+                    = render :partial => "layouts/areachart", :locals => {:graph => g}
+              - elsif @project.graphs.where("graphtype = ? and shown = ?", "area", true).count == 1
+                .areachart
+                  .stattitle
+                    = @project.graphs.where("graphtype = ? and shown = ?", "area", true).first.name
+                  = render :partial => "layouts/areachart", :locals => {:graph => @project.graphs.where("graphtype = ? and shown = ?", "area", true).first}
+                - @project.graphs.where("graphtype = ? and shown = ?", "pie", true).each do |g|
+                  .piechart
+                    .stattitle
+                      = g.name
+                    = render :partial => "layouts/piechart", :locals => {:graph => g}
+                    .percentage
+                      \%
+                    .legend
+                      - g.statistics.where("pub = ?", true).each do |s|
+                        .item
+                          .color{:style => "background: #{s.color}"}
+                          .name
+                            = s.name
+  
+            
+            -#
+              .musicalinfluence
+                .stattitle
+                  Musical influence
+              .clientobservation
+                .stattitle
+                  Client observation
+                = render :partial => "layouts/clientstat"
+                .percentage
+                  \%
+                .legend
+                  - @project.statistics.where("category = ?", "client observation").each do |s|
+                    .item
+                      .color{:style => "background: #{s.color}"}
+                      .name
+                        = s.name
+              .designerobservation
+                .stattitle
+                  Designer observation
+                = render :partial => "layouts/designerstat"
+                .percentage
+                  \%
+                .legend
+                  - @project.statistics.where("category = ?", "designer observation").each do |s|
+                    .item
+                      .color{:style => "background: #{s.color}"}
+                      .name
+                        = s.name
+      .info
+        .projectlist
+          %ul.unstyled
+            - @projects.each do |p|
+              %li
+                = link_to p.name, "/projects/#{p.id.to_s}/stats"
+        .description
+          %p
+            = @project.description
+        .controls
+          .arrows
+            .up
+              = link_to "", project_path(@previous)
+            .down
+              = link_to "", project_path(@next)
+          .title
+            .names
+              .projectlist
+                %ul.unstyled
+                  - @projects.each do |p|
+                    %li
+                      = link_to "#{p.clients.empty? ? "No Client" : p.clients.last.name}_ #{p.name}", project_path(p)
+              = link_to "#{@project.clients.empty? ? Client : @project.clients.last.name}_", project_path(@project)
+              = link_to @project.name, project_path(@project)
+            .plus
+              \+
+          .options
+            - unless @project.operations.empty?
+              - if @project.statistics.where("pub = ?", true).empty?
+                .process.nostats
+                  = link_to "Process", "/projects/#{@project.id.to_s}/process"
+              - else
+                .process
+                  = link_to "Process", "/projects/#{@project.id.to_s}/process"
+            - unless @project.statistics.where("pub = ?", true).empty?
+              - if @project.operations.empty?
+                .stats.noprocess.lighter
+                  = link_to "Stats","/projects/#{@project.id.to_s}/stats"
+              - else
+                .stats.lighter
+                  = link_to "Stats","/projects/#{@project.id.to_s}/stats"

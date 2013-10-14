@@ -1,0 +1,41 @@
+= render :partial => "layouts/header"
+.container
+  .row
+    .span2.adminForm
+      %h2
+        Manage staff
+      .newlink
+        %a{:href => new_staff_path, :class => "btn-inverse admnbutton btn newbtn"}
+          New staff
+    .span10.adminForm
+      %table.table
+        %thead
+          %tr
+            %th
+              ID
+            %th
+              Name
+            %th
+              Position
+            %th
+              User email
+            %th
+              Actions
+        %tbody
+          - @staffs.each do |s|
+            %tr
+              %td
+                = s.id
+              %td
+                = s.name
+              %td
+                = s.position
+              %td
+                = s.users.last.blank? ? "Not a user" : s.users.last.email
+              %td
+                = link_to "edit", edit_staff_path(s)
+                \|
+                = link_to "delete", {:controller => "staffs", :action => "destroy", :id => s.id}, :confirm => "Confirm deletion", :method=> :delete, :remote => true
+
+                
+= render :partial => "layouts/footer"

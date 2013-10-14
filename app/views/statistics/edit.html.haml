@@ -1,0 +1,44 @@
+= render :partial => "layouts/header"
+.container
+  .row
+    .span2.adminForm
+      %h2
+        Edit statistic
+    .span10.adminForm
+      - if @stat.graph.graphtype == "pie"
+        .statentry{:style => "padding-top: 100px"}
+          - form_for @stat do |f|
+            = f.label "Stat category (graph name)"
+            = f.text_field :category, :value => @stat.graph.name
+            .clear
+            = f.label :name
+            = f.text_field :name
+            .clear
+            = f.label :value
+            = f.text_field :value
+            .clear
+            = f.label "Color (hex format #xxxxxx or rgb(x,x,x))"
+            = f.text_field :color
+            = f.hidden_field :date, :value => Date.today.to_s
+            .clear
+            = f.submit
+      - else
+        - nested_form_for @stat, :html => { :multipart => true } do |f|
+          = f.label "Stat category (graph name)"
+          = f.text_field :category, :value => @stat.graph.name
+          .clear
+          = f.label :name
+          = f.text_field :name
+          .clear
+          = f.label "Color (hex format #xxxxxx or rgb(x,x,x))"
+          = f.text_field :color
+          .clear
+          = f.fields_for :substats do |s|
+            = s.label :value
+            = s.text_field :value
+            .clear
+            = s.link_to_remove "remove"
+          .clear
+          = f.link_to_add "add", :substats
+          .clear
+          = f.submit "Send", {:class => "btn-inverse admnbutton"}

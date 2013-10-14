@@ -1,0 +1,133 @@
+<script>
+$(function () {
+    <%- @years.each do |y| %>
+      <%= "var chart#{y.id.to_s};" %>
+    <% end %>
+    var winheight;
+    if($(window).height() > $(window).width()){
+      winheight = $(window).width();
+    } else {
+      winheight = $(window).height();
+    }
+    
+    $(document).ready(function() {
+        <%- @years.each do |y| %>
+        
+        chart<%= y.id.to_s %> = new Highcharts.Chart({
+            chart: {
+                renderTo: "<%= "graph#{y.name}" %>",
+                backgroundColor:'rgba(255, 255, 255, 0)',
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                spacingTop: 0,
+                spacingRight: 0,
+                spacingBottom: 0,
+                spacingLeft: 0,
+                margin: [0, 0, 0, 0],
+                reflow: true
+            },
+            title: {
+                text: null
+            },
+            tooltip: {
+                enabled: false
+            },
+            plotOptions: {
+                series: {
+                  states: {
+                    hover: {
+                      enabled: false
+                    }
+                  }
+                },
+                pie: {
+                    borderWidth: 1,
+                    borderColor: "#fff",
+                    allowPointSelect: false,
+                    cursor: 'pointer',
+                    size: "100%",
+                    dataLabels: {
+                        enabled: false
+                    },
+                    shadow: false
+                }
+            },
+            series: [{
+                type: 'pie',
+                name: 'Project Mediums',
+                events: {
+                  click: function(e){
+                    if(e.point.x == 0){
+                      window.location.href = "/work#<%= y.name %>"
+                    } else if(e.point.x == 1){
+                      window.location.href = "/work#<%= y.name %>"
+                    } else if(e.point.x == 2){
+                      window.location.href = "/work#<%= y.name %>"
+                    } else if(e.point.x == 3){
+                      window.location.href = "/work#<%= y.name %>"
+                    } else if(e.point.x == 4){
+                      window.location.href = "/work#<%= y.name %>"
+                    } else if(e.point.x == 5){
+                      window.location.href = "/work#<%= y.name %>"
+                    }
+                    e.preventDefault();
+                  }
+                },
+                data: [{
+                  name: "Identity",
+                  y: <%= y.projects.all(:conditions => ["medium like ?", "%identity%"]).count %>,
+                  color: "rgb(202,116,101)",
+                  url: "/chronicle"
+                }, {
+                  name: "Packaging",
+                  y: <%= y.projects.all(:conditions => ["medium like ?", "%packaging%"]).count %>,
+                  color: "rgb(188,175,167)",
+                  url: "/chronicle"
+                }, {
+                  name: "Print",
+                  y: <%= y.projects.all(:conditions => ["medium like ?", "%print%"]).count %>,
+                  color: "rgb(123,59,59)",
+                  url: "/chronicle"
+                }, {
+                  name: "Presentation",
+                  y: <%= y.projects.all(:conditions => ["medium like ?", "%presentation%"]).count %>,
+                  color: "rgb(64,88,119)",
+                  url: "/chronicle"
+                }, {
+                  name: "Infographics",
+                  y: <%= y.projects.all(:conditions => ["medium like ?", "%infographics%"]).count %>,
+                  color: "rgb(123,130,101)",
+                  url: "/chronicle"
+                }, {
+                  name: "Digital",
+                  y: <%= y.projects.all(:conditions => ["medium like ?", "%digital%"]).count %>,
+                  color: "rgb(157,177,166)",
+                  url: "/chronicle"
+                }, {
+                  name: "Event",
+                  y: <%= y.projects.all(:conditions => ["medium like ?", "%event%"]).count %>,
+                  color: "rgb(163,119,66)",
+                  url: "/chronicle"
+                }]
+                
+            }]
+        });
+        <% end %>
+        
+        if($("#graph2013").length > 0){
+          $(".date2013").css("left", $("#graph2013").offset().left - $(".atimeline").offset().left+5);
+        }
+        $(".date2012").css("left", ($("#graph2012").offset().left-$(".atimeline").offset().left)+5);
+        $(".date2011").css("left", $("#graph2011").offset().left - $(".atimeline").offset().left+5);
+        $(".date2010").css("left", $("#graph2010").offset().left - $(".atimeline").offset().left+5);
+        if($("#graph2009").length > 0){
+          $(".date2009").css("left", $("#graph2009").offset().left - $(".atimeline").offset().left+5);
+        }
+        if($("#graph2008").length > 0){
+          $(".date2008").css("left", $("#graph2008").offset().left - $(".atimeline").offset().left+5)
+        }
+    });
+    
+});
+</script>

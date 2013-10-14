@@ -1,0 +1,30 @@
+= render :partial => "layouts/header"
+.container
+  .row
+    .span2.adminForm
+      %h2
+        Edit user
+    .span10.adminForm
+      = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f|
+        = devise_error_messages!
+        %div
+          = f.label :email
+          = f.email_field :email
+        %div
+          = f.label :password
+          = f.password_field :password
+          %i
+            \(leave blank if you don't want to change it)
+        %div
+          = f.label :password_confirmation
+          = f.password_field :password_confirmation
+        %div
+          = f.label :current_password
+          = f.password_field :current_password
+          %i
+            \(we need your current password to confirm your changes)
+        %div
+          
+        %div
+          = f.submit "Update", {:class => "btn-inverse admnbutton"}
+= render :partial => "layouts/footer"

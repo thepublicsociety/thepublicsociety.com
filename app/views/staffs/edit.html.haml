@@ -1,0 +1,44 @@
+= render :partial => "layouts/header"
+.container
+  .row
+    .span2.adminForm
+      %h2
+        Edit staff
+      .uname
+        = @staff.name
+    .span10.adminForm.staffForm
+      - form_for @staff, :html => { :multipart => true } do |f|
+        = f.label :name
+        = f.text_field :name
+        .clear
+        = f.label :position
+        = f.text_field :position
+        .clear
+        = label_tag "User email"
+        = text_field_tag "useremail", nil, :placeholder => 'Leave blank if not registered user'
+        .clear
+        = f.label "Column 1"
+        = f.text_area :bio
+        .clear
+        = f.label "Column 2"
+        = f.text_area :description
+        .clear
+        = f.label :staffphoto
+        = f.file_field :staffphoto
+        .previewimage
+          = image_tag(@staff.staffphoto.url)
+        .removeimage
+          %a{:href => "/deletephotos", :data => {:staff => @staff.id, :photo => "staffphoto"}}
+            delete
+        .clear
+        = f.label :stafflogo
+        = f.file_field :stafflogo
+        .previewimage
+          = image_tag(@staff.stafflogo.url)
+        .removeimage
+          %a{:href => "/deletephotos", :data => {:staff => @staff.id, :photo => "stafflogo"}}
+            delete
+        .clear
+        = f.submit "Send", {:class => "btn-inverse admnbutton"}
+= render :partial => "layouts/footer"
+

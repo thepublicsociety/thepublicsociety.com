@@ -1,0 +1,9 @@
+<%- if @graph == "medium" %>
+$(".thegraphs").html("<%= escape_javascript(render :partial => "layouts/chroniclemedium") %>");
+$(".keys").html("<div class='key'><div class='color' style='background: rgb(202,116,101)'></div><div class='name'>Identity</div></div><div class='key'><div class='color' style='background: rgb(188,175,167)'></div><div class='name'>Packaging</div></div><div class='key'><div class='color' style='background: rgb(123,59,59)'></div><div class='name'>Print</div></div><div class='key'><div class='color' style='background: rgb(64,88,119)'></div><div class='name'>Presentation</div></div><div class='key'><div class='color' style='background: rgb(157,177,166)'></div><div class='name'>Digital</div></div><div class='key'><div class='color' style='background: rgb(163,119,66)'></div><div class='name'>Event</div></div><div class='key'><div class='color' style='background: rgb(123,130,101)'></div><div class='name'>Infographics</div></div>");
+$(".keys").css("left", ($(".timelinepositioning").width()/2-$(".keys").width()/2)+20);
+<% else %>
+$(".thegraphs").html("<%= escape_javascript(render :partial => "layouts/chronicle") %>");
+$(".keys").html("<div class='key'><div class='color' style='background: rgb(123,59,59)'></div><div class='name'>Established</div></div><div class='key'><div class='color' style='background: rgb(64,88,119)'></div><div class='name'>World Changing</div></div><div class='key'><div class='color' style='background: rgb(163,119,66)'></div><div class='name'>Entrepreneurs</div></div><div class='key'><div class='color' style='background: rgb(157,177,166)'></div><div class='name'>Non Profit</div></div>");
+$(".keys").css("left", ($(".timelinepositioning").width()/2-$(".keys").width()/2)+20);
+<% end %>

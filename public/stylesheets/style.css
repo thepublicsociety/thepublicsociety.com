@@ -1,0 +1,1799 @@
+@font-face {
+  font-family: "bodonibold";
+  src: url("/stylesheets/12_bauer_bodoni_bold___07033-webfont.eot");
+  src: url("/stylesheets/12_bauer_bodoni_bold___07033-webfont.eot?#iefix") format("embedded-opentype"), url("/stylesheets/12_bauer_bodoni_bold___07033-webfont.woff") format("woff"), url("/stylesheets/12_bauer_bodoni_bold___07033-webfont.ttf") format("truetype"), url("/stylesheets/12_bauer_bodoni_bold___07033-webfont.svg#bauerbodonibold") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: "bodoniroman";
+  src: url("/stylesheets/12_bauer_bodoni_roman___05033-webfont.eot");
+  src: url("/stylesheets/12_bauer_bodoni_roman___05033-webfont.eot?#iefix") format("embedded-opentype"), url("/stylesheets/12_bauer_bodoni_roman___05033-webfont.woff") format("woff"), url("/stylesheets/12_bauer_bodoni_roman___05033-webfont.ttf") format("truetype"), url("/stylesheets/12_bauer_bodoni_roman___05033-webfont.svg#bauerbodoniroman") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+html {
+  height: 100%; }
+
+body {
+  font-family: bodoniroman; }
+
+body > img {
+  max-width: none; }
+
+ul.nav li.dropdown:hover ul.dropdown-menu {
+  display: block; }
+
+.clear {
+  clear: both; }
+
+.adminHome {
+  padding-top: 100px; }
+
+.adminForm {
+  padding-top: 100px; }
+  .adminForm label {
+    float: left;
+    padding: 5px 5px 0 0;
+    width: 150px;
+    font-weight: bold; }
+  .adminForm a {
+    color: black; }
+  .adminForm .admnbutton {
+    padding: 2px 15px;
+    margin-top: 10px; }
+
+.blogForm input[type=text] {
+  width: 100%; }
+.blogForm textarea {
+  width: 100%;
+  height: 300px; }
+
+.staffForm input[type=text], .messageForm input[type=text] {
+  width: 100%; }
+.staffForm textarea, .messageForm textarea {
+  width: 100%;
+  height: 100px; }
+
+.projects-edit textarea, .projects-new textarea, .clients-new textarea, .clients-edit textarea {
+  width: 70%;
+  height: 100px;
+  float: left; }
+
+.messageForm label {
+  float: left;
+  padding: 5px 5px 0 0;
+  width: 150px;
+  font-weight: bold; }
+.messageForm a {
+  color: black; }
+.messageForm .admnbutton {
+  padding: 2px 15px;
+  margin-top: 10px; }
+.messageForm textarea {
+  height: 50px; }
+
+a.newbtn {
+  color: white; }
+
+.newMessageText {
+  padding-top: 100px;
+  text-align: right;
+  font-weight: bold; }
+
+.tlcontainer {
+  overflow: hidden;
+  padding-top: 300px; }
+
+.timeline {
+  width: 3285px;
+  position: relative;
+  right: 2200px; }
+  .timeline .year {
+    width: 1095px;
+    float: left;
+    height: auto;
+    height: 20px; }
+    .timeline .year .month {
+      width: 89px;
+      float: left;
+      height: auto;
+      border-left: 1px solid black;
+      border-top: 1px solid black; }
+
+.lbtn, .rbtn {
+  padding-top: 300px; }
+
+.rbtn {
+  text-align: right; }
+
+.project {
+  position: relative; }
+
+body.projects-show, body.projects-prcs, body.projects-stats {
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%; }
+
+#bgimg {
+  position: absolute;
+  z-index: -1; }
+
+#realBody {
+  position: absolute;
+  z-index: 5;
+  overflow: auto;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0; }
+
+body.projects-show #realBody {
+  top: 0;
+  left: 0; }
+
+.editweeklink, .editdaylink {
+  display: block;
+  float: left;
+  padding-top: 5px; }
+
+.views-timeline {
+  height: 100%;
+  overflow: hidden; }
+  .views-timeline .pageheader {
+    position: relative;
+    float: left;
+    width: 100%;
+    /*padding-top: 146px */ }
+  .views-timeline .logo {
+    width: 107px;
+    height: 220px;
+    background: url(/images/logo.png) no-repeat;
+    float: left;
+    margin-left: 34px; }
+  .views-timeline .tagline {
+    float: left;
+    font-family: bodoniroman;
+    font-size: 24pt;
+    line-height: 30pt;
+    width: 350px;
+    padding-left: 50px;
+    margin-top: 28px;
+    position: relative; }
+    .views-timeline .tagline span {
+      color: #a29061; }
+    .views-timeline .tagline .subtagline {
+      font-size: 18pt;
+      line-height: 22pt; }
+  .views-timeline .year {
+    position: absolute;
+    bottom: -8px;
+    right: 48px;
+    font-size: 48pt;
+    line-height: 1.2;
+    font-family: bodoniroman; }
+  .views-timeline .aday {
+    float: left;
+    width: 6px;
+    height: auto; }
+    .views-timeline .aday a {
+      visibility: hidden; }
+  .views-timeline .amonth {
+    float: left;
+    width: auto;
+    height: auto; }
+    .views-timeline .amonth .week {
+      float: left;
+      width: 24%;
+      height: 7px;
+      border-left: 1px solid black;
+      position: relative;
+      top: 6px; }
+    .views-timeline .amonth .mname {
+      clear: both;
+      text-transform: uppercase;
+      font-size: 13px; }
+  .views-timeline .ayear {
+    float: left;
+    width: auto;
+    height: auto; }
+  .views-timeline .ayears {
+    width: auto;
+    position: relative;
+    left: 0;
+    height: auto; }
+  .views-timeline .timelinewindow {
+    width: 100%;
+    overflow: hidden;
+    height: auto;
+    position: relative;
+    bottom: 32px; }
+  .views-timeline .blogs .ablog {
+    background: url(/images/dots.png) repeat-y;
+    width: 10px;
+    position: absolute;
+    top: 31px;
+    z-index: 99999; }
+    .views-timeline .blogs .ablog .bdata {
+      position: absolute;
+      bottom: -5px;
+      left: -155px;
+      width: 150px;
+      text-align: right; }
+      .views-timeline .blogs .ablog .bdata a {
+        color: #8b8b8b;
+        font-size: 10px; }
+      .views-timeline .blogs .ablog .bdata a:hover {
+        text-decoration: none; }
+      .views-timeline .blogs .ablog .bdata .ablogdate {
+        font-size: 10px;
+        color: #8b8b8b; }
+  .views-timeline .aprojects {
+    position: relative;
+    top: 31px;
+    height: auto; }
+  .views-timeline .aproject {
+    position: relative;
+    top: 0;
+    background: black;
+    height: 50px;
+    z-index: 99999; }
+    .views-timeline .aproject a {
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      color: white;
+      font-size: 10px; }
+    .views-timeline .aproject a:hover {
+      text-decoration: none;
+      background: transparent !important; }
+  .views-timeline .aproject.world-change a, .views-timeline .aproject.world-changing a {
+    background: rgba(64, 88, 119, 0.85); }
+  .views-timeline .aproject.non-profit a {
+    background: rgba(157, 177, 166, 0.85); }
+  .views-timeline .aproject.entrepreneurs a {
+    background: rgba(163, 119, 66, 0.85); }
+  .views-timeline .aproject.established a {
+    background: rgba(123, 59, 59, 0.85); }
+  .views-timeline .tlwrapper {
+    padding: 0 34px;
+    position: relative; }
+  .views-timeline .atimeline {
+    position: relative;
+    border-top: 2px solid black;
+    padding-top: 1px; }
+    .views-timeline .atimeline .pastarrow {
+      position: absolute;
+      left: 0;
+      top: -50px;
+      background: url(/images/pastarrow.png);
+      height: 10px;
+      width: 38px; }
+    .views-timeline .atimeline .futurearrow {
+      position: absolute;
+      right: 0;
+      top: -50px;
+      background: url(/images/futurearrow.png);
+      height: 10px;
+      width: 51px; }
+    .views-timeline .atimeline .pcontrol {
+      cursor: pointer;
+      position: absolute;
+      left: -23px;
+      top: -11px;
+      height: 22px;
+      width: 23px;
+      background: url(/images/controlarrowssprite.png) no-repeat -23px 0; }
+    .views-timeline .atimeline .ncontrol {
+      cursor: pointer;
+      position: absolute;
+      right: -23px;
+      top: -11px;
+      height: 22px;
+      width: 23px;
+      background: url(/images/controlarrowssprite.png) no-repeat 0 0; }
+    .views-timeline .atimeline .menunav {
+      position: absolute;
+      right: 62px;
+      top: -11px; }
+      .views-timeline .atimeline .menunav .lnav, .views-timeline .atimeline .menunav .rnav {
+        float: left;
+        height: 9px;
+        width: 129px;
+        background: url(/images/menunavclosed.png); }
+      .views-timeline .atimeline .menunav .lnav {
+        margin-right: 20px; }
+        .views-timeline .atimeline .menunav .lnav .lnavcontent {
+          display: none;
+          background: black url(/images/lmenuup.png) no-repeat;
+          width: 119px;
+          height: 60px;
+          padding-left: 10px;
+          padding-top: 22px;
+          position: relative;
+          bottom: 73px; }
+          .views-timeline .atimeline .menunav .lnav .lnavcontent a {
+            color: #8b8b8b;
+            font-size: 12px;
+            line-height: 17px;
+            text-transform: uppercase; }
+          .views-timeline .atimeline .menunav .lnav .lnavcontent a:hover {
+            color: white;
+            text-decoration: none; }
+      .views-timeline .atimeline .menunav .lnav:hover .lnavcontent {
+        display: block; }
+      .views-timeline .atimeline .menunav .rnav:hover .rnavcontent {
+        display: block; }
+      .views-timeline .atimeline .menunav .rnav .rnavcontent {
+        display: none;
+        background: black url(/images/rmenuup.png) no-repeat;
+        width: 119px;
+        height: 75px;
+        padding-left: 10px;
+        padding-top: 22px;
+        position: relative;
+        bottom: 88px; }
+        .views-timeline .atimeline .menunav .rnav .rnavcontent a {
+          color: #8b8b8b;
+          font-size: 12px;
+          line-height: 17px;
+          text-transform: uppercase; }
+        .views-timeline .atimeline .menunav .rnav .rnavcontent a:hover {
+          color: white;
+          text-decoration: none; }
+
+.projects-show #realBody, .projects-prcs #realBody, .projects-stats #realBody {
+  position: absolute; }
+  .projects-show #realBody .logo, .projects-prcs #realBody .logo, .projects-stats #realBody .logo {
+    /*margin-top: 146px */
+    width: 63px;
+    height: 220px;
+    background: url(/images/logo2.png) no-repeat;
+    margin-bottom: 210px;
+    margin-left: 34px; }
+  .projects-show #realBody .tlwrapper, .projects-prcs #realBody .tlwrapper, .projects-stats #realBody .tlwrapper {
+    padding: 0 34px; }
+  .projects-show #realBody .atimeline, .projects-prcs #realBody .atimeline, .projects-stats #realBody .atimeline {
+    border-top: 2px solid rgba(0, 0, 0, 0.3);
+    position: relative;
+    height: auto; }
+    .projects-show #realBody .atimeline .pcontrol, .projects-prcs #realBody .atimeline .pcontrol, .projects-stats #realBody .atimeline .pcontrol {
+      cursor: pointer;
+      position: absolute;
+      left: -23px;
+      top: -11px;
+      height: 22px;
+      width: 23px;
+      background: url(/images/controlarrowssprite.png) no-repeat -23px 0; }
+    .projects-show #realBody .atimeline .ncontrol, .projects-prcs #realBody .atimeline .ncontrol, .projects-stats #realBody .atimeline .ncontrol {
+      cursor: pointer;
+      position: absolute;
+      right: -23px;
+      top: -11px;
+      height: 22px;
+      width: 23px;
+      background: url(/images/controlarrowssprite.png) no-repeat 0 0; }
+    .projects-show #realBody .atimeline .menunav, .projects-prcs #realBody .atimeline .menunav, .projects-stats #realBody .atimeline .menunav {
+      position: absolute;
+      right: 62px;
+      top: -11px; }
+      .projects-show #realBody .atimeline .menunav .lnav, .projects-show #realBody .atimeline .menunav .rnav, .projects-prcs #realBody .atimeline .menunav .lnav, .projects-prcs #realBody .atimeline .menunav .rnav, .projects-stats #realBody .atimeline .menunav .lnav, .projects-stats #realBody .atimeline .menunav .rnav {
+        float: left;
+        height: 9px;
+        width: 129px;
+        background: url(/images/menunavclosedtrans.png); }
+      .projects-show #realBody .atimeline .menunav .lnav, .projects-prcs #realBody .atimeline .menunav .lnav, .projects-stats #realBody .atimeline .menunav .lnav {
+        margin-right: 20px; }
+        .projects-show #realBody .atimeline .menunav .lnav .lnavcontent, .projects-prcs #realBody .atimeline .menunav .lnav .lnavcontent, .projects-stats #realBody .atimeline .menunav .lnav .lnavcontent {
+          display: none;
+          background: black url(/images/lmenuup.png) no-repeat;
+          width: 119px;
+          height: 60px;
+          padding-left: 10px;
+          padding-top: 22px;
+          position: relative;
+          bottom: 73px; }
+          .projects-show #realBody .atimeline .menunav .lnav .lnavcontent a, .projects-prcs #realBody .atimeline .menunav .lnav .lnavcontent a, .projects-stats #realBody .atimeline .menunav .lnav .lnavcontent a {
+            color: #8b8b8b;
+            font-size: 12px;
+            line-height: 17px;
+            text-transform: uppercase; }
+          .projects-show #realBody .atimeline .menunav .lnav .lnavcontent a:hover, .projects-prcs #realBody .atimeline .menunav .lnav .lnavcontent a:hover, .projects-stats #realBody .atimeline .menunav .lnav .lnavcontent a:hover {
+            color: white;
+            text-decoration: none; }
+      .projects-show #realBody .atimeline .menunav .lnav:hover .lnavcontent, .projects-prcs #realBody .atimeline .menunav .lnav:hover .lnavcontent, .projects-stats #realBody .atimeline .menunav .lnav:hover .lnavcontent {
+        display: block; }
+      .projects-show #realBody .atimeline .menunav .rnav:hover .rnavcontent, .projects-prcs #realBody .atimeline .menunav .rnav:hover .rnavcontent, .projects-stats #realBody .atimeline .menunav .rnav:hover .rnavcontent {
+        display: block; }
+      .projects-show #realBody .atimeline .menunav .rnav .rnavcontent, .projects-prcs #realBody .atimeline .menunav .rnav .rnavcontent, .projects-stats #realBody .atimeline .menunav .rnav .rnavcontent {
+        display: none;
+        background: black url(/images/rmenuup.png) no-repeat;
+        width: 119px;
+        height: 75px;
+        padding-left: 10px;
+        padding-top: 22px;
+        position: relative;
+        bottom: 88px; }
+        .projects-show #realBody .atimeline .menunav .rnav .rnavcontent a, .projects-prcs #realBody .atimeline .menunav .rnav .rnavcontent a, .projects-stats #realBody .atimeline .menunav .rnav .rnavcontent a {
+          color: #8b8b8b;
+          font-size: 12px;
+          line-height: 17px;
+          text-transform: uppercase; }
+        .projects-show #realBody .atimeline .menunav .rnav .rnavcontent a:hover, .projects-prcs #realBody .atimeline .menunav .rnav .rnavcontent a:hover, .projects-stats #realBody .atimeline .menunav .rnav .rnavcontent a:hover {
+          color: white;
+          text-decoration: none; }
+  .projects-show #realBody .info, .projects-prcs #realBody .info, .projects-stats #realBody .info {
+    position: absolute;
+    left: 63px;
+    bottom: 0;
+    color: white;
+    clear: both;
+    margin-bottom: 10px; }
+    .projects-show #realBody .info .names, .projects-prcs #realBody .info .names, .projects-stats #realBody .info .names {
+      float: left;
+      padding: 5px 0 0;
+      position: relative;
+      bottom: 5px; }
+      .projects-show #realBody .info .names a, .projects-prcs #realBody .info .names a, .projects-stats #realBody .info .names a {
+        color: white; }
+      .projects-show #realBody .info .names a:hover, .projects-prcs #realBody .info .names a:hover, .projects-stats #realBody .info .names a:hover {
+        text-decoration: none; }
+    .projects-show #realBody .info .names:hover .projectlist, .projects-prcs #realBody .info .names:hover .projectlist, .projects-stats #realBody .info .names:hover .projectlist {
+      visibility: visible; }
+    .projects-show #realBody .info .projectlist, .projects-prcs #realBody .info .projectlist, .projects-stats #realBody .info .projectlist {
+      padding: 10px;
+      background: url(/images/controlsbg.png);
+      width: 352px;
+      position: absolute;
+      bottom: 22px;
+      left: -24px;
+      height: 119px;
+      visibility: hidden; }
+      .projects-show #realBody .info .projectlist ul, .projects-prcs #realBody .info .projectlist ul, .projects-stats #realBody .info .projectlist ul {
+        margin: 0;
+        height: 119px; }
+        .projects-show #realBody .info .projectlist ul li, .projects-prcs #realBody .info .projectlist ul li, .projects-stats #realBody .info .projectlist ul li {
+          padding-left: 15px; }
+          .projects-show #realBody .info .projectlist ul li a, .projects-prcs #realBody .info .projectlist ul li a, .projects-stats #realBody .info .projectlist ul li a {
+            color: white; }
+          .projects-show #realBody .info .projectlist ul li a:hover, .projects-prcs #realBody .info .projectlist ul li a:hover, .projects-stats #realBody .info .projectlist ul li a:hover {
+            text-decoration: none; }
+    .projects-show #realBody .info .description, .projects-prcs #realBody .info .description, .projects-stats #realBody .info .description {
+      visibility: hidden;
+      height: 119px;
+      width: 352px;
+      overflow: hidden;
+      padding: 10px;
+      background: url(/images/controlsbg.png);
+      margin-bottom: 2px;
+      font-size: 12px; }
+      .projects-show #realBody .info .description p, .projects-prcs #realBody .info .description p, .projects-stats #realBody .info .description p {
+        margin-bottom: 10px;
+        font-size: 12px;
+        line-height: 19px; }
+    .projects-show #realBody .info .controls, .projects-prcs #realBody .info .controls, .projects-stats #realBody .info .controls {
+      font-size: 12px;
+      line-height: 17px; }
+      .projects-show #realBody .info .controls .arrows, .projects-prcs #realBody .info .controls .arrows, .projects-stats #realBody .info .controls .arrows {
+        float: left;
+        width: 17px;
+        margin-right: 2px; }
+        .projects-show #realBody .info .controls .arrows .up, .projects-prcs #realBody .info .controls .arrows .up, .projects-stats #realBody .info .controls .arrows .up {
+          background: url(/images/controlsuparrow.png);
+          width: 17px;
+          height: 14px;
+          margin-bottom: 2px;
+          cursor: pointer; }
+          .projects-show #realBody .info .controls .arrows .up a, .projects-prcs #realBody .info .controls .arrows .up a, .projects-stats #realBody .info .controls .arrows .up a {
+            display: block;
+            height: 14px;
+            width: 17px; }
+        .projects-show #realBody .info .controls .arrows .down, .projects-prcs #realBody .info .controls .arrows .down, .projects-stats #realBody .info .controls .arrows .down {
+          width: 17px;
+          height: 14px;
+          background: url(/images/controlsdownarrow.png);
+          cursor: pointer; }
+          .projects-show #realBody .info .controls .arrows .down a, .projects-prcs #realBody .info .controls .arrows .down a, .projects-stats #realBody .info .controls .arrows .down a {
+            display: block;
+            height: 14px;
+            width: 17px; }
+      .projects-show #realBody .info .controls .title, .projects-prcs #realBody .info .controls .title, .projects-stats #realBody .info .controls .title {
+        width: 343px;
+        padding: 5px 5px 0;
+        background: url(/images/controlsbg.png);
+        height: 25px;
+        float: left;
+        margin-right: 2px; }
+        .projects-show #realBody .info .controls .title .plus, .projects-prcs #realBody .info .controls .title .plus, .projects-stats #realBody .info .controls .title .plus {
+          float: right;
+          bottom: 0px;
+          position: relative;
+          font-size: 18px;
+          cursor: pointer; }
+      .projects-show #realBody .info .controls .options, .projects-prcs #realBody .info .controls .options, .projects-stats #realBody .info .controls .options {
+        float: left;
+        font-size: 10px; }
+        .projects-show #realBody .info .controls .options a, .projects-prcs #realBody .info .controls .options a, .projects-stats #realBody .info .controls .options a {
+          color: white; }
+        .projects-show #realBody .info .controls .options a:hover, .projects-prcs #realBody .info .controls .options a:hover, .projects-stats #realBody .info .controls .options a:hover {
+          text-decoration: none; }
+        .projects-show #realBody .info .controls .options .process, .projects-prcs #realBody .info .controls .options .process, .projects-stats #realBody .info .controls .options .process {
+          background: url(/images/controlsbg.png);
+          margin-bottom: 2px;
+          width: 135px;
+          padding-left: 3px;
+          height: 13px;
+          padding-top: 1px; }
+        .projects-show #realBody .info .controls .options .process.lighter, .projects-prcs #realBody .info .controls .options .process.lighter, .projects-stats #realBody .info .controls .options .process.lighter {
+          background: url(/images/controlsbglighter.png); }
+        .projects-show #realBody .info .controls .options .process.nostats, .projects-prcs #realBody .info .controls .options .process.nostats, .projects-stats #realBody .info .controls .options .process.nostats {
+          height: 29px;
+          margin-bottom: 0; }
+          .projects-show #realBody .info .controls .options .process.nostats a, .projects-prcs #realBody .info .controls .options .process.nostats a, .projects-stats #realBody .info .controls .options .process.nostats a {
+            padding-top: 4px;
+            display: block; }
+        .projects-show #realBody .info .controls .options .stats.noprocess, .projects-prcs #realBody .info .controls .options .stats.noprocess, .projects-stats #realBody .info .controls .options .stats.noprocess {
+          height: 29px;
+          margin-bottom: 0; }
+          .projects-show #realBody .info .controls .options .stats.noprocess a, .projects-prcs #realBody .info .controls .options .stats.noprocess a, .projects-stats #realBody .info .controls .options .stats.noprocess a {
+            padding-top: 4px;
+            display: block; }
+        .projects-show #realBody .info .controls .options .stats, .projects-prcs #realBody .info .controls .options .stats, .projects-stats #realBody .info .controls .options .stats {
+          background: url(/images/controlsbg.png);
+          width: 135px;
+          padding-left: 3px;
+          height: 13px;
+          padding-top: 1px; }
+        .projects-show #realBody .info .controls .options .stats.lighter, .projects-prcs #realBody .info .controls .options .stats.lighter, .projects-stats #realBody .info .controls .options .stats.lighter {
+          background: url(/images/controlsbglighter.png); }
+  .projects-show #realBody .prcscontainer, .projects-prcs #realBody .prcscontainer, .projects-stats #realBody .prcscontainer {
+    width: 100%;
+    overflow: hidden; }
+  .projects-show #realBody .prcsinfo, .projects-prcs #realBody .prcsinfo, .projects-stats #realBody .prcsinfo {
+    margin-bottom: 2px;
+    /*height: 271px */
+    position: relative;
+    left: 0; }
+    .projects-show #realBody .prcsinfo .prcsweek, .projects-prcs #realBody .prcsinfo .prcsweek, .projects-stats #realBody .prcsinfo .prcsweek {
+      float: left;
+      overflow: hidden; }
+    .projects-show #realBody .prcsinfo .leftprcs, .projects-prcs #realBody .prcsinfo .leftprcs, .projects-stats #realBody .prcsinfo .leftprcs {
+      /*width: 342px */
+      /*height: 231px */
+      /*padding: 20px 15px */
+      background: url(/images/controlsbg.png);
+      color: white;
+      float: left; }
+    .projects-show #realBody .prcsinfo .midprcs, .projects-show #realBody .prcsinfo .rightprcs, .projects-prcs #realBody .prcsinfo .midprcs, .projects-prcs #realBody .prcsinfo .rightprcs, .projects-stats #realBody .prcsinfo .midprcs, .projects-stats #realBody .prcsinfo .rightprcs {
+      float: left;
+      width: 365px; }
+
+.projects-work .controls {
+  right: 115px; }
+
+.projects-chronicle .controls {
+  right: 99px; }
+
+.projects-work .headline, .projects-chronicle .headline, .projects-journal .headline {
+  height: 220px; }
+.projects-work .text, .projects-chronicle .text, .projects-journal .text {
+  position: absolute !important;
+  bottom: 0;
+  left: 190px;
+  padding-left: 0 !important; }
+
+.projects-work .headline, .projects-chronicle .headline, .projects-journal .headline, .projects-lab .headline, .projects-studio .headline, .projects-people .headline, .projects-competencies .headline, .projects-ethic .headline, .projects-mission .headline, .projects-contact .headline {
+  position: relative; }
+.projects-work .logo, .projects-chronicle .logo, .projects-journal .logo, .projects-lab .logo, .projects-studio .logo, .projects-people .logo, .projects-competencies .logo, .projects-ethic .logo, .projects-mission .logo, .projects-contact .logo {
+  /*margin-top: 146px */
+  width: 107px;
+  height: 220px;
+  background: url(/images/logo.png) no-repeat;
+  margin-bottom: 100px;
+  margin-left: 34px;
+  float: left; }
+.projects-work .text, .projects-chronicle .text, .projects-journal .text, .projects-lab .text, .projects-studio .text, .projects-people .text, .projects-competencies .text, .projects-ethic .text, .projects-mission .text, .projects-contact .text {
+  /*margin-top: 210px */
+  float: left;
+  width: 340px;
+  font-size: 16px;
+  line-height: 32px;
+  padding-left: 50px; }
+.projects-work .controls, .projects-chronicle .controls, .projects-journal .controls, .projects-lab .controls, .projects-studio .controls, .projects-people .controls, .projects-competencies .controls, .projects-ethic .controls, .projects-mission .controls, .projects-contact .controls {
+  float: left;
+  width: 280px;
+  position: absolute;
+  /*top: 300px */ }
+  .projects-work .controls .tag, .projects-chronicle .controls .tag, .projects-journal .controls .tag, .projects-lab .controls .tag, .projects-studio .controls .tag, .projects-people .controls .tag, .projects-competencies .controls .tag, .projects-ethic .controls .tag, .projects-mission .controls .tag, .projects-contact .controls .tag {
+    font-size: 18px;
+    padding-left: 5px; }
+  .projects-work .controls .selector, .projects-chronicle .controls .selector, .projects-journal .controls .selector, .projects-lab .controls .selector, .projects-studio .controls .selector, .projects-people .controls .selector, .projects-competencies .controls .selector, .projects-ethic .controls .selector, .projects-mission .controls .selector, .projects-contact .controls .selector {
+    background: #696969; }
+    .projects-work .controls .selector .box, .projects-chronicle .controls .selector .box, .projects-journal .controls .selector .box, .projects-lab .controls .selector .box, .projects-studio .controls .selector .box, .projects-people .controls .selector .box, .projects-competencies .controls .selector .box, .projects-ethic .controls .selector .box, .projects-mission .controls .selector .box, .projects-contact .controls .selector .box {
+      color: white;
+      padding: 10px;
+      height: 12px; }
+      .projects-work .controls .selector .box .cat, .projects-chronicle .controls .selector .box .cat, .projects-journal .controls .selector .box .cat, .projects-lab .controls .selector .box .cat, .projects-studio .controls .selector .box .cat, .projects-people .controls .selector .box .cat, .projects-competencies .controls .selector .box .cat, .projects-ethic .controls .selector .box .cat, .projects-mission .controls .selector .box .cat, .projects-contact .controls .selector .box .cat {
+        float: left; }
+      .projects-work .controls .selector .box .arrow, .projects-chronicle .controls .selector .box .arrow, .projects-journal .controls .selector .box .arrow, .projects-lab .controls .selector .box .arrow, .projects-studio .controls .selector .box .arrow, .projects-people .controls .selector .box .arrow, .projects-competencies .controls .selector .box .arrow, .projects-ethic .controls .selector .box .arrow, .projects-mission .controls .selector .box .arrow, .projects-contact .controls .selector .box .arrow {
+        float: right;
+        background: url(/images/controlarrows.png) no-repeat;
+        width: 11px;
+        height: 11px; }
+    .projects-work .controls .selector .boxcontent, .projects-chronicle .controls .selector .boxcontent, .projects-journal .controls .selector .boxcontent, .projects-lab .controls .selector .boxcontent, .projects-studio .controls .selector .boxcontent, .projects-people .controls .selector .boxcontent, .projects-competencies .controls .selector .boxcontent, .projects-ethic .controls .selector .boxcontent, .projects-mission .controls .selector .boxcontent, .projects-contact .controls .selector .boxcontent {
+      color: white;
+      clear: both;
+      background: #696969;
+      padding: 0 10px 10px 10px;
+      display: none; }
+      .projects-work .controls .selector .boxcontent ul, .projects-chronicle .controls .selector .boxcontent ul, .projects-journal .controls .selector .boxcontent ul, .projects-lab .controls .selector .boxcontent ul, .projects-studio .controls .selector .boxcontent ul, .projects-people .controls .selector .boxcontent ul, .projects-competencies .controls .selector .boxcontent ul, .projects-ethic .controls .selector .boxcontent ul, .projects-mission .controls .selector .boxcontent ul, .projects-contact .controls .selector .boxcontent ul {
+        margin: 0; }
+        .projects-work .controls .selector .boxcontent ul li, .projects-chronicle .controls .selector .boxcontent ul li, .projects-journal .controls .selector .boxcontent ul li, .projects-lab .controls .selector .boxcontent ul li, .projects-studio .controls .selector .boxcontent ul li, .projects-people .controls .selector .boxcontent ul li, .projects-competencies .controls .selector .boxcontent ul li, .projects-ethic .controls .selector .boxcontent ul li, .projects-mission .controls .selector .boxcontent ul li, .projects-contact .controls .selector .boxcontent ul li {
+          padding: 3px 0 4px; }
+          .projects-work .controls .selector .boxcontent ul li a, .projects-chronicle .controls .selector .boxcontent ul li a, .projects-journal .controls .selector .boxcontent ul li a, .projects-lab .controls .selector .boxcontent ul li a, .projects-studio .controls .selector .boxcontent ul li a, .projects-people .controls .selector .boxcontent ul li a, .projects-competencies .controls .selector .boxcontent ul li a, .projects-ethic .controls .selector .boxcontent ul li a, .projects-mission .controls .selector .boxcontent ul li a, .projects-contact .controls .selector .boxcontent ul li a {
+            font-size: 14px;
+            line-height: 20px;
+            color: white; }
+  .projects-work .controls .selector:hover .boxcontent, .projects-chronicle .controls .selector:hover .boxcontent, .projects-journal .controls .selector:hover .boxcontent, .projects-lab .controls .selector:hover .boxcontent, .projects-studio .controls .selector:hover .boxcontent, .projects-people .controls .selector:hover .boxcontent, .projects-competencies .controls .selector:hover .boxcontent, .projects-ethic .controls .selector:hover .boxcontent, .projects-mission .controls .selector:hover .boxcontent, .projects-contact .controls .selector:hover .boxcontent {
+    display: block; }
+.projects-work .tlwrapper, .projects-chronicle .tlwrapper, .projects-journal .tlwrapper, .projects-lab .tlwrapper, .projects-studio .tlwrapper, .projects-people .tlwrapper, .projects-competencies .tlwrapper, .projects-ethic .tlwrapper, .projects-mission .tlwrapper, .projects-contact .tlwrapper {
+  padding: 0 34px; }
+.projects-work .atimeline, .projects-chronicle .atimeline, .projects-journal .atimeline, .projects-lab .atimeline, .projects-studio .atimeline, .projects-people .atimeline, .projects-competencies .atimeline, .projects-ethic .atimeline, .projects-mission .atimeline, .projects-contact .atimeline {
+  border-top: 2px solid black;
+  position: relative;
+  height: auto; }
+  .projects-work .atimeline .pend, .projects-chronicle .atimeline .pend, .projects-journal .atimeline .pend, .projects-lab .atimeline .pend, .projects-studio .atimeline .pend, .projects-people .atimeline .pend, .projects-competencies .atimeline .pend, .projects-ethic .atimeline .pend, .projects-mission .atimeline .pend, .projects-contact .atimeline .pend {
+    cursor: pointer;
+    position: absolute;
+    left: -23px;
+    top: -22px;
+    height: 44px;
+    width: 21px;
+    border-right: 2px solid black; }
+  .projects-work .atimeline .nend, .projects-chronicle .atimeline .nend, .projects-journal .atimeline .nend, .projects-lab .atimeline .nend, .projects-studio .atimeline .nend, .projects-people .atimeline .nend, .projects-competencies .atimeline .nend, .projects-ethic .atimeline .nend, .projects-mission .atimeline .nend, .projects-contact .atimeline .nend {
+    cursor: pointer;
+    position: absolute;
+    right: -23px;
+    top: -22px;
+    height: 44px;
+    width: 21px;
+    border-left: 2px solid black; }
+  .projects-work .atimeline .menunav, .projects-chronicle .atimeline .menunav, .projects-journal .atimeline .menunav, .projects-lab .atimeline .menunav, .projects-studio .atimeline .menunav, .projects-people .atimeline .menunav, .projects-competencies .atimeline .menunav, .projects-ethic .atimeline .menunav, .projects-mission .atimeline .menunav, .projects-contact .atimeline .menunav {
+    position: absolute;
+    right: 62px;
+    top: -11px; }
+    .projects-work .atimeline .menunav .lnav, .projects-work .atimeline .menunav .rnav, .projects-chronicle .atimeline .menunav .lnav, .projects-chronicle .atimeline .menunav .rnav, .projects-journal .atimeline .menunav .lnav, .projects-journal .atimeline .menunav .rnav, .projects-lab .atimeline .menunav .lnav, .projects-lab .atimeline .menunav .rnav, .projects-studio .atimeline .menunav .lnav, .projects-studio .atimeline .menunav .rnav, .projects-people .atimeline .menunav .lnav, .projects-people .atimeline .menunav .rnav, .projects-competencies .atimeline .menunav .lnav, .projects-competencies .atimeline .menunav .rnav, .projects-ethic .atimeline .menunav .lnav, .projects-ethic .atimeline .menunav .rnav, .projects-mission .atimeline .menunav .lnav, .projects-mission .atimeline .menunav .rnav, .projects-contact .atimeline .menunav .lnav, .projects-contact .atimeline .menunav .rnav {
+      float: left;
+      height: 9px;
+      width: 129px;
+      background: url(/images/menunavclosed.png); }
+    .projects-work .atimeline .menunav .lnav, .projects-chronicle .atimeline .menunav .lnav, .projects-journal .atimeline .menunav .lnav, .projects-lab .atimeline .menunav .lnav, .projects-studio .atimeline .menunav .lnav, .projects-people .atimeline .menunav .lnav, .projects-competencies .atimeline .menunav .lnav, .projects-ethic .atimeline .menunav .lnav, .projects-mission .atimeline .menunav .lnav, .projects-contact .atimeline .menunav .lnav {
+      margin-right: 20px; }
+      .projects-work .atimeline .menunav .lnav .lnavcontent, .projects-chronicle .atimeline .menunav .lnav .lnavcontent, .projects-journal .atimeline .menunav .lnav .lnavcontent, .projects-lab .atimeline .menunav .lnav .lnavcontent, .projects-studio .atimeline .menunav .lnav .lnavcontent, .projects-people .atimeline .menunav .lnav .lnavcontent, .projects-competencies .atimeline .menunav .lnav .lnavcontent, .projects-ethic .atimeline .menunav .lnav .lnavcontent, .projects-mission .atimeline .menunav .lnav .lnavcontent, .projects-contact .atimeline .menunav .lnav .lnavcontent {
+        display: none;
+        background: black url(/images/lmenuup.png) no-repeat;
+        width: 119px;
+        height: 60px;
+        padding-left: 10px;
+        padding-top: 22px;
+        position: relative;
+        bottom: 73px; }
+        .projects-work .atimeline .menunav .lnav .lnavcontent a, .projects-chronicle .atimeline .menunav .lnav .lnavcontent a, .projects-journal .atimeline .menunav .lnav .lnavcontent a, .projects-lab .atimeline .menunav .lnav .lnavcontent a, .projects-studio .atimeline .menunav .lnav .lnavcontent a, .projects-people .atimeline .menunav .lnav .lnavcontent a, .projects-competencies .atimeline .menunav .lnav .lnavcontent a, .projects-ethic .atimeline .menunav .lnav .lnavcontent a, .projects-mission .atimeline .menunav .lnav .lnavcontent a, .projects-contact .atimeline .menunav .lnav .lnavcontent a {
+          color: #8b8b8b;
+          font-size: 12px;
+          line-height: 17px;
+          text-transform: uppercase; }
+        .projects-work .atimeline .menunav .lnav .lnavcontent a:hover, .projects-chronicle .atimeline .menunav .lnav .lnavcontent a:hover, .projects-journal .atimeline .menunav .lnav .lnavcontent a:hover, .projects-lab .atimeline .menunav .lnav .lnavcontent a:hover, .projects-studio .atimeline .menunav .lnav .lnavcontent a:hover, .projects-people .atimeline .menunav .lnav .lnavcontent a:hover, .projects-competencies .atimeline .menunav .lnav .lnavcontent a:hover, .projects-ethic .atimeline .menunav .lnav .lnavcontent a:hover, .projects-mission .atimeline .menunav .lnav .lnavcontent a:hover, .projects-contact .atimeline .menunav .lnav .lnavcontent a:hover {
+          color: white;
+          text-decoration: none; }
+    .projects-work .atimeline .menunav .lnav:hover .lnavcontent, .projects-chronicle .atimeline .menunav .lnav:hover .lnavcontent, .projects-journal .atimeline .menunav .lnav:hover .lnavcontent, .projects-lab .atimeline .menunav .lnav:hover .lnavcontent, .projects-studio .atimeline .menunav .lnav:hover .lnavcontent, .projects-people .atimeline .menunav .lnav:hover .lnavcontent, .projects-competencies .atimeline .menunav .lnav:hover .lnavcontent, .projects-ethic .atimeline .menunav .lnav:hover .lnavcontent, .projects-mission .atimeline .menunav .lnav:hover .lnavcontent, .projects-contact .atimeline .menunav .lnav:hover .lnavcontent {
+      display: block; }
+    .projects-work .atimeline .menunav .rnav:hover .rnavcontent, .projects-chronicle .atimeline .menunav .rnav:hover .rnavcontent, .projects-journal .atimeline .menunav .rnav:hover .rnavcontent, .projects-lab .atimeline .menunav .rnav:hover .rnavcontent, .projects-studio .atimeline .menunav .rnav:hover .rnavcontent, .projects-people .atimeline .menunav .rnav:hover .rnavcontent, .projects-competencies .atimeline .menunav .rnav:hover .rnavcontent, .projects-ethic .atimeline .menunav .rnav:hover .rnavcontent, .projects-mission .atimeline .menunav .rnav:hover .rnavcontent, .projects-contact .atimeline .menunav .rnav:hover .rnavcontent {
+      display: block; }
+    .projects-work .atimeline .menunav .rnav .rnavcontent, .projects-chronicle .atimeline .menunav .rnav .rnavcontent, .projects-journal .atimeline .menunav .rnav .rnavcontent, .projects-lab .atimeline .menunav .rnav .rnavcontent, .projects-studio .atimeline .menunav .rnav .rnavcontent, .projects-people .atimeline .menunav .rnav .rnavcontent, .projects-competencies .atimeline .menunav .rnav .rnavcontent, .projects-ethic .atimeline .menunav .rnav .rnavcontent, .projects-mission .atimeline .menunav .rnav .rnavcontent, .projects-contact .atimeline .menunav .rnav .rnavcontent {
+      display: none;
+      background: black url(/images/rmenuup.png) no-repeat;
+      width: 119px;
+      height: 75px;
+      padding-left: 10px;
+      padding-top: 22px;
+      position: relative;
+      bottom: 88px; }
+      .projects-work .atimeline .menunav .rnav .rnavcontent a, .projects-chronicle .atimeline .menunav .rnav .rnavcontent a, .projects-journal .atimeline .menunav .rnav .rnavcontent a, .projects-lab .atimeline .menunav .rnav .rnavcontent a, .projects-studio .atimeline .menunav .rnav .rnavcontent a, .projects-people .atimeline .menunav .rnav .rnavcontent a, .projects-competencies .atimeline .menunav .rnav .rnavcontent a, .projects-ethic .atimeline .menunav .rnav .rnavcontent a, .projects-mission .atimeline .menunav .rnav .rnavcontent a, .projects-contact .atimeline .menunav .rnav .rnavcontent a {
+        color: #8b8b8b;
+        font-size: 12px;
+        line-height: 17px;
+        text-transform: uppercase; }
+      .projects-work .atimeline .menunav .rnav .rnavcontent a:hover, .projects-chronicle .atimeline .menunav .rnav .rnavcontent a:hover, .projects-journal .atimeline .menunav .rnav .rnavcontent a:hover, .projects-lab .atimeline .menunav .rnav .rnavcontent a:hover, .projects-studio .atimeline .menunav .rnav .rnavcontent a:hover, .projects-people .atimeline .menunav .rnav .rnavcontent a:hover, .projects-competencies .atimeline .menunav .rnav .rnavcontent a:hover, .projects-ethic .atimeline .menunav .rnav .rnavcontent a:hover, .projects-mission .atimeline .menunav .rnav .rnavcontent a:hover, .projects-contact .atimeline .menunav .rnav .rnavcontent a:hover {
+        color: white;
+        text-decoration: none; }
+.projects-work .work, .projects-chronicle .work, .projects-journal .work, .projects-lab .work, .projects-studio .work, .projects-people .work, .projects-competencies .work, .projects-ethic .work, .projects-mission .work, .projects-contact .work {
+  height: 471px;
+  position: relative;
+  /*width: 1122px */
+  left: 32px; }
+  .projects-work .work .wproject, .projects-chronicle .work .wproject, .projects-journal .work .wproject, .projects-lab .work .wproject, .projects-studio .work .wproject, .projects-people .work .wproject, .projects-competencies .work .wproject, .projects-ethic .work .wproject, .projects-mission .work .wproject, .projects-contact .work .wproject {
+    width: 149px;
+    height: 147px;
+    background: gray;
+    margin: 0 5px 10px 5px; }
+  .projects-work .work .wprojectthumb, .projects-chronicle .work .wprojectthumb, .projects-journal .work .wprojectthumb, .projects-lab .work .wprojectthumb, .projects-studio .work .wprojectthumb, .projects-people .work .wprojectthumb, .projects-competencies .work .wprojectthumb, .projects-ethic .work .wprojectthumb, .projects-mission .work .wprojectthumb, .projects-contact .work .wprojectthumb {
+    height: 100%;
+    overflow: hidden; }
+    .projects-work .work .wprojectthumb img, .projects-chronicle .work .wprojectthumb img, .projects-journal .work .wprojectthumb img, .projects-lab .work .wprojectthumb img, .projects-studio .work .wprojectthumb img, .projects-people .work .wprojectthumb img, .projects-competencies .work .wprojectthumb img, .projects-ethic .work .wprojectthumb img, .projects-mission .work .wprojectthumb img, .projects-contact .work .wprojectthumb img {
+      max-width: none; }
+  .projects-work .work .wprojectdata, .projects-chronicle .work .wprojectdata, .projects-journal .work .wprojectdata, .projects-lab .work .wprojectdata, .projects-studio .work .wprojectdata, .projects-people .work .wprojectdata, .projects-competencies .work .wprojectdata, .projects-ethic .work .wprojectdata, .projects-mission .work .wprojectdata, .projects-contact .work .wprojectdata {
+    background: rgba(0, 0, 0, 0.75);
+    color: white;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    display: none; }
+    .projects-work .work .wprojectdata .datatype, .projects-chronicle .work .wprojectdata .datatype, .projects-journal .work .wprojectdata .datatype, .projects-lab .work .wprojectdata .datatype, .projects-studio .work .wprojectdata .datatype, .projects-people .work .wprojectdata .datatype, .projects-competencies .work .wprojectdata .datatype, .projects-ethic .work .wprojectdata .datatype, .projects-mission .work .wprojectdata .datatype, .projects-contact .work .wprojectdata .datatype {
+      padding: 4px 10px; }
+    .projects-work .work .wprojectdata .clientdata, .projects-chronicle .work .wprojectdata .clientdata, .projects-journal .work .wprojectdata .clientdata, .projects-lab .work .wprojectdata .clientdata, .projects-studio .work .wprojectdata .clientdata, .projects-people .work .wprojectdata .clientdata, .projects-competencies .work .wprojectdata .clientdata, .projects-ethic .work .wprojectdata .clientdata, .projects-mission .work .wprojectdata .clientdata, .projects-contact .work .wprojectdata .clientdata {
+      padding: 8px 10px 4px; }
+    .projects-work .work .wprojectdata .moredata, .projects-chronicle .work .wprojectdata .moredata, .projects-journal .work .wprojectdata .moredata, .projects-lab .work .wprojectdata .moredata, .projects-studio .work .wprojectdata .moredata, .projects-people .work .wprojectdata .moredata, .projects-competencies .work .wprojectdata .moredata, .projects-ethic .work .wprojectdata .moredata, .projects-mission .work .wprojectdata .moredata, .projects-contact .work .wprojectdata .moredata {
+      padding: 10px; }
+      .projects-work .work .wprojectdata .moredata a, .projects-chronicle .work .wprojectdata .moredata a, .projects-journal .work .wprojectdata .moredata a, .projects-lab .work .wprojectdata .moredata a, .projects-studio .work .wprojectdata .moredata a, .projects-people .work .wprojectdata .moredata a, .projects-competencies .work .wprojectdata .moredata a, .projects-ethic .work .wprojectdata .moredata a, .projects-mission .work .wprojectdata .moredata a, .projects-contact .work .wprojectdata .moredata a {
+        display: block;
+        text-indent: -9999px;
+        background: url(/images/morearrow.png);
+        height: 10px;
+        width: 10px; }
+    .projects-work .work .wprojectdata .projectdata .name, .projects-chronicle .work .wprojectdata .projectdata .name, .projects-journal .work .wprojectdata .projectdata .name, .projects-lab .work .wprojectdata .projectdata .name, .projects-studio .work .wprojectdata .projectdata .name, .projects-people .work .wprojectdata .projectdata .name, .projects-competencies .work .wprojectdata .projectdata .name, .projects-ethic .work .wprojectdata .projectdata .name, .projects-mission .work .wprojectdata .projectdata .name, .projects-contact .work .wprojectdata .projectdata .name {
+      margin-bottom: 8px; }
+  .projects-work .work .wproject:hover .wprojectdata, .projects-chronicle .work .wproject:hover .wprojectdata, .projects-journal .work .wproject:hover .wprojectdata, .projects-lab .work .wproject:hover .wprojectdata, .projects-studio .work .wproject:hover .wprojectdata, .projects-people .work .wproject:hover .wprojectdata, .projects-competencies .work .wproject:hover .wprojectdata, .projects-ethic .work .wproject:hover .wprojectdata, .projects-mission .work .wproject:hover .wprojectdata, .projects-contact .work .wproject:hover .wprojectdata {
+    display: block; }
+
+.projects-work .tlwrapper {
+  padding: 0 33px 0 37px; }
+.projects-work .atimeline {
+  z-index: 99; }
+
+.statisticsentry {
+  padding-top: 70px; }
+  .statisticsentry .add_nested_fields, .statisticsentry .newstat a {
+    display: block;
+    border: 1px solid black;
+    padding: 5px 10px;
+    width: 10px;
+    float: left;
+    color: black;
+    margin-bottom: 25px; }
+
+.statform {
+  display: none; }
+
+.statform-0 {
+  display: block; }
+
+.dailynotes textarea {
+  height: 100px; }
+
+.fields {
+  border-bottom: 1px solid black;
+  margin-bottom: 10px; }
+
+.projects-chronicle .headline, .projects-chronicle .atimeline {
+  z-index: 9; }
+.projects-chronicle .atimeline {
+  border-top: 0; }
+.projects-chronicle .atimelinel {
+  width: 50%;
+  float: left;
+  border-top: 2px dashed black;
+  position: relative;
+  top: -2px; }
+.projects-chronicle .atimeliner {
+  width: 50%;
+  float: left;
+  border-top: 2px solid black;
+  position: relative;
+  top: -2px; }
+.projects-chronicle .graphs {
+  height: 500px; }
+.projects-chronicle .agraph {
+  overflow: hidden;
+  padding: 1px; }
+.projects-chronicle #graph2013 {
+  z-index: 4;
+  position: absolute;
+  margin: 0 auto; }
+  .projects-chronicle #graph2013 text {
+    display: none; }
+.projects-chronicle #graph2012 {
+  z-index: 3;
+  position: absolute;
+  margin: 0 auto; }
+  .projects-chronicle #graph2012 text {
+    display: none; }
+.projects-chronicle #graph2011 {
+  z-index: 2;
+  position: absolute;
+  margin: 0 auto; }
+  .projects-chronicle #graph2011 text {
+    display: none; }
+.projects-chronicle #graph2010 {
+  z-index: 1;
+  position: absolute;
+  margin: 0 auto; }
+  .projects-chronicle #graph2010 text {
+    display: none; }
+.projects-chronicle #graph2009 {
+  z-index: 0;
+  position: absolute;
+  margin: 0 auto; }
+  .projects-chronicle #graph2009 text {
+    display: none; }
+.projects-chronicle .controls {
+  /*top: 200px */ }
+  .projects-chronicle .controls .box {
+    height: 120px;
+    width: 278px;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    margin-bottom: 4px; }
+    .projects-chronicle .controls .box .boxhead {
+      font-size: 83px;
+      line-height: 83px;
+      padding: 5px 0 0 10px; }
+    .projects-chronicle .controls .box .boxtag {
+      padding: 0 0 0 10px;
+      font-size: 27px;
+      line-height: 15px; }
+  .projects-chronicle .controls .box2 {
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 5px 10px;
+    width: 258px; }
+    .projects-chronicle .controls .box2 .arrow {
+      float: right;
+      background: url(/images/controlarrows.png) no-repeat;
+      width: 11px;
+      height: 11px;
+      position: relative;
+      bottom: 16px; }
+.projects-chronicle .text {
+  background: rgba(255, 255, 255, 0.65);
+  /*margin-top: 200px */
+  width: 345px;
+  height: auto; }
+.projects-chronicle .dates {
+  position: relative;
+  bottom: 16px;
+  color: white;
+  font-size: 12px;
+  z-index: 9; }
+  .projects-chronicle .dates div {
+    float: left;
+    position: absolute; }
+
+.projects-journal .pageheader, .projects-lab .pageheader, .projects-studio .pageheader, .projects-people .pageheader, .projects-competencies .pageheader, .projects-ethic .pageheader, .projects-mission .pageheader, .projects-contact .pageheader {
+  position: relative; }
+.projects-journal .journalswrapper, .projects-lab .journalswrapper, .projects-studio .journalswrapper, .projects-people .journalswrapper, .projects-competencies .journalswrapper, .projects-ethic .journalswrapper, .projects-mission .journalswrapper, .projects-contact .journalswrapper {
+  width: 100%;
+  overflow: hidden; }
+.projects-journal .journals, .projects-lab .journals, .projects-studio .journals, .projects-people .journals, .projects-competencies .journals, .projects-ethic .journals, .projects-mission .journals, .projects-contact .journals {
+  margin-bottom: 20px;
+  float: left;
+  position: relative; }
+  .projects-journal .journals .journal, .projects-lab .journals .journal, .projects-studio .journals .journal, .projects-people .journals .journal, .projects-competencies .journals .journal, .projects-ethic .journals .journal, .projects-mission .journals .journal, .projects-contact .journals .journal {
+    float: left;
+    position: relative; }
+    .projects-journal .journals .journal .blog, .projects-lab .journals .journal .blog, .projects-studio .journals .journal .blog, .projects-people .journals .journal .blog, .projects-competencies .journals .journal .blog, .projects-ethic .journals .journal .blog, .projects-mission .journals .journal .blog, .projects-contact .journals .journal .blog {
+      float: left;
+      width: 252px;
+      height: 425px;
+      background: #ececec;
+      padding: 10px;
+      overflow: hidden; }
+      .projects-journal .journals .journal .blog .jhead, .projects-lab .journals .journal .blog .jhead, .projects-studio .journals .journal .blog .jhead, .projects-people .journals .journal .blog .jhead, .projects-competencies .journals .journal .blog .jhead, .projects-ethic .journals .journal .blog .jhead, .projects-mission .journals .journal .blog .jhead, .projects-contact .journals .journal .blog .jhead {
+        font-family: bodonibold;
+        font-weight: bold;
+        font-size: 12px;
+        margin-bottom: 20px; }
+        .projects-journal .journals .journal .blog .jhead .cat, .projects-lab .journals .journal .blog .jhead .cat, .projects-studio .journals .journal .blog .jhead .cat, .projects-people .journals .journal .blog .jhead .cat, .projects-competencies .journals .journal .blog .jhead .cat, .projects-ethic .journals .journal .blog .jhead .cat, .projects-mission .journals .journal .blog .jhead .cat, .projects-contact .journals .journal .blog .jhead .cat {
+          text-transform: uppercase; }
+      .projects-journal .journals .journal .blog .jcontent, .projects-lab .journals .journal .blog .jcontent, .projects-studio .journals .journal .blog .jcontent, .projects-people .journals .journal .blog .jcontent, .projects-competencies .journals .journal .blog .jcontent, .projects-ethic .journals .journal .blog .jcontent, .projects-mission .journals .journal .blog .jcontent, .projects-contact .journals .journal .blog .jcontent {
+        margin-bottom: 20px; }
+        .projects-journal .journals .journal .blog .jcontent p, .projects-lab .journals .journal .blog .jcontent p, .projects-studio .journals .journal .blog .jcontent p, .projects-people .journals .journal .blog .jcontent p, .projects-competencies .journals .journal .blog .jcontent p, .projects-ethic .journals .journal .blog .jcontent p, .projects-mission .journals .journal .blog .jcontent p, .projects-contact .journals .journal .blog .jcontent p {
+          line-height: 21px;
+          margin: 0; }
+      .projects-journal .journals .journal .blog .jfoot, .projects-lab .journals .journal .blog .jfoot, .projects-studio .journals .journal .blog .jfoot, .projects-people .journals .journal .blog .jfoot, .projects-competencies .journals .journal .blog .jfoot, .projects-ethic .journals .journal .blog .jfoot, .projects-mission .journals .journal .blog .jfoot, .projects-contact .journals .journal .blog .jfoot {
+        text-transform: uppercase;
+        font-family: bodonibold;
+        font-weight: bold;
+        font-size: 12px; }
+    .projects-journal .journals .journal .photo, .projects-lab .journals .journal .photo, .projects-studio .journals .journal .photo, .projects-people .journals .journal .photo, .projects-competencies .journals .journal .photo, .projects-ethic .journals .journal .photo, .projects-mission .journals .journal .photo, .projects-contact .journals .journal .photo {
+      float: right;
+      margin-right: 10px;
+      margin-left: 10px;
+      height: 445px;
+      text-align: center;
+      position: relative;
+      overflow: hidden; }
+      .projects-journal .journals .journal .photo a.morebtn, .projects-lab .journals .journal .photo a.morebtn, .projects-studio .journals .journal .photo a.morebtn, .projects-people .journals .journal .photo a.morebtn, .projects-competencies .journals .journal .photo a.morebtn, .projects-ethic .journals .journal .photo a.morebtn, .projects-mission .journals .journal .photo a.morebtn, .projects-contact .journals .journal .photo a.morebtn {
+        display: block;
+        position: absolute;
+        background: url(/images/morebtn.png) no-repeat;
+        height: 27px;
+        width: 69px;
+        bottom: 0;
+        right: 0; }
+      .projects-journal .journals .journal .photo a.morebtn:last-child, .projects-lab .journals .journal .photo a.morebtn:last-child, .projects-studio .journals .journal .photo a.morebtn:last-child, .projects-people .journals .journal .photo a.morebtn:last-child, .projects-competencies .journals .journal .photo a.morebtn:last-child, .projects-ethic .journals .journal .photo a.morebtn:last-child, .projects-mission .journals .journal .photo a.morebtn:last-child, .projects-contact .journals .journal .photo a.morebtn:last-child {
+        right: 5px; }
+      .projects-journal .journals .journal .photo img, .projects-lab .journals .journal .photo img, .projects-studio .journals .journal .photo img, .projects-people .journals .journal .photo img, .projects-competencies .journals .journal .photo img, .projects-ethic .journals .journal .photo img, .projects-mission .journals .journal .photo img, .projects-contact .journals .journal .photo img {
+        max-width: none; }
+  .projects-journal .journals .morephoto, .projects-lab .journals .morephoto, .projects-studio .journals .morephoto, .projects-people .journals .morephoto, .projects-competencies .journals .morephoto, .projects-ethic .journals .morephoto, .projects-mission .journals .morephoto, .projects-contact .journals .morephoto {
+    position: relative;
+    float: left;
+    display: none; }
+  .projects-journal .journals .morephotos, .projects-lab .journals .morephotos, .projects-studio .journals .morephotos, .projects-people .journals .morephotos, .projects-competencies .journals .morephotos, .projects-ethic .journals .morephotos, .projects-mission .journals .morephotos, .projects-contact .journals .morephotos {
+    display: none;
+    background: white;
+    float: left;
+    padding-right: 10px; }
+    .projects-journal .journals .morephotos .photo, .projects-lab .journals .morephotos .photo, .projects-studio .journals .morephotos .photo, .projects-people .journals .morephotos .photo, .projects-competencies .journals .morephotos .photo, .projects-ethic .journals .morephotos .photo, .projects-mission .journals .morephotos .photo, .projects-contact .journals .morephotos .photo {
+      margin-right: 5px;
+      margin-left: 5px;
+      float: left; }
+    .projects-journal .journals .morephotos .photo:nth-last-child(2), .projects-lab .journals .morephotos .photo:nth-last-child(2), .projects-studio .journals .morephotos .photo:nth-last-child(2), .projects-people .journals .morephotos .photo:nth-last-child(2), .projects-competencies .journals .morephotos .photo:nth-last-child(2), .projects-ethic .journals .morephotos .photo:nth-last-child(2), .projects-mission .journals .morephotos .photo:nth-last-child(2), .projects-contact .journals .morephotos .photo:nth-last-child(2) {
+      margin-right: 0; }
+    .projects-journal .journals .morephotos a.lessbtn, .projects-lab .journals .morephotos a.lessbtn, .projects-studio .journals .morephotos a.lessbtn, .projects-people .journals .morephotos a.lessbtn, .projects-competencies .journals .morephotos a.lessbtn, .projects-ethic .journals .morephotos a.lessbtn, .projects-mission .journals .morephotos a.lessbtn, .projects-contact .journals .morephotos a.lessbtn {
+      display: block;
+      position: absolute;
+      background: url(/images/lessbtn.png) no-repeat;
+      height: 27px;
+      width: 69px;
+      bottom: 0px;
+      right: 0px; }
+  .projects-journal .journals .journal:last-child, .projects-lab .journals .journal:last-child, .projects-studio .journals .journal:last-child, .projects-people .journals .journal:last-child, .projects-competencies .journals .journal:last-child, .projects-ethic .journals .journal:last-child, .projects-mission .journals .journal:last-child, .projects-contact .journals .journal:last-child {
+    margin-right: 0; }
+.projects-journal .pcontrol, .projects-lab .pcontrol, .projects-studio .pcontrol, .projects-people .pcontrol, .projects-competencies .pcontrol, .projects-ethic .pcontrol, .projects-mission .pcontrol, .projects-contact .pcontrol {
+  cursor: pointer;
+  position: absolute;
+  left: -23px;
+  top: -11px;
+  height: 22px;
+  width: 23px;
+  background: url(/images/controlarrowssprite.png) no-repeat -23px 0;
+  z-index: 9999; }
+.projects-journal .ncontrol, .projects-lab .ncontrol, .projects-studio .ncontrol, .projects-people .ncontrol, .projects-competencies .ncontrol, .projects-ethic .ncontrol, .projects-mission .ncontrol, .projects-contact .ncontrol {
+  cursor: pointer;
+  position: absolute;
+  right: -23px;
+  top: -11px;
+  height: 22px;
+  width: 23px;
+  background: url(/images/controlarrowssprite.png) no-repeat 0 0;
+  z-index: 9999; }
+.projects-journal .controls, .projects-lab .controls, .projects-studio .controls, .projects-people .controls, .projects-competencies .controls, .projects-ethic .controls, .projects-mission .controls, .projects-contact .controls {
+  right: 103px; }
+  .projects-journal .controls .searchcat, .projects-lab .controls .searchcat, .projects-studio .controls .searchcat, .projects-people .controls .searchcat, .projects-competencies .controls .searchcat, .projects-ethic .controls .searchcat, .projects-mission .controls .searchcat, .projects-contact .controls .searchcat {
+    visibility: hidden; }
+    .projects-journal .controls .searchcat .box, .projects-lab .controls .searchcat .box, .projects-studio .controls .searchcat .box, .projects-people .controls .searchcat .box, .projects-competencies .controls .searchcat .box, .projects-ethic .controls .searchcat .box, .projects-mission .controls .searchcat .box, .projects-contact .controls .searchcat .box {
+      background: url(/images/controlsbg.png);
+      width: 262px;
+      padding: 10px;
+      margin-bottom: 10px; }
+      .projects-journal .controls .searchcat .box .words, .projects-lab .controls .searchcat .box .words, .projects-studio .controls .searchcat .box .words, .projects-people .controls .searchcat .box .words, .projects-competencies .controls .searchcat .box .words, .projects-ethic .controls .searchcat .box .words, .projects-mission .controls .searchcat .box .words, .projects-contact .controls .searchcat .box .words {
+        color: white; }
+      .projects-journal .controls .searchcat .box .arrow, .projects-lab .controls .searchcat .box .arrow, .projects-studio .controls .searchcat .box .arrow, .projects-people .controls .searchcat .box .arrow, .projects-competencies .controls .searchcat .box .arrow, .projects-ethic .controls .searchcat .box .arrow, .projects-mission .controls .searchcat .box .arrow, .projects-contact .controls .searchcat .box .arrow {
+        float: right;
+        background: url(/images/controlarrows.png) no-repeat;
+        width: 11px;
+        height: 11px;
+        position: relative;
+        bottom: 13px; }
+  .projects-journal .controls .searchkey .box, .projects-lab .controls .searchkey .box, .projects-studio .controls .searchkey .box, .projects-people .controls .searchkey .box, .projects-competencies .controls .searchkey .box, .projects-ethic .controls .searchkey .box, .projects-mission .controls .searchkey .box, .projects-contact .controls .searchkey .box {
+    background: url(/images/controlsbg.png);
+    width: 262px;
+    padding: 10px; }
+    .projects-journal .controls .searchkey .box .words, .projects-lab .controls .searchkey .box .words, .projects-studio .controls .searchkey .box .words, .projects-people .controls .searchkey .box .words, .projects-competencies .controls .searchkey .box .words, .projects-ethic .controls .searchkey .box .words, .projects-mission .controls .searchkey .box .words, .projects-contact .controls .searchkey .box .words {
+      color: white; }
+    .projects-journal .controls .searchkey .box .glass, .projects-lab .controls .searchkey .box .glass, .projects-studio .controls .searchkey .box .glass, .projects-people .controls .searchkey .box .glass, .projects-competencies .controls .searchkey .box .glass, .projects-ethic .controls .searchkey .box .glass, .projects-mission .controls .searchkey .box .glass, .projects-contact .controls .searchkey .box .glass {
+      float: right;
+      background: url(/images/glass.png);
+      width: 16px;
+      height: 16px;
+      position: relative;
+      bottom: 15px; }
+
+.timelinepositioning {
+  position: absolute;
+  top: 0; }
+
+.tspan12 {
+  width: 100%; }
+
+.tcontainer {
+  overflow: hidden; }
+
+.archived {
+  background: rgba(0, 0, 0, 0.3); }
+
+.views-timeline .timelinewindow {
+  min-height: 300px; }
+
+.cropcontainer {
+  width: 600px;
+  margin: 100px auto; }
+  .cropcontainer img {
+    max-width: none !important; }
+
+#bgimg2, #bgimg3, #bgimg4, #bgimg5, #bgimg6, #bgimg7, #bgimg8, #bgimg9, #bgimg10, #bgimg11, #bgimg12, #bgimg13, #bgimg14, #bgimg15 {
+  position: absolute;
+  z-index: -1; }
+
+.bgboxes {
+  position: absolute;
+  top: 20px;
+  right: 46px; }
+  .bgboxes div {
+    float: left;
+    width: 10px;
+    height: 10px;
+    margin-right: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.3); }
+  .bgboxes .active {
+    background: rgba(255, 255, 255, 0.3);
+    border: none;
+    width: 12px;
+    height: 12px; }
+
+.logo {
+  cursor: pointer; }
+
+.previewimage {
+  height: 50px;
+  width: 50px; }
+  .previewimage img {
+    max-height: 50px;
+    max-width: 50px; }
+
+div[id^="highcharts-"] {
+  position: absolute !important; }
+
+.statinfo .areachart {
+  float: left;
+  width: 50%; }
+  .statinfo .areachart text {
+    display: none; }
+.statinfo .piechart {
+  float: left;
+  width: 25%;
+  position: relative; }
+  .statinfo .piechart text {
+    display: none; }
+  .statinfo .piechart .graphcontainer {
+    position: relative;
+    top: 10px; }
+
+.areagraphcontainer {
+  position: relative;
+  left: 0; }
+
+.stattitle {
+  text-transform: uppercase;
+  border-bottom: 1px solid;
+  font-weight: bold;
+  padding: 20px 0;
+  color: black; }
+
+.legend {
+  padding-top: 5px;
+  position: absolute;
+  bottom: 10px;
+  width: 100%; }
+  .legend .item {
+    float: left;
+    width: 50%; }
+  .legend .color, .legend .name {
+    float: left; }
+  .legend .name {
+    padding-top: 2px; }
+  .legend .color {
+    height: 10px;
+    width: 30px;
+    margin-right: 10px;
+    margin-top: 5px; }
+
+.percentage {
+  font-size: 101px;
+  color: black;
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  top: 113px;
+  width: 100%;
+  text-align: center; }
+
+body.projects-work {
+  overflow: hidden;
+  height: 100%; }
+  body.projects-work .atimeline .menunav {
+    z-index: 4; }
+  body.projects-work .pageheader {
+    z-index: 3;
+    position: relative; }
+
+.workwrapper {
+  position: relative; }
+  .workwrapper .work {
+    z-index: 1; }
+
+.mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.85);
+  z-index: 2; }
+
+.searchkey input {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  color: white;
+  margin: 0;
+  padding: 0;
+  font-family: bodoniroman; }
+.searchkey input:focus {
+  box-shadow: none; }
+
+.glass {
+  cursor: pointer; }
+
+.pageheader {
+  position: relative; }
+
+.projects-studio {
+  height: 100%;
+  overflow: hidden; }
+
+.projects-lab, .projects-competencies, .projects-ethic, .projects-mission, .projects-contact {
+  height: 100%;
+  overflow: hidden; }
+  .projects-lab #realBody, .projects-competencies #realBody, .projects-ethic #realBody, .projects-mission #realBody, .projects-contact #realBody {
+    background: rgba(255, 255, 255, 0.65); }
+
+.projects-people #realBody {
+  background: rgba(255, 255, 255, 0.76); }
+
+.projects-people, .projects-competencies, .projects-ethic, .projects-mission, .projects-contact {
+  height: 100%;
+  overflow: hidden; }
+
+.alab {
+  padding-left: 10px;
+  display: none; }
+
+.alab.active {
+  display: block; }
+
+.labheading {
+  padding: 20px 0;
+  color: black; }
+
+.staffcontents .block {
+  float: left;
+  width: 400px;
+  margin-right: 25px; }
+  .staffcontents .block p {
+    font-size: 14px; }
+.staffcontents .block:last-child {
+  margin-right: 0; }
+
+.labcontents {
+  color: black;
+  float: left; }
+  .labcontents .block {
+    float: left;
+    width: 400px;
+    margin-right: 60px; }
+    .labcontents .block p {
+      line-height: 1.6;
+      font-size: 14px; }
+  .labcontents .spacing {
+    padding: 10px 0; }
+
+.projects-lab .atimeline .menunav .rnav .rnavcontent, .projects-studio .atimeline .menunav .rnav .rnavcontent, .projects-people .atimeline .menunav .rnav .rnavcontent, .projects-competencies .atimeline .menunav .rnav .rnavcontent, .projects-ethic .atimeline .menunav .rnav .rnavcontent, .projects-mission .atimeline .menunav .rnav .rnavcontent, .projects-contact .atimeline .menunav .rnav .rnavcontent {
+  bottom: -9px;
+  background: black;
+  padding-top: 11px;
+  height: 120px; }
+.projects-lab .atimeline .menunav .rnav .top div, .projects-studio .atimeline .menunav .rnav .top div, .projects-people .atimeline .menunav .rnav .top div, .projects-competencies .atimeline .menunav .rnav .top div, .projects-ethic .atimeline .menunav .rnav .top div, .projects-mission .atimeline .menunav .rnav .top div, .projects-contact .atimeline .menunav .rnav .top div {
+  margin-bottom: 5px; }
+
+.anystretch {
+  position: absolute;
+  top: 0;
+  z-index: -9;
+  width: 100%; }
+
+.studiowrapper {
+  padding-left: 10px; }
+  .studiowrapper h2 {
+    font-size: 38px;
+    font-weight: normal;
+    padding: 20px 0; }
+  .studiowrapper .studiocontents p {
+    width: 400px;
+    color: black;
+    font-size: 14px;
+    line-height: 1.6; }
+  .studiowrapper .studiocontents .block {
+    float: left;
+    width: 400px;
+    margin-right: 25px; }
+    .studiowrapper .studiocontents .block p {
+      color: black;
+      font-size: 14px;
+      line-height: 1.6; }
+  .studiowrapper .studiocontents .block:last-child {
+    margin-right: 0; }
+
+.projects-people .anystretch, .projects-competencies .anystretch, .projects-ethic .anystretch, .projects-mission .anystretch, .projects-contact .anystretch {
+  background: rgba(255, 255, 255, 0.76); }
+
+.staffwrapper {
+  color: black;
+  overflow: hidden; }
+  .staffwrapper .staffs {
+    position: relative; }
+  .staffwrapper .astaff {
+    padding-left: 10px;
+    float: left; }
+    .staffwrapper .astaff h2 {
+      font-size: 38px;
+      font-weight: normal;
+      padding: 20px 0 10px; }
+    .staffwrapper .astaff h3 {
+      font-size: 28px;
+      padding: 0 0 10px;
+      font-weight: normal; }
+
+.projects-people .rnav, .projects-competencies .rnav, .projects-ethic .rnav, .projects-mission .rnav, .projects-contact .rnav {
+  position: relative; }
+.projects-people .rnavcontent, .projects-competencies .rnavcontent, .projects-ethic .rnavcontent, .projects-mission .rnavcontent, .projects-contact .rnavcontent {
+  height: 105px !important; }
+.projects-people .staffnav, .projects-competencies .staffnav, .projects-ethic .staffnav, .projects-mission .staffnav, .projects-contact .staffnav {
+  position: absolute;
+  top: 120px;
+  left: 150px;
+  width: 200px;
+  z-index: 9999; }
+  .projects-people .staffnav li, .projects-competencies .staffnav li, .projects-ethic .staffnav li, .projects-mission .staffnav li, .projects-contact .staffnav li {
+    padding: 2px 0; }
+    .projects-people .staffnav li a, .projects-competencies .staffnav li a, .projects-ethic .staffnav li a, .projects-mission .staffnav li a, .projects-contact .staffnav li a {
+      color: black;
+      text-transform: uppercase; }
+    .projects-people .staffnav li a:hover, .projects-competencies .staffnav li a:hover, .projects-ethic .staffnav li a:hover, .projects-mission .staffnav li a:hover, .projects-contact .staffnav li a:hover {
+      text-decoration: none; }
+    .projects-people .staffnav li a.active, .projects-competencies .staffnav li a.active, .projects-ethic .staffnav li a.active, .projects-mission .staffnav li a.active, .projects-contact .staffnav li a.active {
+      color: #8b8b8b; }
+
+a.thumblink {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0; }
+
+.projects-prcs #realBody, .projects-stats #realBody {
+  background: rgba(255, 255, 255, 0.6); }
+
+.projects-chronicle .box3 {
+  display: none;
+  background: rgba(0, 0, 0, 0.6);
+  float: left;
+  width: 258px;
+  margin-top: -6px;
+  padding: 10px 10px 5px;
+  height: 69px;
+  position: relative;
+  left: -10px; }
+  .projects-chronicle .box3 .thing {
+    color: white;
+    float: left;
+    width: 50%;
+    padding-bottom: 7px;
+    font-size: 16px; }
+    .projects-chronicle .box3 .thing a {
+      color: #8b8b8b; }
+    .projects-chronicle .box3 .thing a:hover {
+      text-decoration: none;
+      color: white; }
+    .projects-chronicle .box3 .thing a.active {
+      color: white; }
+
+.projects-chronicle {
+  height: 100%;
+  overflow: hidden; }
+  .projects-chronicle .keys {
+    position: absolute;
+    left: 0;
+    bottom: 30px;
+    width: auto;
+    margin: 0 auto; }
+  .projects-chronicle .key {
+    float: left;
+    margin-right: 20px; }
+  .projects-chronicle .color, .projects-chronicle .name {
+    float: left; }
+  .projects-chronicle .name {
+    padding-top: 2px; }
+  .projects-chronicle .color {
+    height: 10px;
+    width: 30px;
+    margin-right: 10px;
+    margin-top: 5px; }
+
+.projects-journal .boxcontent {
+  display: none; }
+  .projects-journal .boxcontent li {
+    padding: 5px 0; }
+  .projects-journal .boxcontent a {
+    color: white; }
+  .projects-journal .boxcontent a:hover {
+    text-decoration: none; }
+.projects-journal .searchcat:hover .boxcontent {
+  display: block; }
+
+.projects-work .text {
+  width: 340px;
+  position: relative; }
+.projects-work .controls {
+  top: 131px; }
+  .projects-work .controls .selector .boxcontent {
+    padding: 0 10px; }
+    .projects-work .controls .selector .boxcontent ul li {
+      padding: 5px 0 5px; }
+      .projects-work .controls .selector .boxcontent ul li a:hover {
+        text-decoration: none;
+        color: #b3b3b3; }
+      .projects-work .controls .selector .boxcontent ul li a.active {
+        color: #b3b3b3; }
+
+.projects-chronicle .text {
+  position: relative; }
+.projects-chronicle .controls {
+  top: 60px; }
+  .projects-chronicle .controls .box2 {
+    height: 23px; }
+
+.projects-work .controls {
+  width: 278px; }
+  .projects-work .controls .selector {
+    background: transparent; }
+    .projects-work .controls .selector .box {
+      background: url(/images/controlsbg.png);
+      position: relative;
+      z-index: 6;
+      padding-left: 5px; }
+      .projects-work .controls .selector .box .arrow {
+        margin-top: 2px; }
+    .projects-work .controls .selector .boxcontent {
+      height: 120px;
+      padding: 32px 10px 0;
+      position: relative;
+      top: -32px;
+      background: url(/images/controlsbg.png);
+      z-index: 5; }
+  .projects-work .controls .selector:hover .arrow {
+    background-position: 0 -11px; }
+
+.projects-journal .text {
+  width: 340px;
+  position: relative; }
+.projects-journal .controls {
+  top: 131px;
+  right: 99px; }
+  .projects-journal .controls .searchkey .box {
+    width: 258px; }
+  .projects-journal .controls .searchcat .box {
+    width: 258px; }
+  .projects-journal .controls .searchcat .boxcontent {
+    position: absolute;
+    height: 139px;
+    width: 278px;
+    background: #696969;
+    left: 0;
+    top: 36px;
+    z-index: 9; }
+    .projects-journal .controls .searchcat .boxcontent ul {
+      padding-top: 10px; }
+      .projects-journal .controls .searchcat .boxcontent ul li {
+        padding: 3px 10px 4px; }
+
+.rnavcontent.labnavsec {
+  top: 11px !important;
+  position: absolute !important;
+  display: block !important;
+  background: black;
+  padding-top: 11px;
+  width: 119px;
+  height: 130px;
+  padding-left: 10px;
+  position: relative;
+  left: 149px;
+  z-index: 999; }
+  .rnavcontent.labnavsec a {
+    color: #8b8b8b;
+    font-size: 12px;
+    line-height: 17px;
+    text-transform: uppercase; }
+  .rnavcontent.labnavsec a:hover, .rnavcontent.labnavsec a.active {
+    color: white;
+    text-decoration: none; }
+
+.rnavcontent.studionavsec {
+  top: 11px !important;
+  position: absolute !important;
+  display: block !important;
+  background: black;
+  padding-top: 5px;
+  width: 121px;
+  height: 92px !important;
+  padding-left: 8px;
+  position: relative;
+  left: 149px;
+  z-index: 999; }
+  .rnavcontent.studionavsec a {
+    color: #8b8b8b;
+    font-size: 12px;
+    line-height: 17px;
+    text-transform: uppercase; }
+  .rnavcontent.studionavsec a:hover, .rnavcontent.studionavsec a.active {
+    color: white;
+    text-decoration: none; }
+
+.standardrnavcontent {
+  display: none;
+  background: black url(/images/rmenuup.png) no-repeat;
+  width: 119px;
+  height: 75px;
+  padding-left: 10px;
+  padding-top: 22px;
+  position: relative;
+  bottom: 88px; }
+  .standardrnavcontent a {
+    color: #8b8b8b;
+    font-size: 12px;
+    line-height: 17px;
+    text-transform: uppercase; }
+  .standardrnavcontent a:hover {
+    color: white;
+    text-decoration: none; }
+
+.rnav:hover .standardrnavcontent {
+  display: block; }
+
+.projects-competencies .studiocontents p, .projects-competencies .staffcontents p, .projects-studio .studiocontents p, .projects-studio .staffcontents p, .projects-ethic .studiocontents p, .projects-ethic .staffcontents p, .projects-people .studiocontents p, .projects-people .staffcontents p, .projects-mission .studiocontents p, .projects-mission .staffcontents p, .projects-contact .studiocontents p, .projects-contact .staffcontents p {
+  width: 400px;
+  margin-right: 30px; }
+.projects-competencies .studiocontents p:last-child, .projects-competencies .staffcontents p:last-child, .projects-studio .studiocontents p:last-child, .projects-studio .staffcontents p:last-child, .projects-ethic .studiocontents p:last-child, .projects-ethic .staffcontents p:last-child, .projects-people .studiocontents p:last-child, .projects-people .staffcontents p:last-child, .projects-mission .studiocontents p:last-child, .projects-mission .staffcontents p:last-child, .projects-contact .studiocontents p:last-child, .projects-contact .staffcontents p:last-child {
+  margin-right: 0; }
+
+.projects-studio #bgimg {
+  top: 0 !important; }
+
+.invitations-edit, .invitations-new {
+  padding: 100px 300px; }
+
+.projectstatscontainer, .projectscontainer {
+  display: none; }
+
+.projects-people #realBody {
+  position: absolute;
+  top: 0;
+  left: 0; }
+
+.projects-work .box .cat {
+  text-transform: uppercase; }
+
+.categorycontent {
+  display: none; }
+  .categorycontent ul {
+    padding-top: 5px;
+    padding-left: 5px; }
+    .categorycontent ul li {
+      padding: 2px 0; }
+      .categorycontent ul li a {
+        color: #8b8b8b;
+        text-transform: uppercase;
+        font-size: 12px; }
+      .categorycontent ul li a:hover {
+        text-decoration: none;
+        color: black; }
+      .categorycontent ul li a.active {
+        color: black; }
+
+.mediumcontent {
+  display: none; }
+  .mediumcontent ul {
+    width: 100%;
+    padding-top: 5px;
+    padding-left: 5px; }
+    .mediumcontent ul li {
+      padding: 2px 0;
+      width: 50%;
+      float: left; }
+      .mediumcontent ul li a {
+        color: #8b8b8b;
+        text-transform: uppercase;
+        font-size: 12px; }
+      .mediumcontent ul li a:hover {
+        text-decoration: none;
+        color: black; }
+      .mediumcontent ul li a.active {
+        color: black; }
+
+.clientcontent {
+  display: none; }
+  .clientcontent ul.l {
+    width: 145px;
+    float: left;
+    padding-top: 5px;
+    padding-left: 5px;
+    margin: 0 8px 0 0; }
+    .clientcontent ul.l li {
+      padding: 0;
+      width: 50%;
+      float: left; }
+      .clientcontent ul.l li a {
+        color: #8b8b8b;
+        text-transform: uppercase;
+        font-size: 12px; }
+      .clientcontent ul.l li a:hover {
+        text-decoration: none;
+        color: black; }
+      .clientcontent ul.l li a.active {
+        color: black; }
+  .clientcontent ul.r {
+    width: 120px;
+    float: left;
+    padding-top: 5px;
+    margin: 0; }
+    .clientcontent ul.r li {
+      padding: 0; }
+      .clientcontent ul.r li a {
+        color: #8b8b8b;
+        text-transform: uppercase;
+        font-size: 12px; }
+      .clientcontent ul.r li a:hover {
+        text-decoration: none;
+        color: black; }
+      .clientcontent ul.r li a.active {
+        color: black; }
+
+.clientswork {
+  display: none; }
+  .clientswork ul {
+    width: 190px;
+    float: left; }
+    .clientswork ul li {
+      width: 190px;
+      float: left;
+      padding: 4px 0; }
+      .clientswork ul li a {
+        color: #8b8b8b; }
+      .clientswork ul li a.active {
+        color: black; }
+      .clientswork ul li a:hover {
+        text-decoration: none;
+        color: black; }
+  .clientswork .clientprojects {
+    display: none; }
+    .clientswork .clientprojects ul {
+      padding-left: 10px; }
+      .clientswork .clientprojects ul li {
+        float: none; }
+
+.companylogo {
+  margin-left: 34px;
+  height: 220px;
+  opacity: 0.55;
+  cursor: pointer; }
+
+.projects-contact #realBody {
+  background: transparent !important; }
+
+.contactus {
+  line-height: 21px;
+  font-size: 14px; }
+  .contactus a {
+    color: #333333; }
+  .contactus a:hover {
+    text-decoration: none; }
+  .contactus .name {
+    font-family: bodonibold;
+    font-weight: bold; }
+  .contactus .email .icon {
+    width: 14px;
+    height: 16px;
+    float: left;
+    background: url(/images/emailicon.png) no-repeat 0 2px; }
+  .contactus .email span {
+    padding-left: 5px; }
+  .contactus .twitter {
+    clear: both; }
+    .contactus .twitter .icon {
+      width: 14px;
+      height: 16px;
+      float: left;
+      background: url(/images/twittericon.png) no-repeat 0 2px; }
+    .contactus .twitter span {
+      padding-left: 5px; }
+
+.projects-journal .boxcontent a {
+  color: #8b8b8b; }
+.projects-journal .boxcontent a:hover {
+  text-decoration: none;
+  color: white; }
+.projects-journal .boxcontent a.active {
+  color: white; }
+
+.projects-mission .atimeline .menunav .rnav .top div, .projects-lab .atimeline .menunav .rnav .top div, .projects-people .atimeline .menunav .rnav .top div, .projects-competencies .atimeline .menunav .rnav .top div, .projects-ethic .atimeline .menunav .rnav .top div, .projects-contact .atimeline .menunav .rnav .top div {
+  margin-bottom: 0 !important; }
+
+.scrollmsg {
+  position: absolute;
+  left: 34px;
+  top: -55px;
+  height: 15px;
+  width: auto;
+  font-size: 12px;
+  color: #8b8b8b;
+  z-index: 99; }
+
+.labnavsec .top div {
+  margin-bottom: 5px; }
+
+@media screen and (max-width: 1024px) {
+  h3, h2, h1 {
+    font-weight: normal; }
+
+  .projects-mission .studiocontents p {
+    width: 400px; }
+
+  .labheading {
+    padding: 10px 0; }
+
+  .labcontents .block {
+    margin-right: 15px;
+    width: 400px; }
+    .labcontents .block p {
+      margin-bottom: 5px; }
+  .labcontents .block:last-child {
+    margin-right: 0; }
+
+  .lnavcontent {
+    bottom: 96px !important;
+    padding-bottom: 25px;
+    display: none !important; }
+
+  .rnavcontent, .standardrnavcontent, .rnavcontent.labnavsec, .rnavcontent.studionavsec {
+    bottom: 107px !important;
+    padding-bottom: 10px;
+    display: none !important; }
+
+  .projects-work .work .wprojectdata {
+    font-size: 8px; }
+
+  .projects-people .staffnav {
+    left: 200px; }
+  .projects-people .staffcontents .block {
+    width: 350px; }
+  .projects-people .staffcontents p {
+    margin-bottom: 5px;
+    width: 350px; }
+
+  .staffcontents p, .labcontents p, .studiocontents p {
+    font-size: 13px; }
+  .staffcontents .block p, .labcontents .block p, .studiocontents .block p {
+    font-size: 13px; } }
+@media screen and (max-width: 768px) {
+  .projects-work .text, .projects-chronicle .text, .projects-journal .text {
+    top: 0;
+    bottom: auto; }
+
+  .projects-people .staffnav {
+    left: 150px;
+    top: 20px; }
+  .projects-people .staffcontents .block {
+    width: 300px; }
+  .projects-people .staffcontents p {
+    margin-bottom: 5px;
+    width: 300px; }
+  .projects-people .rnavcontent.studionavsec {
+    z-index: 9999999; }
+
+  .projects-work .work .wprojectdata {
+    font-size: 8px; }
+
+  h3, h2, h1 {
+    font-weight: normal; }
+
+  .menunav .rnav, .menunav .lnav {
+    height: 19px !important;
+    background: url(/images/menunavclosed.png) 0 10px no-repeat !important;
+    position: relative !important;
+    bottom: 10px !important; }
+  .menunav a {
+    font-size: 12px;
+    line-height: 17px;
+    position: relative;
+    z-index: 99999; }
+  .menunav .lnavcontent {
+    bottom: 96px !important;
+    padding-bottom: 25px;
+    display: none !important; }
+  .menunav .rnavcontent, .menunav .standardrnavcontent {
+    bottom: 115px !important;
+    padding-bottom: 28px;
+    display: none !important; }
+  .menunav .rnavcontent.labnavsec {
+    bottom: 114px !important;
+    padding-bottom: 0px !important;
+    padding-top: 19px !important; }
+  .menunav .rnavcontent.studionavsec {
+    bottom: 114px !important;
+    padding-top: 19px !important;
+    padding-bottom: 0px !important; }
+
+  .projects-work .controls {
+    clear: both;
+    top: 195px;
+    right: 47px;
+    top: 131px; }
+
+  .views-timeline .tagline {
+    /*padding-left: 50px */ }
+
+  .projects-chronicle .keys {
+    position: absolute;
+    left: 0;
+    width: auto;
+    margin: 0 auto; }
+  .projects-chronicle .text {
+    width: 215px;
+    height: 335px;
+    display: none; }
+  .projects-chronicle .controls {
+    right: 42px; }
+
+  .projects-lab .labcontents .block {
+    width: 300px;
+    margin-right: 10px; }
+
+  .projects-journal .controls {
+    right: 115px;
+    top: 270px; }
+
+  .projects-work .work .wproject {
+    height: 85px; }
+
+  .labcontents .block {
+    margin-right: 15px;
+    width: 300px !important; } }
+.unused .tagline {
+  float: left;
+  font-family: bodoniroman;
+  font-size: 16px;
+  line-height: 32px;
+  width: 350px;
+  position: absolute;
+  bottom: 0;
+  left: 190px; }
+  .unused .tagline span {
+    color: #a29061; }
+  .unused .tagline .subtagline {
+    font-size: 16px;
+    line-height: 32px; }

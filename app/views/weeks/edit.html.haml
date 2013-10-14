@@ -1,0 +1,38 @@
+= render :partial => "layouts/header"
+.container
+  .row
+    .span2.adminForm
+      %h2
+        Add data
+      .uname
+        = @week.name
+        %br
+        = @week.days.first.date
+        \-
+        = @week.days.last.date
+    .span10.adminForm.staffForm
+      -#
+        .weekdays
+          %h2
+            Daily data
+          - unless @week.days.empty?
+            %ul.unstyled
+              - @week.days.each do |d|
+                %li{:class => d.date}
+                  = label_tag d.date
+                  = link_to "Add data", edit_day_path(d), {:class => "editdaylink"}
+                  .clear
+      .weekinfo
+        %h2
+          Weekly data
+        - form_for @week, :html => { :multipart => true } do |f|
+          = f.label :description
+          = f.text_area :description
+          .clear
+          = label_tag "Image Snapshot"
+          = f.file_field :snapshot
+          .clear
+          = label_tag "Image Snapshot 2"
+          = f.file_field :snapshot2
+          .clear
+          = f.submit "Send", {:class => "btn-inverse admnbutton"}

@@ -1,0 +1,50 @@
+= render :partial => "layouts/header"
+.container
+  .row
+    .span2.adminForm
+      %h2
+        Manage blogs
+      .newlink
+        %a{:href => new_blog_path, :class => "btn-inverse admnbutton btn newbtn"}
+          New blog
+    .span10.adminForm
+      %table.table
+        %thead
+          %tr
+            %th
+              ID
+            %th
+              Title
+            %th
+              Publish date
+            %th
+              Actions
+        %tbody
+          - @blogs.each do |b|
+            %tr
+              %td
+                = b.id
+              %td
+                = b.name
+              %td
+                = b.created_at.to_s.gsub(/ .*/, "")
+              %td
+                = link_to "edit", edit_blog_path(b)
+                \|
+                = link_to "delete", {:controller => "blogs", :action => "destroy", :id => b.id}, :confirm => "Confirm deletion", :method=> :delete, :remote => true
+                \|
+                = link_to "view", blog_path(b)
+                \|
+                - unless b.published
+                  = link_to "publish", {:controller => "blogs", :action => "publish", :id => b.id}, :confirm => "Confirm publication to journal", :remote => true
+                  \|
+                - unless b.publishedtotimeline
+                  = link_to "publish to timeline", {:controller => "blogs", :action => "publishtotimeline", :id => b.id}, :confirm => "Confirm publication to timeline", :remote => true
+                  \|
+                - if b.published
+                  = link_to "unpublish", {:controller => "blogs", :action => "unpublish", :id => b.id}, :confirm => "Confirm unpublish from journal", :remote => true
+                  \|
+                - if b.publishedtotimeline
+                  = link_to "unpublish (timeline)", {:controller => "blogs", :action => "unpublishtime", :id => b.id}, :confirm => "Confirm unpublish from timeline", :remote => true
+                
+= render :partial => "layouts/footer"

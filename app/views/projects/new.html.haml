@@ -1,0 +1,89 @@
+= render :partial => "layouts/header"
+.container
+  .row
+    .span2.adminForm
+      %h2
+        Add project
+    .span10.adminForm
+      - form_for @project, :url => projects_path, :html => { :multipart => true } do |f|
+        = f.label :name
+        = f.text_field :name
+        .clear
+        = label_tag "Client"
+        = select_tag("client", options_for_select(@clients.map{|c| c.name}), :include_blank => true)
+        = text_field_tag "newclient", nil, :placeholder => "New client"
+        .clear
+        = label_tag "Start"
+        = f.text_field :startdate
+        .clear
+        = label_tag "End"
+        = f.text_field :enddate
+        .clear
+        = label_tag "Category (established, entrepreneurs, non-profit, world-change)"
+        = text_field_tag "category"
+        .clear
+        = label_tag "Medium (identity, packaging, print, presentation, digital, event, infographics)"
+        = f.text_field :medium
+        .clear
+        = f.label :description
+        = f.text_area :description
+        .clear{:style => "padding-bottom: 15px"}
+        -#
+          .photofield
+            = label_tag "Work thumbnail"
+            = f.file_field :workthumb
+            .clear
+            %a{:href => "#", :class => "removenew"}
+              Remove
+          .clear{:style => "padding-bottom: 15px"}
+          .photofield
+            = label_tag "Timeline background"
+            = f.file_field :linephoto
+            .clear
+            %a{:href => "#", :class => "removenew"}
+              Remove
+          .clear{:style => "padding-bottom: 15px"}    
+        -#
+          .photofield
+            = label_tag "Main photo"
+            = f.file_field :fullbleed
+            .clear
+            %a{:href => "#", :class => "removenew"}
+              Remove 
+            
+          .clear{:style => "padding-bottom: 15px"}
+          .photofield
+            = label_tag "Secondary photo"
+            = f.file_field :secondaryphoto
+            .clear
+            %a{:href => "#", :class => "removenew"}
+              Remove 
+            
+          .clear{:style => "padding-bottom: 15px"}
+          .photofield
+            = label_tag "Tertiary photo"
+            = f.file_field :tertiaryphoto
+            .clear
+            %a{:href => "#", :class => "removenew"}
+              Remove 
+            
+          .clear{:style => "padding-bottom: 15px"}
+          .photofield
+            = label_tag "Quaternary photo"
+            = f.file_field :quaternaryphoto
+            .clear
+            %a{:href => "#", :class => "removenew"}
+              Remove 
+            
+          .clear{:style => "padding-bottom: 15px"}
+          .photofield
+            = label_tag "Quinary photo"
+            = f.file_field :quinaryphoto
+            .clear
+            %a{:href => "#", :class => "removenew"}
+              Remove 
+          
+          .clear
+        = f.submit "Send", {:class => "btn-inverse admnbutton"}
+= render :partial => "layouts/footer"
+

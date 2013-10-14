@@ -1,0 +1,67 @@
+= render :partial => "layouts/header"
+.container
+  .row
+    .span2.adminForm
+      %h2
+        Manage Graphs
+      .newlink
+        %a{:href => "/graphs/new", :class => "btn-inverse admnbutton btn newbtn"}
+          New Graph
+    .span10.adminForm
+      %table.table
+        %thead
+          %tr
+            %th
+              Client
+        %tbody
+          - @clients.each do |c|
+            %tr
+              %td
+                = c.name
+                = link_to "+", "#", :class => "showsprojectscontainer", :id => c.id
+                .projectscontainer
+                  %table.table
+                    %thead
+                      %tr
+                        %th
+                          Project
+                    %tbody
+                      - c.projects.each do |p|
+                        %tr
+                          %td
+                            = p.clients.empty? ? "noclient" : p.clients.last.name
+                            = p.name
+                            = "(#{p.id})"
+                            = link_to "+", "#", :class => "showstatscontainer"
+                            .projectstatscontainer
+                              %table.table
+                                %thead
+                                  %tr
+                                    %th
+                                      Graph
+                                    %th
+                                      Displayed
+                                    %th
+                                      Type
+                                    %th
+                                      Actions
+                                %tbody
+                                  - p.graphs.each do |g|
+                                    %tr
+                                      %td
+                                        = g.name
+                                      %td
+                                        = g.shown? ? "yes" : "no"
+                                      %td
+                                        = g.graphtype
+                                      %td
+                                        = link_to "edit", edit_graph_path(g)
+                                        \|
+                                        = link_to "delete", {:controller => "graphs", :action => "destroy", :id => g.id}, :confirm => "Confirm deletion", :method=> :delete, :remote => true
+                                        \|
+                                        - unless g.shown?
+                                          = link_to "display", {:controller => "graphs", :action => "display", :id => g.id}, :confirm => "Confirm display", :remote => true
+                                        - if g.shown?
+                                          = link_to "hide", {:controller => "graphs", :action => "hide", :id => g.id}, :confirm => "Confirm hide", :remote => true
+                                        
+= render :partial => "layouts/footer"

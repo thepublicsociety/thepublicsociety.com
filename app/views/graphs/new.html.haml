@@ -1,0 +1,19 @@
+= render :partial => "layouts/header"
+.container
+  .row
+    .span2.adminForm
+      %h2
+        New Graph
+    .span10.adminForm
+      - form_for @graph do |f|
+        = f.label :name
+        = f.text_field :name
+        .clear
+        = label_tag "Graph type"
+        = f.select(:graphtype, options_for_select([["Pie", "pie"], ["Area", "area"]], @graph.graphtype))
+        .clear
+        = label_tag "Project"
+        = f.select(:project_id, options_for_select(@projects.map{|c| ["#{c.clients.last.name} #{c.name}", c.id]}), :include_blank => true)
+        .clear
+        = f.submit "Send", {:class => "btn-inverse admnbutton"}
+      

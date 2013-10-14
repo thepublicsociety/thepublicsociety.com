@@ -1,0 +1,128 @@
+.navbar.navbar-fixed-top
+  .navbar-inner
+    .container
+      %a.btn.btn-navbar{:data => {:toggle => "collapse", :target => ".nav-collapse"}}
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      .nav-collapse.collapse
+        %ul.nav
+          %li
+            %a{:href => "/"}
+              Site
+          %li
+            %a{:href => "/admin"}
+              Admin
+          %li.dropdown
+            %a.dropdown-toggle{:href => "/client/list", :data => {:toggle => "dropdown"}}
+              Clients
+              %b.caret
+            %ul.dropdown-menu
+              %li
+                %a{:href => new_client_path}
+                  Add Client
+              %li
+                %a{:href => "/client/list"}
+                  Manage Clients
+          %li.dropdown
+            %a.dropdown-toggle{:href => "/project/list", :data => {:toggle => "dropdown"}}
+              Projects
+              %b.caret
+            %ul.dropdown-menu
+              %li
+                %a{:href => new_project_path}
+                  Add Project
+              %li
+                %a{:href => "/project/list"}
+                  Manage Projects
+              %li
+                %a{:href => "/project/archives"}
+                  Archived Projects
+          %li.dropdown
+            %a.dropdown-toggle{:href => new_statistic_path, :data => {:toggle => "dropdown"}}
+              Statistics
+              %b.caret
+            %ul.dropdown-menu
+              %li
+                %a{:href => new_statistic_path}
+                  Add Statistics
+              %li
+                %a{:href => "/statistic/list"}
+                  Manage statistics
+          %li.dropdown
+            %a.dropdown-toggle{:href => "/graph/list", :data => {:toggle => "dropdown"}}
+              Graphs
+              %b.caret
+            %ul.dropdown-menu
+              %li
+                %a{:href => "/graph/list"}
+                  Manage Graphs
+              %li
+                %a{:href => new_graph_path}
+                  Add Graph
+          %li.dropdown
+            %a.dropdown-toggle{:href => "/studio/list", :data => {:toggle => "dropdown"}}
+              Pages
+              %b.caret
+            %ul.dropdown-menu
+              %li
+                %a{:href => "/studio/list"}
+                  Manage Page Content
+          %li.dropdown
+            %a.dropdown-toggle{:href => "/blog/list", :data => {:toggle => "dropdown"}}
+              Blog
+              %b.caret
+            %ul.dropdown-menu
+              %li
+                %a{:href => new_blog_path}
+                  Add Post
+              %li
+                %a{:href => "/blog/list"}
+                  Manage Posts
+              %li
+                %a{:href => "/journal"}
+                  View Blog
+          %li.dropdown
+            %a.dropdown-toggle{:href => "/staff/list", :data => {:toggle => "dropdown"}}
+              Staff
+              %b.caret
+            %ul.dropdown-menu
+              %li
+                %a{:href => new_staff_path}
+                  Add Staff
+              %li
+                %a{:href => "/staff/list"}
+                  Manage Staff
+          %li.dropdown
+            %a.dropdown-toggle{:href => "/user/list", :data => {:toggle => "dropdown"}}
+              Users
+              %b.caret
+            %ul.dropdown-menu
+              %li
+                %a{:href => "/user/list"}
+                  Manage Users
+              
+      %ul.nav.pull-right
+        %li.dropdown
+          %a.dropdown-toggle{:href => "#", :data => {:toggle => "dropdown"}}
+            %span.normal-text
+              Logged in as
+            %span#username
+              = current_user.blank? ? "guest" : current_user.email
+            %b.caret
+          %ul.dropdown-menu
+            - if current_user
+              %li
+                %a{:class => "register", :href => new_user_invitation_path}
+                  Register user
+              %li
+                %a{:class => "logout", :href => "/logout"}
+                  Log out
+            - else
+              %li
+                %a{:class => "logout", :href => "/login"}
+                  Log in
+              
+.messages
+  .msg.alert.alert-light
+    = notice

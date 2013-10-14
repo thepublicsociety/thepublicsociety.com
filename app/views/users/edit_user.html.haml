@@ -1,0 +1,24 @@
+= render :partial => "layouts/header"
+.container
+  .row
+    .span2.adminForm
+      %h2
+        Edit user
+      .uname
+        = @user.email
+    .span10.adminForm
+      - form_tag("/user/#{@user.id.to_s}/updateuser") do
+        = label_tag "Staff name"
+        - if @user.staffs.empty?
+          = text_field_tag "staffname"
+        - else
+          = text_field_tag "staffname", @user.staffs.last.name
+        .clear
+        = label_tag "Admin?"
+        - if @user.admin?
+          = check_box_tag :makeadmin, "1", true
+        - else
+          = check_box_tag :makeadmin
+        %div
+          = submit_tag "Update", {:class => "btn-inverse admnbutton"}
+= render :partial => "layouts/footer"

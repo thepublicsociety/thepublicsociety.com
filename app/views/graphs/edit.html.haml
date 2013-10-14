@@ -1,0 +1,54 @@
+= render :partial => "layouts/header"
+.container
+  .row
+    .span2.adminForm
+      %h2
+        Edit Graph
+      .uname
+        = @graph.name
+        = "(#{@graph.project.actualclient} #{@graph.project.name})"
+    .span10.adminForm
+      - form_for @graph do |f|
+        = f.label :name
+        = f.text_field :name
+        .clear
+        = label_tag "Graph type"
+        = f.select(:graphtype, options_for_select([["Pie", "pie"], ["Area", "area"]], @graph.graphtype))
+        .clear
+        = f.submit "Send", {:class => "btn-inverse admnbutton"}
+      .process
+        %h2
+          Edit graph statistics
+        - if @graph.graphtype == "pie"
+          .processform
+            - nested_form_for @graph, :html => { :multipart => true } do |f|
+              = f.fields_for :statistics do |s|
+                = hidden_field_tag "project_id", @graph.project.id
+                = s.label :name
+                = s.text_field :name
+                .clear
+                = s.label :value
+                = s.text_field :value
+                .clear
+                = label_tag "Color (hex format #xxxxxx or rgb(x,x,x))"
+                = s.text_field :color
+                .clear
+                = s.link_to_remove "remove"
+              = f.link_to_add "add", :statistics
+              .clear
+              = f.submit "Send", {:class => "btn-inverse admnbutton"}
+        - else
+          .processform
+            - nested_form_for @graph, :html => { :multipart => true } do |f|
+              = f.fields_for :statistics do |s|
+                = hidden_field_tag "project_id", @graph.project.id
+                = s.label :name
+                = s.text_field :name
+                .clear
+                = label_tag "Color (hex format #xxxxxx or rgb(x,x,x))"
+                = s.text_field :color
+                .clear
+                = s.link_to_remove "remove"
+              = f.link_to_add "add", :statistics
+              .clear
+              = f.submit "Send", {:class => "btn-inverse admnbutton"}

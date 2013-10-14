@@ -1,0 +1,89 @@
+.tcontainer
+  .trow
+    .tspan12
+      .pageheader
+        .logo
+        .tagline
+          %span
+            Conscious 
+          is paying attention, being inspired
+          %span
+            by
+          possibility, and giving it life through
+          <span>design</span>.
+          .subtagline
+            \* Find the
+            %span
+              message
+            in the noise.
+        .replacement{:style => "display: none"}
+          .tagline
+            = Studio.find(5).content
+        .year
+          2013
+.clear
+.tcontainer
+  .trow
+    .tspan12
+      .timelinepositioning
+        .tlwrapper
+          .atimeline
+            .pastarrow
+            .pcontrol
+            .timelinewindow
+              .ayears{:id => "#{Time.now.to_date.to_s}"}
+                - @years.each do |y|
+                  .ayear{:class => y.name, :id => "y_#{y.name}"}
+                    - y.months.each do |m|
+                      .amonth{:class => m.name, :id => "m_#{m.name}"}
+                        .mname
+                          = m.abbr
+                        .week
+                        .week
+                        .week
+                        .week
+                        .adays
+                          - m.days.each do |d|
+                            .aday{:class => d.name, :id => "d_#{d.date}"}
+                              %a{:href => "#", :title => d.date}
+                                \.
+                .aprojects
+                  - @projects.each do |p|
+                    .aproject{:id => p.id, :class => "#{p.categories.empty? ? "none" : p.categories.last.name} #{p.name.gsub(/ /, "-")}", :style => "background: url(#{p.linephoto.url}) center center", :data => {:position => p.position}}
+                      %a{:class => "aprojectblock", :href => project_path(p), :data => {:duration => p.duration.gsub(/.*-/, ""), :startdate => p.startdate.gsub(%r{(\d+)/(\d+)/(\d+)}, '\3-\1-\2'), :enddate => p.enddate.gsub(%r{(\d+)/(\d+)/(\d+)}, '\3-\1-\2')}}
+                        .innerproject{:style => "padding: 20px 0 0 5px"}
+                          = p.categories.empty? ? "none" : p.categories.last.name
+                          %br
+                          = p.clients.empty? ? "none" : p.clients.last.name
+                .blogs
+                  - @blogs.each do |b|
+                    .ablog{:data => {:position => b.position.blank? ? "0" : b.position, :pubdate => b.created_at.to_s.gsub(/ .*/, "")}}
+                      .bdata
+                        = link_to b.name, "/journal##{b.name.gsub(/ /, "_").gsub(/:/, "")}"
+                        .ablogdate
+                          = b.created_at.strftime("%-1m.%-1d.%Y")
+                
+            .futurearrow          
+            .ncontrol
+            .menunav
+              .lnav
+                .lnavcontent
+                  .top
+                  .timelineview
+                    = link_to "Timeline View", "/"
+                  .workview
+                    = link_to "Work View", "/work"
+                  .chronicleview
+                    = link_to "Chronicle View", "/chronicle"
+              .rnav
+                .rnavcontent
+                  .top
+                    .worknav
+                      = link_to "Work", "/work"
+                    .labnav
+                      = link_to "Lab", "/lab"
+                    .journalnav
+                      = link_to "Journal", "/journal"
+                    .studionav
+                      = link_to "The Studio", "/studio"
+                    

@@ -1,0 +1,29 @@
+= render :partial => "layouts/header"
+.container
+  .row
+    .span2.adminForm
+      %h2
+        Edit page
+      .uname
+        = @studio.name
+    .span10.adminForm.staffForm
+      - form_for @studio, :html => { :multipart => true } do |f|
+        = f.label :title
+        = f.text_field :title
+        .clear
+        = f.label :content
+        = f.text_area :content
+        .directions{:style => "padding-bottom: 10px"}
+          \(Separate paragraphs with two line breaks)
+        .clear
+        = f.label :studiobg
+        = f.file_field :studiobg
+        .previewimage
+          = image_tag(@studio.studiobg.url)
+        .removeimage
+          %a{:href => "/deletephotos", :data => {:studio => @studio.id, :photo => "studiobg"}}
+            delete
+        .clear
+        = f.submit "Send", {:class => "btn-inverse admnbutton"}
+= render :partial => "layouts/footer"
+

@@ -1,0 +1,104 @@
+<div id="<%= graph.id %>" class="graphcontainer areagraphcontainer"></div>
+
+<script>
+$(function () {
+    var chart<%= graph.id %>;
+    $(document).ready(function() {
+        chart<%= graph.id %> = new Highcharts.Chart({
+            chart: {
+                renderTo: '<%= graph.id %>',
+                backgroundColor:'rgba(255, 255, 255, 0)',
+                type: 'area',
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                margin: [0, 0, 5, 0],
+                spacingTop: 0,
+                spacingRight: 0,
+                spacingBottom: 0,
+                spacingLeft: 0,
+                reflow: true
+            },
+            title: {
+                text: ''
+            },
+            subtitle: {
+                text: ''
+            },
+            xAxis: {
+                lineWidth: 0,
+                gridLineWidth: 0,
+                minorGridLineWidth: 0,
+                gridLineColor: 'transparent',
+                lineColor: 'transparent',
+                minorGridLineColor: 'transparent',
+                labels: {
+                  enabled: false
+                },
+                minorTickLength: 0,
+                tickLength: 0,
+                minPadding: 0,
+                title: {
+                  enabled: false
+                }
+            },
+            yAxis: {
+                lineWidth: 0,
+                gridLineWidth: 0,
+                minorGridLineWidth: 0,
+                gridLineColor: 'transparent',
+                lineColor: 'transparent',
+                minorGridLineColor: 'transparent',
+                labels: {
+                  enabled: false
+                },
+                minorTickLength: 0,
+                tickLength: 0,
+                minPadding: 0,
+                title: {
+                  enabled: false
+                }
+            },
+            tooltip: {
+                enabled: false
+            },
+            plotOptions: {
+                area: {
+                    pointStart: 0,
+                    marker: {
+                        enabled: false,
+                        symbol: 'circle',
+                        radius: 0,
+                        states: {
+                            hover: {
+                                enabled: false
+                            }
+                        }
+                    }
+                }
+            },
+            legend: {enabled: false},
+            series: [
+                  <%- graph.statistics.each do |s| %>
+                  {
+                    name: "<%= s.name %>",
+                    data: [<%- s.substats.each do |t| %>
+                            <%= t.value %> 
+                          <% if t != s.substats.last %>,<% end %>
+                          <% end %>],
+                    color: "<%= s.color.empty? ? "rgb(0,0,0)": s.color %>"
+                    
+                  }<% if s != graph.statistics.last %>,<% end %>
+                  <% end %>
+                  ]
+        });
+    });
+    $(window).resize(function(){
+        if($(".piechart").width() < 260){
+          chart<%= graph.id %>.redraw();
+      	}
+      });
+});
+
+
+</script>

@@ -1,0 +1,38 @@
+= render :partial => "layouts/header"
+.container
+  .row
+    .span2.adminForm
+      %h2
+        Manage users
+    .span10.adminForm
+      %table.table
+        %thead
+          %tr
+            %th
+              ID
+            %th
+              Email
+            %th
+              Staff Name
+            %th
+              Admin
+            %th
+              Actions
+        %tbody
+          - @users.each do |u|
+            %tr
+              %td
+                = u.id
+              %td
+                = u.email
+              %td
+                = u.staffs.last.blank? ? "Not staff" : u.staffs.last.name
+              %td
+                = u.admin? ? "yes" : "no"
+              %td
+                = link_to "edit", "/user/#{u.id.to_s}/edit"
+                \|
+                = link_to "delete", {:controller => "users", :action => "destroy", :id => u.id}, :confirm => "Confirm deletion", :method=> :delete, :remote => true
+
+                
+= render :partial => "layouts/footer"

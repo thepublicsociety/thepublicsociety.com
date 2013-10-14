@@ -1,0 +1,25 @@
+.container
+  .row
+    .span1.lbtn
+      \<
+    .span10.tlcontainer
+      .timeline
+        - @years.each do |y|
+          .year{:class => y.name, :id => "y_#{y.name}"}
+            - y.months.each do |m|
+              .month{:class => m.name, :id => "m_#{m.name}"}
+                = m.name.gsub(/\d{4}/, "")
+                \/
+                = m.name.gsub(/\d{2}$/, "")
+                
+        .clear
+        - @projects.each do |p|
+          .project
+            %a{:href => project_path(p), :data => {:duration => p.duration, :startmonth => p.startdate.sub(/\/../, "").split("/").reverse.join}}
+              = p.name
+              %br
+              = p.startdate
+              \-
+              = p.enddate
+    .span1.rbtn
+      \>

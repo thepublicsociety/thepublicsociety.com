@@ -1,0 +1,85 @@
+.tcontainer
+  .trow
+    .tspan12
+      .pageheader
+        .headline
+          .logo
+          .text
+            = Studio.find(7).content
+          .controls
+            .box
+              .boxhead
+                TPS
+              .boxtag
+                by the numbers
+            .box2
+              .tag
+                What are we up to?
+              .arrow
+              .box3
+                .thing
+                  %a.active{:href => "#", :data => {:graph => "category"}}
+                    Client Category
+                .thing
+                  %a{:href => "#", :data => {:graph => "medium"}}
+                    Medium
+              
+.clear
+.tcontainer
+  .trow
+    .tspan12
+      .timelinepositioning
+        .tlwrapper
+          .dates
+            - @years.each do |y|
+              %div{:class => "date#{y.name}"}
+                = y.name
+          .atimeline
+            .atimelinel
+            .atimeliner
+            .pend
+            .timelinewindow
+            .nend
+            .menunav
+              .lnav
+                .lnavcontent
+                  .top
+                  .timelineview
+                    = link_to "Timeline View", "/"
+                  .workview
+                    = link_to "Work View", "/work"
+                  .chronicleview
+                    = link_to "Chronicle View", "/chronicle"
+              .rnav
+                .rnavcontent
+                  .top
+                    .worknav
+                      = link_to "Work", "/work"
+                    .labnav
+                      = link_to "Lab", "/lab"
+                    .journalnav
+                      = link_to "Journal", "/journal"
+                    .studionav
+                      = link_to "The Studio", "/studio"
+        .graphs    
+          - @years.each do |y|
+            %div{:class => "agraph", :id => "graph#{y.name}"}
+.keys
+  .key
+    .color{:style => "background: rgb(123 , 59, 59)"}
+    .name
+      Established
+  .key
+    .color{:style => "background: rgb(64, 88, 119)"}
+    .name
+      World Changing
+  .key
+    .color{:style => "background: rgb(163, 119, 66)"}
+    .name
+      Entrepreneurs
+  .key
+    .color{:style => "background: rgb(157, 177, 166)"}
+    .name
+      Non Profit
+.thegraphs
+  = render :partial => "layouts/chronicle"

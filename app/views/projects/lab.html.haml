@@ -1,0 +1,105 @@
+.tcontainer
+  .trow
+    .tspan12
+      .pageheader
+        .logo
+        
+.clear
+.tcontainer
+  .trow
+    .tspan12
+      .timelinepositioning
+        .tlwrapper
+          .atimeline
+            .pcontrol
+            .timelinewindow
+            .ncontrol
+            .menunav
+              .lnav
+                .lnavcontent
+                  .top
+                  .timelineview
+                    = link_to "Timeline View", "/"
+                  .workview
+                    = link_to "Work View", "/work"
+                  .chronicleview
+                    = link_to "Chronicle View", "/chronicle"
+              .rnav
+                .standardrnavcontent
+                  .top
+                    .worknav
+                      = link_to "Work", "/work"
+                    .labnav
+                      = link_to "Lab", "/lab"
+                    .journalnav
+                      = link_to "Journal", "/journal"
+                    .studionav
+                      = link_to "The Studio", "/studio"
+              .rnavcontent.labnavsec
+                .top
+                  .worknav
+                    = link_to "Design in Education", "/", "data-sec" => "designed", :class => "active"
+                  .labnav
+                    = link_to "cleanweb", "/", "data-sec" => "cleanweb"
+                  .journalnav
+                    = link_to "activism", "/", "data-sec" => "activism"
+                  .studionav
+                    = link_to "collaborative consumption", "/", "data-sec" => "collab"
+          .labswrapper
+            .labs
+              .alab.active.designed
+                .labimg{:style => "display: none"}
+                  - unless Studio.find(8).studiobg.to_file.blank?
+                    %a{:href => Studio.find(8).studiobg.url, :data => {:height => Paperclip::Geometry.from_file(Studio.find(8).studiobg.to_file).height.to_i, :width => Paperclip::Geometry.from_file(Studio.find(8).studiobg.to_file).width.to_i}}
+                  - else
+                    %a{:href => "/images/missing.png", :data => {:height => "10", :width => "10"}}
+                .labheading
+                  %h1
+                    = Studio.find(8).title
+                .labcontents
+                  .block
+                    = simple_format(Studio.find(8).content)
+                  .block
+                    = simple_format(Studio.find(17).content)
+              .alab.cleanweb
+                .labimg{:style => "display: none"}
+                  - unless Studio.find(9).studiobg.to_file.blank?
+                    %a{:href => Studio.find(9).studiobg.url, :data => {:height => Paperclip::Geometry.from_file(Studio.find(9).studiobg.to_file).height.to_i, :width => Paperclip::Geometry.from_file(Studio.find(9).studiobg.to_file).width.to_i}}
+                  - else
+                    %a{:href => "/images/missing.png", :data => {:height => "10", :width => "10"}}
+                .labheading
+                  %h1
+                    = Studio.find(9).title
+                .labcontents
+                  .block
+                    = simple_format(Studio.find(9).content)
+                  .block
+                    = simple_format(Studio.find(18).content)
+              .alab.activism
+                .labimg{:style => "display: none"}
+                  - unless Studio.find(10).studiobg.to_file.blank?
+                    %a{:href => Studio.find(10).studiobg.url, :data => {:height => Paperclip::Geometry.from_file(Studio.find(10).studiobg.to_file).height.to_i, :width => Paperclip::Geometry.from_file(Studio.find(10).studiobg.to_file).width.to_i}}
+                  - else
+                    %a{:href => "/images/missing.png", :data => {:height => "10", :width => "10"}}
+                .labheading
+                  %h1
+                    = Studio.find(10).title
+                .labcontents
+                  .block
+                    = simple_format(Studio.find(10).content)
+                  .block
+                    = simple_format(Studio.find(19).content)
+              .alab.collab
+                .labimg{:style => "display: none"}
+                  - unless Studio.find(11).studiobg.to_file.blank?
+                    %a{:href => Studio.find(11).studiobg.url, :data => {:height => Paperclip::Geometry.from_file(Studio.find(11).studiobg.to_file).height.to_i, :width => Paperclip::Geometry.from_file(Studio.find(11).studiobg.to_file).width.to_i}}
+                  - else
+                    %a{:href => "/images/missing.png", :data => {:height => "10", :width => "10"}}
+                .labheading
+                  %h1
+                    = Studio.find(11).title
+                .labcontents
+                  .block
+                    = simple_format(Studio.find(11).content)
+                  .block
+                    = simple_format(Studio.find(20).content)

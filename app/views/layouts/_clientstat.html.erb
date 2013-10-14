@@ -1,0 +1,60 @@
+<div id="clientstatcontainer"></div>
+
+<script>
+$(function () {
+    var charta;
+    var winheight = $(window).height();
+    $(document).ready(function() {
+        charta = new Highcharts.Chart({
+            chart: {
+                renderTo: 'clientstatcontainer',
+                backgroundColor:'rgba(255, 255, 255, 0)',
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false
+            },
+            title: {
+                text: ''
+            },
+            tooltip: {
+                enabled: false
+            },
+            plotOptions: {
+                series: {
+                  states: {
+                    hover: {
+                      enabled: false
+                    }
+                  }
+                },
+                pie: {
+                    borderWidth: 0,
+                    allowPointSelect: false,
+                    cursor: 'pointer',
+                    innerSize: "55%",
+                    dataLabels: {
+                        enabled: false
+                    },
+                    shadow: false
+                }
+            },
+            series: [{
+                type: 'pie',
+                name: 'Project Categories',
+                data: [
+                  <%- @project.statistics.where("category = ?", "client observation").each do |s| %>
+                  {
+                    name: "<%= s.name %>",
+                    y: <%= s.value %>,
+                    color: "<%= s.color.empty? ? "rgb(0,0,0)": s.color %>"
+                  }<% if s != @project.statistics.where("category = ?", "client observation").last %>,<% end %>
+                  <% end %>
+                ],
+                size: 260
+            }]
+        
+        });
+      });
+
+    });
+</script>

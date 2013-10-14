@@ -1,0 +1,91 @@
+.tcontainer
+  .trow
+    .tspan12
+      .pageheader
+        - if @project.clients.last.logo.to_file.blank?
+          .logo
+        - else
+          .companylogo{:style => "background: url(#{@project.clients.last.logo.url}) no-repeat; width: #{Paperclip::Geometry.from_file(@project.clients.last.logo.to_file).width.to_s}px;"}
+.clear
+.tcontainer
+  .trow
+    .tspan12
+      .timelinepositioning
+        .tlwrapper
+          .atimeline
+            .pcontrol
+            .timelinewindow
+            .ncontrol
+            .menunav
+              .lnav
+                .lnavcontent
+                  .top
+                  .timelineview
+                    = link_to "Timeline View", "/"
+                  .workview
+                    = link_to "Work View", "/work"
+                  .chronicleview
+                    = link_to "Chronicle View", "#"
+              .rnav
+                .rnavcontent
+                  .top
+                    .work
+                      = link_to "Work", "/work"
+                    .lab
+                      = link_to "Lab", "/lab"
+                    .journal
+                      = link_to "Journal", "/journal"
+                    .studio
+                      = link_to "The Studio", "/studio"
+          .prcscontainer
+            .prcsinfo
+              - @project.operations.each do |w|
+                .prcsweek
+                  .leftprcs
+                    %div{:style => "padding: 15px"}
+                      = w.description.blank? ? "Weekly description/content" : w.description.html_safe
+                  .midprcs
+                    = image_tag(w.snapshot.url) unless w.snapshot.to_file.blank?
+                  .rightprcs
+                    = image_tag(w.snapshot2.url) unless w.snapshot2.to_file.blank?
+      .info
+        .projectlist
+          %ul.unstyled
+            - @projects.each do |p|
+              %li
+                = link_to p.name, "/projects/#{p.id.to_s}/process"
+        .description
+          %p
+            = @project.description
+        .controls
+          .arrows
+            .up
+              = link_to "", project_path(@previous)
+            .down
+              = link_to "", project_path(@next)
+          .title
+            .names
+              .projectlist
+                %ul.unstyled
+                  - @projects.each do |p|
+                    %li
+                      = link_to "#{p.clients.empty? ? "No Client" : p.clients.last.name}_ #{p.name}", project_path(p)
+              = link_to "#{@project.clients.empty? ? Client : @project.clients.last.name}_", project_path(@project)
+              = link_to @project.name, project_path(@project)
+            .plus
+              \+
+          .options
+            - unless @project.operations.empty?
+              - if @project.statistics.where("pub = ?", true).empty?
+                .process.nostats.lighter
+                  = link_to "Process", "/projects/#{@project.id.to_s}/process"
+              - else
+                .process.lighter
+                  = link_to "Process", "/projects/#{@project.id.to_s}/process"
+            - unless @project.statistics.where("pub = ?", true).empty?
+              - if @project.operations.empty?
+                .stats.noprocess
+                  = link_to "Stats","/projects/#{@project.id.to_s}/stats"
+              - else
+                .stats
+                  = link_to "Stats","/projects/#{@project.id.to_s}/stats"

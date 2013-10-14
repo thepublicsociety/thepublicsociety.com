@@ -1,0 +1,36 @@
+= render :partial => "layouts/header"
+.container
+  .row
+    .span2.adminForm
+      %h2
+        Add data
+      .uname
+        = @day.date
+    .span10.adminForm.staffForm
+      .weekinfo
+        %h2
+          Daily data
+        - nested_form_for @day, :html => { :multipart => true } do |f|
+          .addStat
+            %h3
+              Add stats
+            = f.fields_for :stats do |s|
+              = s.label :name
+              = s.text_field :name
+              .clear
+              = label_tag "Value"
+              = s.text_field :numericalvalue
+              .clear
+              = s.link_to_remove "remove"
+            = f.link_to_add "add stat", :stats
+          = f.label :description
+          = f.text_area :description
+          .clear
+          = f.label :notes
+          = f.text_area :notes
+          .clear
+          = label_tag "Image Snapshot"
+          = f.file_field :dailysnapshot
+          .clear
+          
+          = f.submit "Send", {:class => "btn-inverse admnbutton"}

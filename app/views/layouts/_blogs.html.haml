@@ -1,0 +1,32 @@
+.journal{:class => b.category, :id => b.name.gsub(/ /, "_").gsub(/:/, "")}
+  .blog
+    .jhead
+      .cat
+        = b.category
+      .name
+        = b.name
+      .date
+        = b.created_at.strftime("%b. %-d, %Y /%l:%M %p")
+    .jcontent
+      = b.content.html_safe
+    
+  .photo
+    - unless b.photo.to_file.blank?
+      %img{:src => b.photo.url, :data => {:width => Paperclip::Geometry.from_file(b.photo.to_file).width.to_s}}
+      - unless b.photo2.to_file.blank? && b.photo3.to_file.blank? && b.photo4.to_file.blank? && b.photo5.to_file.blank?
+        %a.morebtn{:href => "#"}
+.morephotos
+  .morephoto
+    - unless b.photo2.to_file.blank?
+      .photo
+        = image_tag b.photo2.url
+    - unless b.photo3.to_file.blank?
+      .photo
+        = image_tag b.photo3.url
+    - unless b.photo4.to_file.blank?
+      .photo
+        = image_tag b.photo4.url
+    - unless b.photo5.to_file.blank?
+      .photo
+        = image_tag b.photo5.url
+    %a.lessbtn{:href => "#"}

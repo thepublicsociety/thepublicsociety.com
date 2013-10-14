@@ -1,0 +1,37 @@
+= render :partial => "layouts/header"
+.container
+  .row.statisticsentry
+    .span3
+      %ul.unstyled
+        %h3
+          Select Project
+        - @projects.each do |p|
+          %li
+            %a{:href => "#", :class => "statprojsel", :data => {:project_id => p.id.to_s}}
+              = p.name
+    .span9
+      %ul.unstyled
+        - @projects.each_with_index do |p, i|
+          %li{:id => p.id.to_s, :class => "statform statform-#{i}"}
+            %h3
+              Stats for
+              = p.name
+            .statentry
+              - nested_form_for p do |f|
+                = f.fields_for :statistics do |s|
+                  = s.label :name
+                  = s.text_field :name
+                  .clear
+                  = label_tag "Value"
+                  = s.text_field :value
+                  .clear
+                = f.link_to_add "+", :statistics
+                .clear
+                = f.submit "Submit"
+            .stattotals.clear
+              %ul.unstyled
+                - p.statistics.each do |s|
+                  %li
+                    = s.name
+                    \=
+                    = s.value

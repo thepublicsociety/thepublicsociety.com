@@ -1,0 +1,122 @@
+= render :partial => "layouts/header"
+.container
+  .row
+    .span2.adminForm
+      %h2
+        Manage statistics
+      .newlink
+        %a{:href => "/statistics/new", :class => "btn-inverse admnbutton btn newbtn"}
+          New statistic
+    .span10.adminForm
+      %table.table
+        %thead
+          %tr
+            %th
+              Client
+        %tbody
+          - @clients.each do |c|
+            %tr
+              %td
+                = c.name
+                = link_to "+", "#", :class => "showsprojectscontainer", :id => c.id
+                .projectscontainer
+                  %table.table
+                    %thead
+                      %tr
+                        %th
+                          Project
+                    %tbody
+                      - c.projects.each do |p|
+                        %tr
+                          %td
+                            = p.name
+                            = link_to "+", "#", :class => "showstatscontainer"
+                            .projectstatscontainer
+                              %table.table
+                                %thead
+                                  %tr
+                                    %th
+                                      Stat ID
+                                    %th
+                                      Graph
+                                    %th
+                                      Name
+                                    %th
+                                      Value
+                                    %th
+                                      Color
+                                    %th
+                                      Actions
+                                %tbody
+                                  - p.graphs.each do |g|
+                                    - g.statistics.each do |s|
+                                      %tr
+                                        %td
+                                          = s.id
+                                        %td
+                                          = s.graph.blank? ? "None" : s.graph.name
+                                        %td
+                                          = s.name
+                                        %td
+                                          = s.value
+                                          - unless s.substats.empty?
+                                            = s.substats.all.sum(&:value)
+                                              
+                                        %td
+                                          .color{:style => "height: 18px; width: 36px; background: #{s.color}"}
+                                        %td
+                                          = link_to "edit", edit_statistic_path(s)
+                                          \|
+                                          = link_to "delete", {:controller => "statistics", :action => "destroy", :id => s.id}, :confirm => "Confirm deletion", :method=> :delete, :remote => true
+                                          \|
+                                          - unless s.pub?
+                                            = link_to "publish", {:controller => "statistics", :action => "publish", :id => s.id}, :confirm => "Confirm publish", :remote => true
+                                          - if s.pub?
+                                            = link_to "un-publish", {:controller => "statistics", :action => "unpublish", :id => s.id}, :confirm => "Confirm un-publish", :remote => true
+    -#
+      %table.table
+        %thead
+          %tr
+            %th
+              ID
+            %th
+              Project
+            %th
+              Category
+            %th
+              Name
+            %th
+              Value
+            %th
+              Color
+            %th
+              Actions
+        %tbody
+          - @stats.each do |s|
+            %tr
+              %td
+                = s.id
+              %td
+                - unless s.projects.first.blank?
+                  = s.projects.first.clients.empty? ? "noclient_" : "#{s.projects.first.clients.last.name}_"
+                  = s.projects.first.name
+                  ID:
+                  = s.projects.first.id
+                - else
+                  "none"
+                
+              %td
+                = s.category
+              %td
+                = s.name
+              %td
+                = s.value
+              %td
+                .color{:style => "height: 18px; width: 36px; background: #{s.color}"}
+              %td
+                = link_to "edit", edit_statistic_path(s)
+                \|
+                = link_to "delete", {:controller => "statistics", :action => "destroy", :id => s.id}, :confirm => "Confirm deletion", :method=> :delete, :remote => true
+
+                
+= render :partial => "layouts/footer"

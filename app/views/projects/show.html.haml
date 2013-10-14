@@ -1,0 +1,79 @@
+.bgboxes
+  - @project.photos.each_with_index do |p, i|
+    .imgbox{:class => "box#{i+1} #{i == 0 ? "active" : ""}"}
+.tcontainer
+  .trow
+    .tspan12
+      .pageheader
+        - if @project.clients.last.logo.to_file.blank?
+          .logo
+        - else
+          .companylogo{:style => "background: url(#{@project.clients.last.logo.url}) no-repeat; width: #{Paperclip::Geometry.from_file(@project.clients.last.logo.to_file).width.to_s}px;"}
+.clear
+.tcontainer
+  .trow
+    .tspan12
+      .timelinepositioning
+        .tlwrapper
+          .atimeline
+            .pcontrol
+            .timelinewindow
+            .ncontrol
+            .menunav
+              .lnav
+                .lnavcontent
+                  .top
+                  .timelineview
+                    = link_to "Timeline View", "/"
+                  .workview
+                    = link_to "Work View", "/work"
+                  .chronicleview
+                    = link_to "Chronicle View", "/chronicle"
+              .rnav
+                .rnavcontent
+                  .top
+                    .worknav
+                      = link_to "Work", "/work"
+                    .labnav
+                      = link_to "Lab", "/lab"
+                    .journalnav
+                      = link_to "Journal", "/journal"
+                    .studionav
+                      = link_to "The Studio", "/studio"
+      .prcsinfo
+      .info
+        .description
+          %p
+            = @project.description
+        .controls
+          .arrows
+            .up
+              = link_to "", project_path(@previous)
+            .down
+              = link_to "", project_path(@next)
+          .title
+            .names
+              .projectlist
+                %ul.unstyled
+                  - @projects.each do |p|
+                    %li
+                      = link_to "#{p.clients.empty? ? "No Client" : p.clients.last.name}_ #{p.name}", project_path(p)
+              = "#{@project.clients.empty? ? Client : @project.clients.last.name}_"
+              = @project.name
+            .plus
+              \+
+          .options
+            - unless @project.operations.empty?
+              - if @project.statistics.where("pub = ?", true).empty?
+                .process.nostats
+                  = link_to "Process", "/projects/#{@project.id.to_s}/process"
+              - else
+                .process
+                  = link_to "Process", "/projects/#{@project.id.to_s}/process"
+            - unless @project.statistics.where("pub = ?", true).empty?
+              - if @project.operations.empty?
+                .stats.noprocess
+                  = link_to "Stats","/projects/#{@project.id.to_s}/stats"
+              - else
+                .stats
+                  = link_to "Stats","/projects/#{@project.id.to_s}/stats"

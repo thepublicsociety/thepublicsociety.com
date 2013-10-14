@@ -1,0 +1,67 @@
+= render :partial => "layouts/header"
+.container
+  .row
+    .span2.adminForm
+      %h2
+        Manage projects
+      .newlink
+        %a{:href => new_project_path, :class => "btn-inverse admnbutton btn newbtn"}
+          New project
+    .span10.adminForm
+      %table.table
+        %thead
+          %tr
+            %th
+              ID
+            %th
+              Name
+            %th
+              Start
+            %th
+              End
+            %th
+              Client
+            %th
+              Staff
+            %th
+              Type
+            %th
+              Category
+            %th
+              Medium
+            %th
+              Actions
+        %tbody
+          - @projects.each do |p|
+            %tr
+              %td
+                = p.id
+              %td
+                = p.name
+              %td
+                = p.startdate
+              %td
+                = p.enddate
+              %td
+                = p.clients.collect{|c| c.name}.join(", ")
+              %td
+                = p.staffs.collect{ |s| s.name }.join(", ")
+              %td
+                = p.types.empty? ? "" : p.types.last.name
+              %td
+                = p.categories.empty? ? "" : p.categories.last.name
+              %td
+                = p.medium
+              %td
+                = link_to "edit", edit_project_path(p)
+                \|
+                = link_to "delete", {:controller => "projects", :action => "destroy", :id => p.id}, :confirm => "Confirm deletion", :method=> :delete, :remote => true
+                \|
+                = link_to "publish", {:controller => "projects", :action => "publish", :id => p.id}, :confirm => "Confirm publish", :remote => true
+                \|
+                = link_to "preview", project_path(p)
+                \|
+                = link_to "archive", {:controller => "projects", :action => "archive", :id => p.id}, :confirm => "Confirm archive", :remote => true
+
+                
+= render :partial => "layouts/footer"

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+  <title><%= title %></title>
+  <meta charset="UTF-8" />
+	<meta name="description" content="<%= metatag %>" />
+	<meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<!--<link rel="icon" type="image/x-icon" href="/favicon.png" /> -->
+
+  <%= stylesheet_link_tag "bootstrap.min", "ui", "isotope", "jquery.mCustomScrollbar", "style" %>
+  <%= javascript_include_tag "jquery", "rails", "nested_form", "bootstrap.min", "modernizr", "ui", "jquery.isotope.min", "highcharts", "jquery.mousewheel.min", "jquery.mCustomScrollbar", "application" %>
+  <%- if controller.controller_name == "projects" && (controller.action_name == "work") %>
+    <%= javascript_include_tag "jquery.wipetouch" %>
+  <% end %>
+  <%- if controller.controller_name == "views" && (controller.action_name == "timeline") %>
+    <%= javascript_include_tag "jquery.wipetouch" %>
+  <% end %>
+  <!--[if lt IE 9]>
+  	<%= javascript_include_tag "selectivizr" %>
+  <![endif]-->
+  <%= use_tinymce_link %>
+  <%= csrf_meta_tag %>
+  <%- if controller.controller_name == "projects" && (controller.action_name == "show" || controller.action_name == "prcs" || controller.action_name == "stats" || controller.action_name == "people" || controller.action_name == "studio" || controller.action_name == "competencies" || controller.action_name == "ethic" || controller.action_name == "mission" || controller.action_name == "contact") %>
+    <%= javascript_include_tag "jquery.fullscreenr" %>
+    <script type="text/javascript">  
+    		<!--
+    			// You need to specify the size of your background image here (could be done automatically by some PHP code)
+    			var FullscreenrOptions = {  width: <%= bgwidth %>, height: <%= bgheight %>, bgID: '#bgimg' };
+    			// This will activate the full screen background!
+    			jQuery.fn.fullscreenr(FullscreenrOptions);
+    		//-->
+    	</script>
+  <% end %>
+  <%- if controller.controller_name == "projects" && (controller.action_name == "lab") %>
+    <%= javascript_include_tag "jquery.fullscreenr" %>
+    <script type="text/javascript">  
+    		<!--
+    			// You need to specify the size of your background image here (could be done automatically by some PHP code)
+    			var FullscreenrOptions = {  width: 2048, height: 1365, bgID: '#bgimg' };
+    			// This will activate the full screen background!
+    			jQuery.fn.fullscreenr(FullscreenrOptions);
+    		//-->
+    	</script>
+  <% end %>
+  <%= yield(:head) %>
+</head>
+<body class="<%= controller.controller_name %>-<%= controller.action_name %>">
+<%- if controller.controller_name == "projects" && (controller.action_name == "prcs" || controller.action_name == "stats" || controller.action_name == "people"  || controller.action_name == "studio" || controller.action_name == "competencies" || controller.action_name == "ethic" || controller.action_name == "mission" || controller.action_name == "contact") %>
+  <img id="bgimg" src="<%= bgimg %>" />
+  <div id="realBody">
+<% end %>
+<%- if controller.controller_name == "projects" && (controller.action_name == "lab") %>
+  <img id="bgimg" src="/images/labbg.jpeg" />
+  <div id="realBody">
+<% end %>
+<%- if controller.controller_name == "projects" && (controller.action_name == "show") %>
+  <%- pphotos.each_with_index do |p, i| %>
+    <img id="bgimg<%= i==0 ? "" : i+1 %>" src="<%= p.image.url %>" data-height="<%= Paperclip::Geometry.from_file(p.image.to_file).height.to_i %>" data-width="<%= Paperclip::Geometry.from_file(p.image.to_file).width.to_i %>"/>
+  <% end %>
+  <div id="realBody">
+<% end %>
+<%= yield %>
+<%- if controller.controller_name == "projects" && (controller.action_name == "show" || controller.action_name == "prcs" || controller.action_name == "stats" || controller.action_name == "lab" || controller.action_name == "people"  || controller.action_name == "studio" || controller.action_name == "competencies" || controller.action_name == "ethic" || controller.action_name == "mission" || controller.action_name == "contact") %>
+  </div>
+<% end %>
+</body>
+</html>

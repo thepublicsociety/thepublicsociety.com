@@ -1,0 +1,102 @@
+.tcontainer
+  .trow
+    .tspan12
+      .pageheader
+        .headline
+          .logo
+          .text
+            = Studio.find(12).content
+          .controls
+            .searchcat
+              .box
+                .words
+                  Search by category
+                .arrow
+                .boxcontent
+                  %ul.unstyled
+                    %li
+                      %a.active{:href => "#", :class => "journalcat"}
+                        All
+                    %li
+                      %a{:href => "#", :class => "journalcat"}
+                        Established
+                    %li
+                      %a{:href => "#", :class => "journalcat"}
+                        Entrepreneurs
+                    %li
+                      %a{:href => "#", :class => "journalcat"}
+                        World Changing
+                    %li
+                      %a{:href => "#", :class => "journalcat"}
+                        Non Profit
+            .searchkey
+              .box
+                .words
+                  %input{:type => "text", :value => "Search by keyword", :id => "keywordsearch"}
+                .glass
+.clear
+.tcontainer
+  .trow
+    .tspan12
+      .timelinepositioning
+        .tlwrapper
+          .atimeline
+            .pcontrol
+            .timelinewindow
+            .ncontrol
+            .menunav
+              .lnav
+                .lnavcontent
+                  .top
+                  .timelineview
+                    = link_to "Timeline View", "/"
+                  .workview
+                    = link_to "Work View", "/work"
+                  .chronicleview
+                    = link_to "Chronicle View", "/chronicle"
+              .rnav
+                .rnavcontent
+                  .top
+                    .worknav
+                      = link_to "Work", "/work"
+                    .labnav
+                      = link_to "Lab", "/lab"
+                    .journalnav
+                      = link_to "Journal", "/journal"
+                    .studionav
+                      = link_to "The Studio", "/studio"
+          .journalswrapper
+            .journals
+              - @blogs.each do |b|
+                .journal{:class => b.category, :id => b.name.gsub(/ /, "_").gsub(/:/, "")}
+                  .blog
+                    .jhead
+                      .cat
+                        = b.category
+                      .name
+                        = b.name
+                      .date
+                        = b.created_at.strftime("%b. %-d, %Y")
+                    .jcontent
+                      = b.content.html_safe
+                    
+                  .photo
+                    - unless b.photo.to_file.blank?
+                      %img{:src => b.photo.url, :data => {:width => Paperclip::Geometry.from_file(b.photo.to_file).width.to_s}}
+                      - unless b.photo2.to_file.blank? && b.photo3.to_file.blank? && b.photo4.to_file.blank? && b.photo5.to_file.blank?
+                        %a.morebtn{:href => "#"}
+                .morephotos
+                  .morephoto
+                    - unless b.photo2.to_file.blank?
+                      .photo
+                        = image_tag b.photo2.url
+                    - unless b.photo3.to_file.blank?
+                      .photo
+                        = image_tag b.photo3.url
+                    - unless b.photo4.to_file.blank?
+                      .photo
+                        = image_tag b.photo4.url
+                    - unless b.photo5.to_file.blank?
+                      .photo
+                        = image_tag b.photo5.url
+                    %a.lessbtn{:href => "#"}

@@ -1,0 +1,1800 @@
+@font-face
+  font-family: 'bodonibold'
+  src: url('/stylesheets/12_bauer_bodoni_bold___07033-webfont.eot')
+  src: url('/stylesheets/12_bauer_bodoni_bold___07033-webfont.eot?#iefix') format('embedded-opentype'), url('/stylesheets/12_bauer_bodoni_bold___07033-webfont.woff') format('woff'), url('/stylesheets/12_bauer_bodoni_bold___07033-webfont.ttf') format('truetype'), url('/stylesheets/12_bauer_bodoni_bold___07033-webfont.svg#bauerbodonibold') format('svg')
+  font-weight: normal
+  font-style: normal
+@font-face
+  font-family: 'bodoniroman'
+  src: url('/stylesheets/12_bauer_bodoni_roman___05033-webfont.eot')
+  src: url('/stylesheets/12_bauer_bodoni_roman___05033-webfont.eot?#iefix') format('embedded-opentype'), url('/stylesheets/12_bauer_bodoni_roman___05033-webfont.woff') format('woff'), url('/stylesheets/12_bauer_bodoni_roman___05033-webfont.ttf') format('truetype'), url('/stylesheets/12_bauer_bodoni_roman___05033-webfont.svg#bauerbodoniroman') format('svg')
+  font-weight: normal
+  font-style: normal
+html
+  height: 100%
+body
+  font-family: bodoniroman
+body > img
+  max-width: none
+ul.nav li.dropdown:hover ul.dropdown-menu
+  display: block
+.clear
+  clear: both
+
+.adminHome
+  padding-top: 100px
+.adminForm
+  padding-top: 100px
+  label
+    float: left
+    padding: 5px 5px 0 0
+    width: 150px
+    font-weight: bold
+  a
+    color: black
+  .admnbutton
+    padding: 2px 15px
+    margin-top: 10px
+.blogForm
+  input[type=text]
+    width: 100%
+  textarea
+    width: 100%
+    height: 300px
+.staffForm, .messageForm
+  input[type=text]
+    width: 100%
+  textarea
+    width: 100%
+    height: 100px
+.projects-edit textarea, .projects-new textarea, .clients-new textarea, .clients-edit textarea
+  width: 70%
+  height: 100px
+  float: left
+.messageForm
+  label
+    float: left
+    padding: 5px 5px 0 0
+    width: 150px
+    font-weight: bold
+  a
+    color: black
+  .admnbutton
+    padding: 2px 15px
+    margin-top: 10px
+  textarea
+    height: 50px
+a.newbtn
+  color: white
+.newMessageText
+  padding-top: 100px
+  text-align: right
+  font-weight: bold
+  
+.tlcontainer
+  overflow: hidden
+  padding-top: 300px
+.timeline
+  width: 3285px
+  position: relative
+  right: 2200px
+  .year
+    width: 1095px
+    float: left
+    height: auto
+    height: 20px
+    .month
+      width: 89px
+      float: left
+      height: auto
+      border-left: 1px solid black
+      border-top: 1px solid black
+.lbtn, .rbtn
+  padding-top: 300px
+.rbtn
+  text-align: right
+.project
+  position: relative
+  
+body.projects-show, body.projects-prcs, body.projects-stats
+  overflow: hidden
+  padding: 0
+  margin: 0
+  height: 100%
+  width: 100%
+#bgimg
+  position: absolute
+  z-index: -1
+#realBody
+  position: absolute
+  z-index: 5
+  overflow: auto
+  height: 100%
+  width: 100%
+  top: 0
+  left: 0
+body.projects-show
+  #realBody
+    top: 0
+    left: 0
+.editweeklink, .editdaylink
+  display: block
+  float: left
+  padding-top: 5px
+  
+.views-timeline
+  height: 100%
+  overflow: hidden
+  
+  .pageheader
+    position: relative
+    float: left
+    width: 100%
+    /*padding-top: 146px*/
+  .logo
+    width: 107px
+    height: 220px
+    background: url(/images/logo.png) no-repeat
+    float: left
+    margin-left: 34px
+  .tagline
+    float: left
+    font-family: bodoniroman
+    font-size: 24pt
+    line-height: 30pt
+    width: 350px
+    padding-left: 50px
+    margin-top: 28px
+    position: relative
+    span
+      color: #a29061
+    .subtagline
+      font-size: 18pt
+      line-height: 22pt
+  
+  .year
+    position: absolute
+    bottom: -8px
+    right: 48px
+    font-size: 48pt
+    line-height: 1.2
+    font-family: bodoniroman
+  .aday
+    float: left
+    width: 6px
+    height: auto
+    a
+      visibility: hidden
+  .amonth
+    float: left
+    width: auto
+    height: auto
+    .week
+      float: left
+      width: 24%
+      height: 7px
+      border-left: 1px solid black
+      position: relative
+      top: 6px
+    .mname
+      clear: both
+      text-transform: uppercase
+      font-size: 13px
+  .ayear
+    float: left
+    width: auto
+    height: auto
+  .ayears
+    width: auto
+    position: relative
+    left: 0
+    height: auto
+  .timelinewindow
+    width: 100%
+    overflow: hidden
+    height: auto
+    position: relative
+    bottom: 32px
+  .blogs
+    .ablog
+      background: url(/images/dots.png) repeat-y
+      width: 10px
+      position: absolute
+      top: 31px
+      z-index: 99999
+      .bdata
+        position: absolute
+        bottom: -5px
+        left: -155px
+        width: 150px
+        text-align: right
+        a
+          color: #8b8b8b
+          font-size: 10px
+        a:hover
+          text-decoration: none
+        .ablogdate
+          font-size: 10px
+          color: #8b8b8b
+  .aprojects
+    position: relative
+    top: 31px
+    height: auto
+  .aproject
+    position: relative
+    top: 0
+    background: black
+    height: 50px
+    z-index: 99999
+    a
+      display: block
+      position: absolute
+      width: 100%
+      height: 100%
+      top: 0
+      left: 0
+      color: white
+      font-size: 10px
+    a:hover
+      text-decoration: none
+      background: transparent !important
+
+  .aproject.world-change, .aproject.world-changing
+    a
+      background: rgba(64,88,119,0.85)
+  .aproject.non-profit
+    a
+      background: rgba(157,177,166,0.85)
+  .aproject.entrepreneurs
+    a
+      background: rgba(163,119,66,0.85)
+  .aproject.established
+    a
+      background: rgba(123,59,59,0.85)
+  .tlwrapper
+    padding: 0 34px
+    position: relative
+  .atimeline
+    position: relative
+    border-top: 2px solid black
+    padding-top: 1px
+    .pastarrow
+      position: absolute
+      left: 0
+      top: -50px
+      background: url(/images/pastarrow.png)
+      height: 10px
+      width: 38px
+    .futurearrow
+      position: absolute
+      right: 0
+      top: -50px
+      background: url(/images/futurearrow.png)
+      height: 10px
+      width: 51px
+    .pcontrol
+      cursor: pointer
+      position: absolute
+      left: -23px
+      top: -11px
+      height: 22px
+      width: 23px
+      background: url(/images/controlarrowssprite.png) no-repeat -23px 0
+    .ncontrol
+      cursor: pointer
+      position: absolute
+      right: -23px
+      top: -11px
+      height: 22px
+      width: 23px
+      background: url(/images/controlarrowssprite.png) no-repeat 0 0
+    .menunav
+      position: absolute
+      right: 62px
+      top: -11px
+      .lnav, .rnav
+        float: left
+        height: 9px
+        width: 129px
+        background: url(/images/menunavclosed.png)
+      .lnav
+        margin-right: 20px
+        .lnavcontent
+          display: none
+          background: black url(/images/lmenuup.png) no-repeat
+          width: 119px
+          height: 60px
+          padding-left: 10px
+          padding-top: 22px
+          position: relative
+          bottom: 73px
+          a
+            color: #8b8b8b
+            font-size: 12px
+            line-height: 17px
+            text-transform: uppercase
+          a:hover
+            color: white
+            text-decoration: none
+      .lnav:hover .lnavcontent
+        display: block
+      .rnav:hover .rnavcontent
+        display: block
+      .rnav
+        .rnavcontent
+          display: none
+          background: black url(/images/rmenuup.png) no-repeat
+          width: 119px
+          height: 75px
+          padding-left: 10px
+          padding-top: 22px
+          position: relative
+          bottom: 88px
+          a
+            color: #8b8b8b
+            font-size: 12px
+            line-height: 17px
+            text-transform: uppercase
+          a:hover
+            color: white
+            text-decoration: none
+      
+.projects-show #realBody, .projects-prcs #realBody, .projects-stats #realBody
+  position: absolute
+  .logo
+    /*margin-top: 146px*/
+    width: 63px
+    height: 220px
+    background: url(/images/logo2.png) no-repeat
+    margin-bottom: 210px
+    margin-left: 34px
+  .tlwrapper
+    padding: 0 34px
+  .atimeline
+    border-top: 2px solid rgba(0,0,0,0.3)
+    position: relative
+    height: auto
+    .pcontrol
+      cursor: pointer
+      position: absolute
+      left: -23px
+      top: -11px
+      height: 22px
+      width: 23px
+      background: url(/images/controlarrowssprite.png) no-repeat -23px 0
+    .ncontrol
+      cursor: pointer
+      position: absolute
+      right: -23px
+      top: -11px
+      height: 22px
+      width: 23px
+      background: url(/images/controlarrowssprite.png) no-repeat 0 0
+    .menunav
+      position: absolute
+      right: 62px
+      top: -11px
+      .lnav, .rnav
+        float: left
+        height: 9px
+        width: 129px
+        background: url(/images/menunavclosedtrans.png)
+      .lnav
+        margin-right: 20px
+        .lnavcontent
+          display: none
+          background: black url(/images/lmenuup.png) no-repeat
+          width: 119px
+          height: 60px
+          padding-left: 10px
+          padding-top: 22px
+          position: relative
+          bottom: 73px
+          a
+            color: #8b8b8b
+            font-size: 12px
+            line-height: 17px
+            text-transform: uppercase
+          a:hover
+            color: white
+            text-decoration: none
+      .lnav:hover .lnavcontent
+        display: block
+      .rnav:hover .rnavcontent
+        display: block
+      .rnav
+        .rnavcontent
+          display: none
+          background: black url(/images/rmenuup.png) no-repeat
+          width: 119px
+          height: 75px
+          padding-left: 10px
+          padding-top: 22px
+          position: relative
+          bottom: 88px
+          a
+            color: #8b8b8b
+            font-size: 12px
+            line-height: 17px
+            text-transform: uppercase
+          a:hover
+            color: white
+            text-decoration: none
+
+  .info
+    position: absolute
+    left: 63px
+    bottom: 0
+    color: #fff
+    clear: both
+    margin-bottom: 10px
+    .names
+      float: left
+      padding: 5px 0 0
+      position: relative
+      bottom: 5px
+      a
+        color: white
+      a:hover
+        text-decoration: none
+    .names:hover .projectlist
+      visibility: visible
+    .projectlist
+      padding: 10px
+      background: url(/images/controlsbg.png)
+      width: 352px
+      position: absolute
+      bottom: 22px
+      left: -24px
+      height: 119px
+      visibility: hidden
+      ul
+        margin: 0
+        height: 119px
+        li
+          padding-left: 15px
+          a
+            color: white
+          a:hover
+            text-decoration: none
+    .description
+      visibility: hidden
+      height: 119px
+      width: 352px
+      overflow: hidden
+      padding: 10px
+      background: url(/images/controlsbg.png)
+      margin-bottom: 2px
+      font-size: 12px
+      p
+        margin-bottom: 10px
+        font-size: 12px
+        line-height: 19px
+    .controls
+      font-size: 12px
+      line-height: 17px
+      .arrows
+        float: left
+        width: 17px
+        margin-right: 2px
+        .up
+          background: url(/images/controlsuparrow.png)
+          width: 17px
+          height: 14px
+          margin-bottom: 2px
+          cursor: pointer
+          a
+            display: block
+            height: 14px
+            width: 17px
+        .down
+          width: 17px
+          height: 14px
+          background: url(/images/controlsdownarrow.png)
+          cursor: pointer
+          a
+            display: block
+            height: 14px
+            width: 17px
+      .title
+        width: 343px
+        padding: 5px 5px 0
+        background: url(/images/controlsbg.png)
+        height: 25px
+        float: left
+        margin-right: 2px
+        .plus
+          float: right
+          bottom: 0px
+          position: relative
+          font-size: 18px
+          cursor: pointer
+      .options
+        float: left
+        font-size: 10px
+        a
+          color: white
+        a:hover
+          text-decoration: none
+        .process
+          background: url(/images/controlsbg.png)
+          margin-bottom: 2px
+          width: 135px
+          padding-left: 3px
+          height: 13px
+          padding-top: 1px
+        .process.lighter
+          background: url(/images/controlsbglighter.png)
+        .process.nostats
+          height: 29px
+          margin-bottom: 0
+          a
+            padding-top: 4px
+            display: block
+        .stats.noprocess
+          height: 29px
+          margin-bottom: 0
+          a
+            padding-top: 4px
+            display: block
+        .stats
+          background: url(/images/controlsbg.png)
+          width: 135px
+          padding-left: 3px
+          height: 13px
+          padding-top: 1px
+        .stats.lighter
+          background: url(/images/controlsbglighter.png)
+  .prcscontainer
+    width: 100%
+    overflow: hidden
+  .prcsinfo
+    margin-bottom: 2px
+    /*height: 271px*/
+    position: relative
+    left: 0
+    .prcsweek
+      float: left
+      overflow: hidden
+    .leftprcs
+      /*width: 342px*/
+      /*height: 231px*/
+      /*padding: 20px 15px*/
+      background: url(/images/controlsbg.png)
+      color: white
+      float: left
+    .midprcs, .rightprcs
+      float: left
+      width: 365px
+   
+.projects-work
+  .controls
+    right: 115px
+.projects-chronicle
+  .controls
+    right: 99px
+.projects-work, .projects-chronicle, .projects-journal
+  .headline
+    height: 220px
+  .text
+    position: absolute !important
+    bottom: 0
+    left: 190px
+    padding-left: 0 !important
+.projects-work, .projects-chronicle, .projects-journal, .projects-lab, .projects-studio, .projects-people, .projects-competencies, .projects-ethic, .projects-mission, .projects-contact
+  .headline
+    position: relative
+  .logo
+    /*margin-top: 146px*/
+    width: 107px
+    height: 220px
+    background: url(/images/logo.png) no-repeat
+    margin-bottom: 100px
+    margin-left: 34px
+    float: left
+  .text
+    /*margin-top: 210px*/
+    float: left
+    width: 340px
+    font-size: 16px
+    line-height: 32px
+    padding-left: 50px
+  .controls
+    float: left
+    width: 280px
+    position: absolute
+    /*top: 300px*/
+    
+    .tag
+      font-size: 18px
+      padding-left: 5px
+    .selector
+      background: #696969
+      .box
+        color: white
+        padding: 10px
+        height: 12px
+        .cat
+          float: left
+        .arrow
+          float: right
+          background: url(/images/controlarrows.png) no-repeat
+          width: 11px
+          height: 11px
+      .boxcontent
+        color: white
+        clear: both
+        background: #696969
+        padding: 0 10px 10px 10px
+        display: none
+        ul
+          margin: 0
+          li
+            padding: 3px 0 4px
+            a
+              font-size: 14px
+              line-height: 20px
+              color: white
+    .selector:hover .boxcontent
+      display: block
+  .tlwrapper
+    padding: 0 34px
+  .atimeline
+    border-top: 2px solid black
+    position: relative
+    height: auto
+    .pend
+      cursor: pointer
+      position: absolute
+      left: -23px
+      top: -22px
+      height: 44px
+      width: 21px
+      border-right: 2px solid black
+    .nend
+      cursor: pointer
+      position: absolute
+      right: -23px
+      top: -22px
+      height: 44px
+      width: 21px
+      border-left: 2px solid black
+    .menunav
+      position: absolute
+      right: 62px
+      top: -11px
+      .lnav, .rnav
+        float: left
+        height: 9px
+        width: 129px
+        background: url(/images/menunavclosed.png)
+      .lnav
+        margin-right: 20px
+        .lnavcontent
+          display: none
+          background: black url(/images/lmenuup.png) no-repeat
+          width: 119px
+          height: 60px
+          padding-left: 10px
+          padding-top: 22px
+          position: relative
+          bottom: 73px
+          a
+            color: #8b8b8b
+            font-size: 12px
+            line-height: 17px
+            text-transform: uppercase
+          a:hover
+            color: #fff
+            text-decoration: none
+      .lnav:hover .lnavcontent
+        display: block
+      .rnav:hover .rnavcontent
+        display: block
+      .rnav
+        .rnavcontent
+          display: none
+          background: black url(/images/rmenuup.png) no-repeat
+          width: 119px
+          height: 75px
+          padding-left: 10px
+          padding-top: 22px
+          position: relative
+          bottom: 88px
+          a
+            color: #8b8b8b
+            font-size: 12px
+            line-height: 17px
+            text-transform: uppercase
+          a:hover
+            color: #fff
+            text-decoration: none
+  .work
+    height: 471px
+    position: relative
+    /*width: 1122px*/
+    left: 32px
+    .wproject
+      width: 149px
+      height: 147px
+      background: #808080
+      margin: 0 5px 10px 5px
+    .wprojectthumb
+      height: 100%
+      overflow: hidden
+      img
+        max-width: none
+
+    .wprojectdata
+      background: rgba(0,0,0,0.75)
+      color: white
+      height: 100%
+      width: 100%
+      position: absolute
+      top: 0
+      display: none
+      .datatype
+        padding: 4px 10px
+        .datahead
+        .datapoint
+      .clientdata
+        padding: 8px 10px 4px
+      .moredata
+        padding: 10px
+        a
+          display: block
+          text-indent: -9999px
+          background: url(/images/morearrow.png)
+          height: 10px
+          width: 10px
+      .projectdata
+        .name
+          margin-bottom: 8px
+    .wproject:hover .wprojectdata
+      display: block
+.projects-work
+  .tlwrapper
+    padding: 0 33px 0 37px  
+  .atimeline
+    z-index: 99
+    
+    
+.statisticsentry
+  padding-top: 70px
+  .add_nested_fields, .newstat a
+    display: block
+    border: 1px solid black
+    padding: 5px 10px
+    width: 10px
+    float: left
+    color: black
+    margin-bottom: 25px
+.statform
+  display: none
+.statform-0
+  display: block
+.dailynotes
+  textarea
+    height: 100px
+.fields
+  border-bottom: 1px solid #000
+  margin-bottom: 10px
+  
+  
+.projects-chronicle
+  .headline, .atimeline
+    z-index: 9
+  .atimeline
+    border-top: 0
+  .atimelinel
+    width: 50%
+    float: left
+    border-top: 2px dashed black
+    position: relative
+    top: -2px
+  .atimeliner
+    width: 50%
+    float: left
+    border-top: 2px solid black
+    position: relative
+    top: -2px
+  .graphs
+    height: 500px
+  .agraph
+    overflow: hidden
+    padding: 1px
+  #graph2013
+    z-index: 4
+    position: absolute
+    margin: 0 auto
+    text
+      display: none
+  #graph2012
+    z-index: 3
+    position: absolute
+    margin: 0 auto
+    text
+      display: none
+  #graph2011
+    z-index: 2
+    position: absolute
+    margin: 0 auto
+    text
+      display: none
+  #graph2010
+    z-index: 1
+    position: absolute
+    margin: 0 auto
+    text
+      display: none
+  #graph2009
+    z-index: 0
+    position: absolute
+    margin: 0 auto
+    text
+      display: none
+  .controls
+    /*top: 200px*/
+    .box
+      height: 120px
+      width: 278px
+      background: rgba(0, 0, 0, 0.6)
+      color: white
+      margin-bottom: 4px
+      .boxhead
+        font-size: 83px
+        line-height: 83px
+        padding: 5px 0 0 10px
+      .boxtag
+        padding: 0 0 0 10px
+        font-size: 27px
+        line-height: 15px
+    .box2
+      background: rgba(0, 0, 0, 0.6)
+      color: white
+      padding: 5px 10px
+      width: 258px
+      .arrow
+        float: right
+        background: url(/images/controlarrows.png) no-repeat
+        width: 11px
+        height: 11px
+        position: relative
+        bottom: 16px
+  .text
+    background: rgba(255, 255, 255, 0.65)
+    /*margin-top: 200px*/
+    width: 345px
+    height: auto
+    
+  .dates
+    position: relative
+    bottom: 16px
+    color: white
+    font-size: 12px
+    z-index: 9
+    div
+      float: left
+      position: absolute
+
+.projects-journal, .projects-lab, .projects-studio, .projects-people, .projects-competencies, .projects-ethic, .projects-mission, .projects-contact
+  .pageheader
+    position: relative
+  .journalswrapper
+    width: 100%
+    overflow: hidden
+  .journals
+    margin-bottom: 20px
+    float: left
+    position: relative
+    .journal
+      float: left
+      position: relative
+      .blog
+        float: left
+        width: 252px
+        height: 425px
+        background: #ececec
+        padding: 10px
+        overflow: hidden
+        .jhead
+          font-family: bodonibold
+          font-weight: bold
+          font-size: 12px
+          margin-bottom: 20px
+          .cat
+            text-transform: uppercase
+        .jcontent
+          p
+            line-height: 21px
+            margin: 0
+          margin-bottom: 20px
+        .jfoot
+          text-transform: uppercase
+          font-family: bodonibold
+          font-weight: bold
+          font-size: 12px
+      
+      .photo
+        float: right
+        margin-right: 10px
+        margin-left: 10px
+        height: 445px
+        text-align: center
+        position: relative
+        overflow: hidden
+        a.morebtn
+          display: block
+          position: absolute
+          background: url(/images/morebtn.png) no-repeat
+          height: 27px
+          width: 69px
+          bottom: 0
+          right: 0
+        a.morebtn:last-child
+          right: 5px
+        img
+          max-width: none
+    .morephoto
+      position: relative
+      float: left
+      display: none
+    .morephotos
+      display: none
+      background: white
+      float: left
+      padding-right: 10px
+      .photo
+        margin-right: 5px
+        margin-left: 5px
+        float: left
+      .photo:nth-last-child(2)
+        margin-right: 0
+      a.lessbtn
+        display: block
+        position: absolute
+        background: url(/images/lessbtn.png) no-repeat
+        height: 27px
+        width: 69px
+        bottom: 0px
+        right: 0px
+    .journal:last-child
+      margin-right: 0
+  .pcontrol
+    cursor: pointer
+    position: absolute
+    left: -23px
+    top: -11px
+    height: 22px
+    width: 23px
+    background: url(/images/controlarrowssprite.png) no-repeat -23px 0
+    z-index: 9999
+  .ncontrol
+    cursor: pointer
+    position: absolute
+    right: -23px
+    top: -11px
+    height: 22px
+    width: 23px
+    background: url(/images/controlarrowssprite.png) no-repeat 0 0
+    z-index: 9999
+  .controls
+    right: 103px
+    .searchcat
+      visibility: hidden
+      .box
+        background: url(/images/controlsbg.png)
+        width: 262px
+        padding: 10px
+        margin-bottom: 10px
+        .words
+          color: white
+        .arrow
+          float: right
+          background: url(/images/controlarrows.png) no-repeat
+          width: 11px
+          height: 11px
+          position: relative
+          bottom: 13px
+        .boxcontent
+    .searchkey
+      .box
+        background: url(/images/controlsbg.png)
+        width: 262px
+        padding: 10px
+        .words
+          color: white
+        .glass
+          float: right
+          background: url(/images/glass.png)
+          width: 16px
+          height: 16px
+          position: relative
+          bottom: 15px
+          
+.timelinepositioning
+  position: absolute
+  top: 0
+.tspan12
+  width: 100%
+.tcontainer
+  overflow: hidden
+  
+.archived
+  background: rgba(0,0,0,0.3)
+  
+.views-timeline .timelinewindow
+  min-height: 300px
+.cropcontainer
+  width: 600px
+  margin: 100px auto
+  img
+    max-width: none !important
+  
+  
+#bgimg2, #bgimg3, #bgimg4, #bgimg5, #bgimg6, #bgimg7, #bgimg8, #bgimg9, #bgimg10, #bgimg11, #bgimg12, #bgimg13, #bgimg14, #bgimg15
+  position: absolute
+  z-index: -1
+.bgboxes
+  position: absolute
+  top: 20px
+  right: 46px
+  div
+    float: left
+    width: 10px
+    height: 10px
+    margin-right: 8px
+    border: 1px solid rgba(255,255,255,0.3)
+  .active
+    background: rgba(255,255,255,0.3)
+    border: none
+    width: 12px
+    height: 12px
+.logo
+  cursor: pointer
+.previewimage
+  height: 50px
+  width: 50px
+  img
+    max-height: 50px
+    max-width: 50px
+div[id^="highcharts-"]
+  position: absolute !important
+
+.statinfo
+  .areachart
+    float: left
+    width: 50%
+    text
+      display: none
+  .piechart
+    float: left
+    width: 25%
+    position: relative
+    text
+      display: none
+    .graphcontainer
+      position: relative
+      top: 10px
+
+.areagraphcontainer
+  position: relative
+  left: 0
+.stattitle
+  text-transform: uppercase
+  border-bottom: 1px solid
+  font-weight: bold
+  padding: 20px 0
+  color: black
+.legend
+  padding-top: 5px
+  position: absolute
+  bottom: 10px
+  width: 100%
+  .item
+    float: left
+    width: 50%
+  .color, .name
+    float: left
+  .name
+    padding-top: 2px
+  .color
+    height: 10px
+    width: 30px
+    margin-right: 10px
+    margin-top: 5px
+.percentage
+  font-size: 101px
+  color: black
+  position: absolute
+  margin: 0
+  padding: 0
+  top: 113px
+  width: 100%
+  text-align: center
+
+body.projects-work
+  overflow: hidden
+  height: 100%
+  .atimeline .menunav
+    z-index: 4
+  .pageheader
+    z-index: 3
+    position: relative
+.workwrapper
+  position: relative
+  .work
+    z-index: 1
+.mask
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  background: rgba(255,255,255,0.85)
+  z-index: 2
+.searchkey
+  input
+    background: transparent
+    border: 0
+    border-radius: 0
+    color: white
+    margin: 0
+    padding: 0
+    font-family: bodoniroman
+  input:focus
+    box-shadow: none
+.glass
+  cursor: pointer
+.pageheader
+  position: relative
+.projects-studio
+  height: 100%
+  overflow: hidden
+.projects-lab, .projects-competencies, .projects-ethic, .projects-mission, .projects-contact
+  height: 100%
+  overflow: hidden
+  #realBody
+    background: rgba(255,255,255,0.65)
+.projects-people
+  #realBody
+    background: rgba(255,255,255,0.76)
+.projects-people, .projects-competencies, .projects-ethic, .projects-mission, .projects-contact
+  height: 100%
+  overflow: hidden
+.alab
+  padding-left: 10px
+  display: none
+.alab.active
+  display: block
+.labheading
+  padding: 20px 0
+  color: black
+.staffcontents
+  .block
+    float: left
+    width: 400px
+    margin-right: 25px
+    p
+      font-size: 14px
+  .block:last-child
+    margin-right: 0
+.labcontents
+  color: black
+  float: left
+  .block
+    float: left
+    width: 400px
+    margin-right: 60px
+    p
+      line-height: 1.6
+      font-size: 14px
+  .spacing
+    padding: 10px 0
+.projects-lab, .projects-studio, .projects-people, .projects-competencies, .projects-ethic, .projects-mission, .projects-contact
+  .atimeline .menunav .rnav 
+    .rnavcontent
+      bottom: -9px
+      background: black
+      padding-top: 11px
+      height: 120px
+    .top
+      div
+        margin-bottom: 5px
+        
+.anystretch
+  position: absolute
+  top: 0
+  z-index: -9
+  width: 100%
+.studiowrapper
+  padding-left: 10px
+  h2
+    font-size: 38px
+    font-weight: normal
+    padding: 20px 0
+  .studiocontents
+    p
+      width: 400px
+      color: black
+      font-size: 14px
+      line-height: 1.6
+    .block
+      float: left
+      width: 400px
+      margin-right: 25px
+      p
+        color: black
+        font-size: 14px
+        line-height: 1.6
+    .block:last-child
+      margin-right: 0
+.projects-people, .projects-competencies, .projects-ethic, .projects-mission, .projects-contact
+  .anystretch
+    background: rgba(255,255,255,0.76)
+.staffwrapper
+  color: black
+  overflow: hidden
+  .staffs
+    position: relative
+  .astaff
+    padding-left: 10px
+    float: left
+    h2
+      font-size: 38px
+      font-weight: normal
+      padding: 20px 0 10px
+    h3
+      font-size: 28px
+      padding: 0 0 10px
+      font-weight: normal
+
+.projects-people, .projects-competencies, .projects-ethic, .projects-mission, .projects-contact
+  .rnav
+    position: relative
+  .rnavcontent
+    height: 105px !important
+  .staffnav
+    position: absolute
+    top: 120px
+    left: 150px
+    width: 200px
+    z-index: 9999
+    li
+      padding: 2px 0
+      a
+        color: black
+        text-transform: uppercase
+      a:hover
+        text-decoration: none
+      a.active
+        color: #8b8b8b
+        
+a.thumblink
+  height: 100%
+  width: 100%
+  position: absolute
+  top: 0
+.projects-prcs #realBody, .projects-stats #realBody
+  background: rgba(255,255,255,0.6)
+.projects-chronicle .box3
+  display: none
+  background: rgba(0,0,0,0.6)
+  float: left
+  width: 258px
+  margin-top: -6px
+  padding: 10px 10px 5px
+  height: 69px
+  position: relative
+  left: -10px
+  .thing
+    color: white
+    float: left
+    width: 50%
+    padding-bottom: 7px
+    font-size: 16px
+    a
+      color: #8b8b8b
+    a:hover
+      text-decoration: none
+      color: white
+    a.active
+      color: white
+    
+.projects-chronicle
+  height: 100%
+  overflow: hidden
+  .keys
+    position: absolute
+    left: 0
+    bottom: 30px
+    width: auto
+    margin: 0 auto
+  .key
+    float: left
+    margin-right: 20px
+  .color, .name
+    float: left
+  .name
+    padding-top: 2px
+  .color
+    height: 10px
+    width: 30px
+    margin-right: 10px
+    margin-top: 5px
+.projects-journal
+  .boxcontent
+    display: none
+    li
+      padding: 5px 0
+    a
+      color: white
+    a:hover
+      text-decoration: none
+  .searchcat:hover 
+    .boxcontent
+      display: block
+  
+.projects-work
+  .text
+    width: 340px
+    position: relative
+  .controls
+    top: 131px
+    .selector
+      .boxcontent
+        padding: 0 10px
+        ul
+          li
+            padding: 5px 0 5px
+            a:hover
+              text-decoration: none
+              color: #b3b3b3
+            a.active
+              color: #b3b3b3
+.projects-chronicle
+  .text
+    position: relative
+  .controls
+    top: 60px
+    .box2
+      height: 23px
+  
+    
+.projects-work
+  .controls
+    width: 278px
+    .selector
+      background: transparent
+      .box
+        background: url(/images/controlsbg.png)
+        position: relative
+        z-index: 6
+        padding-left: 5px
+        .arrow
+          margin-top: 2px
+      .boxcontent
+        height: 120px
+        padding: 32px 10px 0
+        position: relative
+        top: -32px
+        background: url(/images/controlsbg.png)
+        z-index: 5
+    .selector:hover
+      .arrow
+        background-position: 0 -11px
+.projects-journal
+  .text
+    width: 340px
+    position: relative
+  .controls
+    top: 131px
+    right: 99px
+    .searchkey
+      .box
+        width: 258px
+    .searchcat
+      .box
+        width: 258px
+      .boxcontent
+        position: absolute
+        height: 139px
+        width: 278px
+        background: #696969
+        left: 0
+        top: 36px
+        z-index: 9
+        ul
+          padding-top: 10px
+          li
+            padding: 3px 10px 4px
+.rnavcontent.labnavsec
+  top: 11px !important
+  position: absolute !important
+  display: block !important
+  background: black
+  padding-top: 11px
+  width: 119px
+  height: 130px
+  padding-left: 10px
+  position: relative
+  left: 149px
+  z-index: 999
+  a
+    color: #8b8b8b
+    font-size: 12px
+    line-height: 17px
+    text-transform: uppercase
+  a:hover, a.active
+    color: white
+    text-decoration: none
+.rnavcontent.studionavsec
+  top: 11px !important
+  position: absolute !important
+  display: block !important
+  background: black
+  padding-top: 5px
+  width: 121px
+  height: 92px !important
+  padding-left: 8px
+  position: relative
+  left: 149px
+  z-index: 999
+  a
+    color: #8b8b8b
+    font-size: 12px
+    line-height: 17px
+    text-transform: uppercase
+  a:hover, a.active
+    color: white
+    text-decoration: none
+.standardrnavcontent
+  display: none
+  background: black url(/images/rmenuup.png) no-repeat
+  width: 119px
+  height: 75px
+  padding-left: 10px
+  padding-top: 22px
+  position: relative
+  bottom: 88px
+
+  a
+    color: #8b8b8b
+    font-size: 12px
+    line-height: 17px
+    text-transform: uppercase
+  a:hover
+    color: white
+    text-decoration: none
+.rnav:hover .standardrnavcontent
+  display: block
+
+.projects-competencies, .projects-studio, .projects-ethic, .projects-people, .projects-mission, .projects-contact
+  .studiocontents, .staffcontents
+    p
+      width: 400px
+      margin-right: 30px
+    p:last-child
+      margin-right: 0
+
+.projects-studio #bgimg
+  top: 0 !important
+
+.invitations-edit, .invitations-new
+  padding: 100px 300px
+
+.projectstatscontainer, .projectscontainer
+  display: none
+
+.projects-people
+  #realBody
+    position: absolute
+    top: 0
+    left: 0
+
+.projects-work
+  .box
+    .cat
+      text-transform: uppercase
+.categorycontent
+  display: none
+  ul
+    padding-top: 5px
+    padding-left: 5px
+    li
+      padding: 2px 0
+      a
+        color: #8b8b8b
+        text-transform: uppercase
+        font-size: 12px
+      a:hover
+        text-decoration: none
+        color: black
+      a.active
+        color: black
+.mediumcontent
+  display: none
+  ul
+    width: 100%
+    padding-top: 5px
+    padding-left: 5px
+    li
+      padding: 2px 0
+      width: 50%
+      float: left
+      a
+        color: #8b8b8b
+        text-transform: uppercase
+        font-size: 12px
+      a:hover
+        text-decoration: none
+        color: black
+      a.active
+        color: black
+.clientcontent
+  display: none
+  ul.l
+    width: 145px
+    float: left
+    padding-top: 5px
+    padding-left: 5px
+    margin: 0 8px 0 0
+    li
+      padding: 0
+      width: 50%
+      float: left
+      a
+        color: #8b8b8b
+        text-transform: uppercase
+        font-size: 12px
+      a:hover
+        text-decoration: none
+        color: black
+      a.active
+        color: black
+  ul.r
+    width: 120px
+    float: left
+    padding-top: 5px
+    margin: 0
+    li
+      padding: 0
+      a
+        color: #8b8b8b
+        text-transform: uppercase
+        font-size: 12px
+      a:hover
+        text-decoration: none
+        color: black
+      a.active
+        color: black
+.clientswork
+  display: none
+  ul
+    width: 190px
+    float: left
+    li
+      width: 190px
+      float: left
+      padding: 4px 0
+      a
+        color: #8b8b8b
+      a.active
+        color: black
+      a:hover
+        text-decoration: none
+        color: black
+  .clientprojects
+    display: none
+    ul
+      padding-left: 10px
+      li
+        float: none
+.companylogo
+  margin-left: 34px
+  height: 220px
+  opacity: 0.55
+  cursor: pointer
+.projects-contact
+  #realBody
+    background: transparent !important
+.contactus
+  line-height: 21px
+  font-size: 14px
+  a
+    color: #333
+  a:hover
+    text-decoration: none
+  .name
+    font-family: bodonibold
+    font-weight: bold
+  .address
+  .state
+  .phone
+  .email
+    .icon
+      width: 14px
+      height: 16px
+      float: left
+      background: url(/images/emailicon.png) no-repeat 0 2px
+    span
+      padding-left: 5px
+  .twitter
+    clear: both
+    .icon
+      width: 14px
+      height: 16px
+      float: left
+      background: url(/images/twittericon.png) no-repeat 0 2px
+    span
+      padding-left: 5px
+.projects-journal
+  .boxcontent
+    a
+      color: #8b8b8b
+    a:hover
+      text-decoration: none
+      color: white
+    a.active
+      color: white
+.projects-mission .atimeline .menunav .rnav .top div, .projects-lab .atimeline .menunav .rnav .top div, .projects-people .atimeline .menunav .rnav .top div, .projects-competencies .atimeline .menunav .rnav .top div, .projects-ethic .atimeline .menunav .rnav .top div, .projects-contact .atimeline .menunav .rnav .top div
+  margin-bottom: 0 !important
+.scrollmsg
+  position: absolute
+  left: 34px
+  top: -55px
+  height: 15px
+  width: auto
+  font-size: 12px
+  color: #8b8b8b
+  z-index: 99
+.labnavsec
+  .top
+    div
+      margin-bottom: 5px
+@media screen and (max-width: 1024px)
+  h3, h2, h1
+    font-weight: normal
+  .projects-mission
+    .studiocontents
+      p
+        width: 400px
+  .labheading
+    padding: 10px 0
+  .labcontents
+    .block
+      margin-right: 15px
+      width: 400px
+      p
+        margin-bottom: 5px
+    .block:last-child
+      margin-right: 0
+  .lnavcontent
+    bottom: 96px !important
+    padding-bottom: 25px
+    display: none !important
+  .rnavcontent, .standardrnavcontent, .rnavcontent.labnavsec, .rnavcontent.studionavsec
+    bottom: 107px !important
+    padding-bottom: 10px
+    display: none !important
+  .projects-work .work .wprojectdata
+    font-size: 8px
+  .projects-people
+    .staffnav
+      left: 200px
+    .staffcontents
+      .block
+        width: 350px
+      p
+        margin-bottom: 5px
+        width: 350px
+  .staffcontents, .labcontents, .studiocontents
+    p
+      font-size: 13px
+    .block
+      p
+        font-size: 13px
+@media screen and (max-width: 768px)
+  .projects-work, .projects-chronicle, .projects-journal
+    .text
+      top: 0
+      bottom: auto
+  .projects-people 
+    .staffnav
+      left: 150px
+      top: 20px
+    .staffcontents
+      .block
+        width: 300px
+      p
+        margin-bottom: 5px
+        width: 300px
+    .rnavcontent.studionavsec
+      z-index: 9999999
+  .projects-work .work .wprojectdata
+    font-size: 8px
+  h3, h2, h1
+    font-weight: normal
+  .menunav
+    .rnav, .lnav
+      height: 19px !important
+      background: url(/images/menunavclosed.png) 0 10px no-repeat !important
+      position: relative !important
+      bottom: 10px !important
+    a
+      font-size: 12px
+      line-height: 17px
+      position: relative
+      z-index: 99999
+    .lnavcontent
+      bottom: 96px !important
+      padding-bottom: 25px
+      display: none !important
+    .rnavcontent, .standardrnavcontent
+      bottom: 115px !important
+      padding-bottom: 28px
+      display: none !important
+    .rnavcontent.labnavsec
+      bottom: 114px !important
+      padding-bottom: 0px !important
+      padding-top: 19px !important
+    .rnavcontent.studionavsec
+      bottom: 114px !important
+      padding-top: 19px !important
+      padding-bottom: 0px !important
+    
+  .projects-work
+    .text
+      
+    .controls
+      clear: both
+      top: 195px
+      right: 47px
+      top: 131px
+  .views-timeline
+    .tagline
+      /*padding-left: 50px*/
+  .projects-chronicle
+    .keys
+      position: absolute
+      left: 0
+      width: auto
+      margin: 0 auto
+    .text
+      width: 215px
+      height: 335px
+      display: none
+    .controls
+      right: 42px
+  .projects-lab
+    .labcontents
+      .block
+        width: 300px
+        margin-right: 10px
+  .projects-journal
+    .controls
+      right: 115px
+      top: 270px
+
+  .projects-work .work .wproject
+    height: 85px
+
+  .labcontents
+    .block
+      margin-right: 15px
+      width: 300px !important
+      
+.unused
+  .tagline
+    float: left
+    font-family: bodoniroman
+    font-size: 16px
+    line-height: 32px
+    width: 350px
+    position: absolute
+    bottom: 0
+    left: 190px
+    span
+      color: #a29061
+    .subtagline
+      font-size: 16px
+      line-height: 32px
